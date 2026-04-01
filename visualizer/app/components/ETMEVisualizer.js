@@ -1158,55 +1158,61 @@ function computeComparison(markers, regimes, tolerance) {
   const modelBounds = getModelBoundaries(regimes);
   const userTimes = markers.map(m => m.time_ms);
 
-  const matchedModel = new Set();
+  // MODEL boundaries = predictions, USER markers = ground truth
+  // TP: model boundary that matches a user marker (within tolerance)
+  // FP: model boundary with NO user marker nearby  ← penalizes noisy/overcalling models
+  // FN: user marker with NO model boundary nearby  ← penalizes models that miss boundaries
+
   const matchedUser = new Set();
+  const matchedModel = new Set();
   const details = [];
 
-  // Find true positives
-  for (let ui = 0; ui < userTimes.length; ui++) {
+  // Find true positives: for each model boundary, find its best matching user marker
+  for (let mi = 0; mi < modelBounds.length; mi++) {
     let bestDist = Infinity;
-    let bestMi = -1;
-    for (let mi = 0; mi < modelBounds.length; mi++) {
-      if (matchedModel.has(mi)) continue;
-      const dist = Math.abs(userTimes[ui] - modelBounds[mi]);
-      if (dist < bestDist) { bestDist = dist; bestMi = mi; }
+    let bestUi = -1;
+    for (let ui = 0; ui < userTimes.length; ui++) {
+      if (matchedUser.has(ui)) continue;
+      const dist = Math.abs(modelBounds[mi] - userTimes[ui]);
+      if (dist < bestDist) { bestDist = dist; bestUi = ui; }
     }
-    if (bestDist <= tolerance && bestMi >= 0) {
-      matchedModel.add(bestMi);
-      matchedUser.add(ui);
+    if (bestDist <= tolerance && bestUi >= 0) {
+      matchedModel.add(mi);
+      matchedUser.add(bestUi);
       details.push({
         type: 'tp',
-        label: `MATCH: User ${markers[ui].tier.toUpperCase()} @${userTimes[ui]}ms <-> Model @${modelBounds[bestMi]}ms (${bestDist}ms)`
+        label: `MATCH: Model @${modelBounds[mi]}ms <-> User ${markers[bestUi].tier.toUpperCase()} @${userTimes[bestUi]}ms (${bestDist}ms)`
       });
     }
   }
 
-  // False positives: user markers with no model match
-  for (let ui = 0; ui < userTimes.length; ui++) {
-    if (!matchedUser.has(ui)) {
-      details.push({
-        type: 'fp',
-        label: `FP: User ${markers[ui].tier.toUpperCase()} @${userTimes[ui]}ms -- no model boundary nearby`
-      });
-    }
-  }
-
-  // False negatives: model boundaries with no user marker
+  // False positives: model boundaries with no user marker nearby (the model overcalled)
   for (let mi = 0; mi < modelBounds.length; mi++) {
     if (!matchedModel.has(mi)) {
       details.push({
-        type: 'fn',
-        label: `FN: Model boundary @${modelBounds[mi]}ms -- no user marker nearby`
+        type: 'fp',
+        label: `FP: Model boundary @${modelBounds[mi]}ms -- no user marker nearby`
       });
     }
   }
 
-  const tp = matchedUser.size;
-  const fp = userTimes.length - tp;
-  const fn = modelBounds.length - matchedModel.size;
-  const precision = tp + fp > 0 ? Math.round(tp / (tp + fp) * 100) : 0;
-  const recall = tp + fn > 0 ? Math.round(tp / (tp + fn) * 100) : 0;
+  // False negatives: user markers with no model boundary nearby (the model missed this boundary)
+  for (let ui = 0; ui < userTimes.length; ui++) {
+    if (!matchedUser.has(ui)) {
+      details.push({
+        type: 'fn',
+        label: `FN: User ${markers[ui].tier.toUpperCase()} @${userTimes[ui]}ms -- no model boundary nearby`
+      });
+    }
+  }
+
+  const tp = matchedModel.size;
+  const fp = modelBounds.length - tp;   // model boundaries that didn't match any user marker
+  const fn = userTimes.length - matchedUser.size; // user markers that no model boundary covered
+  const precision = tp + fp > 0 ? Math.round(tp / (tp + fp) * 100) : 0; // of model boundaries, how many were correct
+  const recall = tp + fn > 0 ? Math.round(tp / (tp + fn) * 100) : 0;    // of user markers, how many did model find
   const f1 = precision + recall > 0 ? Math.round(2 * precision * recall / (precision + recall)) : 0;
 
   return { tp, fp, fn, precision, recall, f1, details };
 }
+

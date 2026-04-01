@@ -14,6 +14,10 @@ cd visualizer
 # Install missing dependencies if needed
 pnpm install
 
+# Always wipe Turbopack dev cache to prevent SST corruption on restart
+echo "🧹 Clearing Next.js cache..."
+rm -rf .next/dev/cache
+
 # Start the Next.js visualizer
 echo "🚀 Booting visualizer UI on http://localhost:3000..."
 pnpm dev
