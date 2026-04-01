@@ -62,16 +62,20 @@ export default function ETMEVisualizer() {
   const [markers, setMarkers] = useState([]);
   const [markerHistory, setMarkerHistory] = useState([[]]);
   const [historyIndex, setHistoryIndex] = useState(0);
-  const [selectedMarkerId, setSelectedMarkerId] = useState(null);
+  const [selectedMarkerIds, setSelectedMarkerIds] = useState(new Set());
   const [markerMode, setMarkerMode] = useState('tier1');
   const [showComparison, setShowComparison] = useState(false);
   const [compTolerance, setCompTolerance] = useState(100);
+
+  // Drag-select state
+  const [dragSelect, setDragSelect] = useState(null); // { startX, currentX, y, active }
 
   const fileInputRef = useRef(null);
   const effectiveScaleRef = useRef(0.05);
   const logsEndRef = useRef(null);
   const markerIdCounter = useRef(0);
   const handlersRef = useRef({});
+  const dragSelectRef = useRef(null); // mirrors dragSelect for mouse handlers
 
   const getBaseKey = useCallback(() => {
     if (midiFile && midiFile.startsWith('midis/')) return midiFile.split('/').pop().replace('.mid', '');
@@ -85,7 +89,7 @@ export default function ETMEVisualizer() {
     setMarkerHistory(newHistory);
     setHistoryIndex(newHistory.length - 1);
     setMarkers(newMarkers);
-    setSelectedMarkerId(null);
+    setSelectedMarkerIds(new Set());
   }, [markerHistory, historyIndex]);
 
   const undo = useCallback(() => {
@@ -93,7 +97,7 @@ export default function ETMEVisualizer() {
       const newIndex = historyIndex - 1;
       setHistoryIndex(newIndex);
       setMarkers(markerHistory[newIndex]);
-      setSelectedMarkerId(null);
+      setSelectedMarkerIds(new Set());
     }
   }, [historyIndex, markerHistory]);
 
@@ -102,7 +106,7 @@ export default function ETMEVisualizer() {
       const newIndex = historyIndex + 1;
       setHistoryIndex(newIndex);
       setMarkers(markerHistory[newIndex]);
-      setSelectedMarkerId(null);
+      setSelectedMarkerIds(new Set());
     }
   }, [historyIndex, markerHistory]);
 
@@ -449,12 +453,11 @@ export default function ETMEVisualizer() {
     for (const marker of markers) {
       const x = marker.time_ms * effectiveScale;
       const isTier1 = marker.tier === 'tier1';
-      const isSelected = marker.id === selectedMarkerId;
+      const isSelected = selectedMarkerIds.has(marker.id);
 
       if (isTier1) {
         // Tier 1: solid red line, full height
         const baseColor = isSelected ? '#ffff00' : '#ff4444';
-        const baseAlpha = isSelected ? 1.0 : 0.85;
         ctx.strokeStyle = isSelected ? 'rgba(255, 255, 0, 1.0)' : 'rgba(255, 68, 68, 0.85)';
         ctx.lineWidth = isSelected ? 3.5 : 2;
         ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, rollH); ctx.stroke();
@@ -514,14 +517,28 @@ export default function ETMEVisualizer() {
       }
     }
 
-  }, [data, currentView, msPxInput, noteHeight, markers, selectedMarkerId, showComparison]);
+    // ===== Draw drag-select rectangle =====
+    if (dragSelect?.active) {
+      const dsMinX = Math.min(dragSelect.startX, dragSelect.currentX);
+      const dsMaxX = Math.max(dragSelect.startX, dragSelect.currentX);
+      const dsW = dsMaxX - dsMinX;
+      ctx.strokeStyle = 'rgba(100, 180, 255, 0.85)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([4, 3]);
+      ctx.strokeRect(dsMinX, 0, dsW, rollH);
+      ctx.setLineDash([]);
+      ctx.fillStyle = 'rgba(100, 180, 255, 0.08)';
+      ctx.fillRect(dsMinX, 0, dsW, rollH);
+    }
+
+  }, [data, currentView, msPxInput, noteHeight, markers, selectedMarkerIds, showComparison, dragSelect]);
 
   useEffect(() => { render(); }, [render]);
 
   // Update handlers ref for keyboard shortcuts
   useEffect(() => {
-    handlersRef.current = { undo, redo, selectedMarkerId, markerHistory, historyIndex };
-  }, [undo, redo, selectedMarkerId, markerHistory, historyIndex]);
+    handlersRef.current = { undo, redo, selectedMarkerIds, markerHistory, historyIndex };
+  }, [undo, redo, selectedMarkerIds, markerHistory, historyIndex]);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -534,15 +551,16 @@ export default function ETMEVisualizer() {
         e.preventDefault();
         handlers.redo?.();
       } else if (e.key === 'Delete' || e.key === 'Backspace') {
-        if (handlers.selectedMarkerId && !e.target.matches('input, textarea, select')) {
+        if (handlers.selectedMarkerIds?.size > 0 && !e.target.matches('input, textarea, select')) {
           e.preventDefault();
+          const ids = handlers.selectedMarkerIds;
           setMarkers(prev => {
-            const newMarkers = prev.filter(m => m.id !== handlers.selectedMarkerId);
+            const newMarkers = prev.filter(m => !ids.has(m.id));
             const newHistory = handlers.markerHistory.slice(0, handlers.historyIndex + 1);
             newHistory.push(newMarkers);
             setMarkerHistory(newHistory);
             setHistoryIndex(newHistory.length - 1);
-            setSelectedMarkerId(null);
+            setSelectedMarkerIds(new Set());
             return newMarkers;
           });
         }
@@ -552,47 +570,139 @@ export default function ETMEVisualizer() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Click handler for placing/selecting markers
+  // Drag-select mouse handlers
+  const handleCanvasMouseDown = useCallback((e) => {
+    if (!data || e.button !== 0) return;
+    const canvas = canvasRef.current;
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    const pitchRange = PITCH_MAX - PITCH_MIN + 1;
+    const rollH = pitchRange * noteHeight;
+
+    // Only start drag in the piano roll area (not ruler)
+    if (my >= rollH) return;
+
+    // Check if clicking near an existing marker
+    let nearestMarker = null;
+    let nearestDist = Infinity;
+    for (const m of markers) {
+      const markerX = m.time_ms * effectiveScaleRef.current;
+      const dist = Math.abs(markerX - mx);
+      if (dist < nearestDist) { nearestMarker = m; nearestDist = dist; }
+    }
+
+    if (nearestMarker && nearestDist < 12) {
+      // Shift-click: toggle marker in/out of selection
+      if (e.shiftKey) {
+        setSelectedMarkerIds(prev => {
+          const next = new Set(prev);
+          if (next.has(nearestMarker.id)) next.delete(nearestMarker.id);
+          else next.add(nearestMarker.id);
+          return next;
+        });
+      } else {
+        // Normal click on marker: select only this one
+        setSelectedMarkerIds(new Set([nearestMarker.id]));
+      }
+      return;
+    }
+
+    // Start drag selection
+    const ds = { startX: mx, currentX: mx, y: my, active: true };
+    dragSelectRef.current = ds;
+    setDragSelect({ ...ds });
+    if (!e.shiftKey) setSelectedMarkerIds(new Set());
+  }, [data, noteHeight, markers]);
+
+  const handleCanvasMouseMove2 = useCallback((e) => {
+    if (!dragSelectRef.current?.active) return;
+    const canvas = canvasRef.current;
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    dragSelectRef.current = { ...dragSelectRef.current, currentX: mx };
+    setDragSelect(prev => prev ? { ...prev, currentX: mx } : null);
+  }, []);
+
+  const handleCanvasMouseUp = useCallback((e) => {
+    const ds = dragSelectRef.current;
+    if (!ds?.active) return;
+    dragSelectRef.current = null;
+
+    const minX = Math.min(ds.startX, ds.currentX);
+    const maxX = Math.max(ds.startX, ds.currentX);
+    const dragWidth = maxX - minX;
+
+    if (dragWidth < 5) {
+      // Treat as a click — place new marker in ruler area? No, this is in piano roll.
+      // Just clear drag rect.
+      setDragSelect(null);
+      return;
+    }
+
+    // Select all markers whose x falls within [minX, maxX]
+    const minTime = minX / effectiveScaleRef.current;
+    const maxTime = maxX / effectiveScaleRef.current;
+    const inRange = markers.filter(m => m.time_ms >= minTime && m.time_ms <= maxTime).map(m => m.id);
+
+    if (e.shiftKey) {
+      setSelectedMarkerIds(prev => {
+        const next = new Set(prev);
+        inRange.forEach(id => next.add(id));
+        return next;
+      });
+    } else {
+      setSelectedMarkerIds(new Set(inRange));
+    }
+    setDragSelect(null);
+  }, [markers]);
+
+  // Click handler for placing markers (ruler area only)
   const handleCanvasClick = useCallback((e) => {
     if (!data) return;
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
     const mx = e.clientX - rect.left;
     const my = e.clientY - rect.top;
-
     const pitchRange = PITCH_MAX - PITCH_MIN + 1;
     const rollH = pitchRange * noteHeight;
 
-    // Only respond to clicks in the ruler area (bottom RULER_HEIGHT px)
-    if (my < rollH) {
-      const timeMs = mx / effectiveScaleRef.current;
+    // Only place markers in the ruler area
+    if (my < rollH) return;
 
-      // Check if clicking on existing marker (within 15px)
-      let nearestMarker = null;
-      let nearestDist = Infinity;
-      for (const m of markers) {
-        const markerX = m.time_ms * effectiveScaleRef.current;
-        const dist = Math.abs(markerX - mx);
-        if (dist < nearestDist) { nearestMarker = m; nearestDist = dist; }
-      }
+    const timeMs = mx / effectiveScaleRef.current;
 
-      if (nearestMarker && nearestDist < 15) {
-        // Select the marker
-        setSelectedMarkerId(nearestMarker.id);
-        return;
-      }
-
-      // Place new marker
-      markerIdCounter.current += 1;
-      const newMarker = {
-        id: `m_${markerIdCounter.current}_${Date.now()}`,
-        time_ms: Math.round(timeMs),
-        tier: markerMode
-      };
-
-      updateMarkersWithHistory([...markers, newMarker].sort((a, b) => a.time_ms - b.time_ms));
+    // Check if clicking near an existing marker handle in ruler
+    let nearestMarker = null;
+    let nearestDist = Infinity;
+    for (const m of markers) {
+      const markerX = m.time_ms * effectiveScaleRef.current;
+      const dist = Math.abs(markerX - mx);
+      if (dist < nearestDist) { nearestMarker = m; nearestDist = dist; }
     }
+
+    if (nearestMarker && nearestDist < 15) {
+      if (e.shiftKey) {
+        setSelectedMarkerIds(prev => {
+          const next = new Set(prev);
+          if (next.has(nearestMarker.id)) next.delete(nearestMarker.id);
+          else next.add(nearestMarker.id);
+          return next;
+        });
+      } else {
+        setSelectedMarkerIds(new Set([nearestMarker.id]));
+      }
+      return;
+    }
+
+    // Place new marker
+    markerIdCounter.current += 1;
+    const newMarker = {
+      id: `m_${markerIdCounter.current}_${Date.now()}`,
+      time_ms: Math.round(timeMs),
+      tier: markerMode
+    };
+    updateMarkersWithHistory([...markers, newMarker].sort((a, b) => a.time_ms - b.time_ms));
   }, [data, noteHeight, markerMode, markers, updateMarkersWithHistory]);
 
 
@@ -861,22 +971,23 @@ export default function ETMEVisualizer() {
         <div style={{ borderLeft: '1px solid var(--border)', height: 20, margin: '0 8px' }} />
         <button onClick={saveMarkers} className="marker-action-btn">Save</button>
         <button onClick={exportMarkers} className="marker-action-btn">Export JSON</button>
-        {selectedMarkerId && (
+        {selectedMarkerIds.size > 0 && (
           <button
             onClick={() => {
-              const newMarkers = markers.filter(m => m.id !== selectedMarkerId);
+              const ids = selectedMarkerIds;
+              const newMarkers = markers.filter(m => !ids.has(m.id));
               const newHistory = markerHistory.slice(0, historyIndex + 1);
               newHistory.push(newMarkers);
               setMarkerHistory(newHistory);
               setHistoryIndex(newHistory.length - 1);
               setMarkers(newMarkers);
-              setSelectedMarkerId(null);
+              setSelectedMarkerIds(new Set());
             }}
             className="marker-action-btn"
             style={{ color: '#ff6b35' }}
-            title={`Delete selected marker`}
+            title={`Delete ${selectedMarkerIds.size} selected marker(s)`}
           >
-            Delete Selected
+            Delete Selected ({selectedMarkerIds.size})
           </button>
         )}
         <button
@@ -928,11 +1039,13 @@ export default function ETMEVisualizer() {
         <div className="canvas-wrapper" ref={wrapperRef}>
           <canvas
             ref={canvasRef}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={() => setTooltip(null)}
+            onMouseDown={handleCanvasMouseDown}
+            onMouseMove={(e) => { handleMouseMove(e); handleCanvasMouseMove2(e); }}
+            onMouseUp={handleCanvasMouseUp}
+            onMouseLeave={(e) => { setTooltip(null); handleCanvasMouseUp(e); }}
             onClick={handleCanvasClick}
             onContextMenu={handleCanvasContextMenu}
-            style={{ cursor: 'crosshair' }}
+            style={{ cursor: dragSelect?.active ? 'col-resize' : 'crosshair' }}
           />
         </div>
       </div>
