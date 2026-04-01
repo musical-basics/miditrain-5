@@ -270,6 +270,7 @@ if __name__ == "__main__":
 
     midis = {
         'pathetique_full_chunk': 'midis/pathetique_full_chunk.mid',
+        'pathetique_16s_chunk': 'midis/pathetique_16s_chunk.mid',
     }
 
     if args.midi_key and args.angle_map and args.break_method:

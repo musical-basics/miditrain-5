@@ -9,6 +9,7 @@ export async function GET() {
 
     const allMidis = [];
     allMidis.push({ label: 'Pathetique Full Chunk', value: 'pathetique_full_chunk' });
+    allMidis.push({ label: 'Pathetique 16s Chunk', value: 'pathetique_16s_chunk' });
 
     for (const f of midisFiles) {
       if (f.isFile() && f.name.endsWith('.mid')) {
