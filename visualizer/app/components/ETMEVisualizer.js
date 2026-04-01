@@ -430,19 +430,19 @@ export default function ETMEVisualizer() {
       }
     }
 
-    // ===== Draw comparison: model regime boundaries as cyan lines =====
+    // ===== Draw comparison: model SPIKE boundaries as cyan lines =====
     if (showComparison && data.regimes) {
       const modelBoundaries = getModelBoundaries(data.regimes);
       for (const mb of modelBoundaries) {
         const x = mb * effectiveScale;
-        ctx.strokeStyle = 'rgba(0, 220, 255, 0.5)';
+        ctx.strokeStyle = 'rgba(0, 220, 255, 0.6)';
         ctx.lineWidth = 1.5;
         ctx.setLineDash([6, 3]);
         ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, rollH); ctx.stroke();
         ctx.setLineDash([]);
 
         // Small diamond at top
-        ctx.fillStyle = 'rgba(0, 220, 255, 0.7)';
+        ctx.fillStyle = 'rgba(0, 220, 255, 0.85)';
         ctx.beginPath();
         ctx.moveTo(x, 4); ctx.lineTo(x + 4, 8); ctx.lineTo(x, 12); ctx.lineTo(x - 4, 8);
         ctx.closePath(); ctx.fill();
@@ -1142,10 +1142,12 @@ export default function ETMEVisualizer() {
 function getModelBoundaries(regimes) {
   if (!regimes) return [];
   const boundaries = [];
-  for (let i = 1; i < regimes.length; i++) {
+  for (let i = 0; i < regimes.length; i++) {
     const curr = regimes[i];
-    // Every regime boundary is a model boundary, excluding Silence/Void (matches what Phase 1 view draws)
-    if (curr.state !== 'Silence' && curr.state !== 'Undefined / Gray Void') {
+    // Only count TRANSITION SPIKE! regimes as model boundaries.
+    // Stable/Locked periods come AFTER the harmonic change has settled
+    // and are not meaningful boundary signals.
+    if (curr.state === 'TRANSITION SPIKE!') {
       boundaries.push(curr.start_time);
     }
   }
