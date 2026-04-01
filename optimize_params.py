@@ -217,10 +217,11 @@ def build_trials(grid):
 
 def main():
     parser = argparse.ArgumentParser(description="Harmonic Regime Parameter Optimizer")
-    parser.add_argument("--beta",      type=float, default=0.5,  help="F-beta weight (0.5 = precision-heavy)")
-    parser.add_argument("--tolerance", type=int,   default=100,  help="Matching window in ms (default 100)")
-    parser.add_argument("--top_n",     type=int,   default=5,    help="Number of top configs to export")
-    parser.add_argument("--quick",     action="store_true",      help="Use quick (smaller) grid for fast testing")
+    parser.add_argument("--beta",          type=float, default=0.25, help="F-beta weight (0.25 = very precision-heavy; precision weighs 16x recall)")
+    parser.add_argument("--tolerance",     type=int,   default=100,  help="Matching window in ms (default 100)")
+    parser.add_argument("--top_n",         type=int,   default=5,    help="Number of top configs to export")
+    parser.add_argument("--min_precision", type=float, default=71.0, help="Hard floor: exclude configs with precision below this %% (default: 71.0, your current best)")
+    parser.add_argument("--quick",         action="store_true",      help="Use quick (smaller) grid for fast testing")
     args = parser.parse_args()
 
     grid = QUICK_GRID if args.quick else FULL_GRID
@@ -232,7 +233,8 @@ def main():
     print(f"  Midi:       {MIDI_PATH.name}")
     print(f"  Markers:    {MARKERS_PATH.name}")
     print(f"  Tolerance:  {args.tolerance} ms")
-    print(f"  Beta:       {args.beta}  (precision-weighted F score)")
+    print(f"  Beta:       {args.beta}  (precision weighs {round((1/args.beta)**2)}x more than recall)")
+    print(f"  Min P floor:{args.min_precision}%  (configs below this are excluded before ranking)")
     print(f"  Grid size:  {total:,} trials  ({'quick' if args.quick else 'full'})")
     print(f"{'='*70}\n")
 
@@ -273,12 +275,21 @@ def main():
     total_time = time.time() - t0
     print(f"\n  Done! {total} trials in {total_time:.1f}s ({total/total_time:.0f} trials/sec)\n")
 
-    # ─── Sort & display top results ───────────────────────────────────────────
-    results.sort(key=lambda r: r["f_beta"], reverse=True)
-    top = results[:args.top_n]
+    # ─── Filter by precision floor, then sort ────────────────────────────────
+    passed = [r for r in results if r["precision"] >= args.min_precision]
+    filtered_out = len(results) - len(passed)
+    print(f"  Precision floor {args.min_precision}%: {filtered_out:,} configs excluded, {len(passed):,} remain.")
+    if not passed:
+        print(f"  ⚠️  No configs met the precision floor. Lower --min_precision or run the full grid.")
+        print(f"     Best precision found: {max(results, key=lambda r: r['precision'])['precision']}%")
+        return
 
-    print(f"{'─'*70}")
-    print(f"  TOP {args.top_n} CONFIGURATIONS (optimised for F-beta={args.beta}, Tier1 FN × 2)")
+    # Primary sort: F-beta (precision-weighted). Secondary: precision descending.
+    passed.sort(key=lambda r: (r["f_beta"], r["precision"]), reverse=True)
+    top = passed[:args.top_n]
+
+    print(f"\n{'─'*70}")
+    print(f"  TOP {args.top_n} CONFIGS  (F-beta={args.beta}, min_precision≥{args.min_precision}%, Tier1 FN × 2)")
     print(f"{'─'*70}")
     for rank, r in enumerate(top, 1):
         print(f"\n  #{rank}  F-beta={r['f_beta']:.2f}%  F1={r['f1']:.2f}%  "
