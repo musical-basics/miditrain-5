@@ -1030,10 +1030,9 @@ function getModelBoundaries(regimes) {
   if (!regimes) return [];
   const boundaries = [];
   for (let i = 1; i < regimes.length; i++) {
-    const prev = regimes[i - 1];
     const curr = regimes[i];
-    // A boundary is where regime_id changes (hue changes significantly) or a SPIKE starts
-    if (curr.state === 'TRANSITION SPIKE!' || (prev.hue !== curr.hue && curr.state !== 'Silence')) {
+    // Every regime boundary is a model boundary, excluding Silence/Void (matches what Phase 1 view draws)
+    if (curr.state !== 'Silence' && curr.state !== 'Undefined / Gray Void') {
       boundaries.push(curr.start_time);
     }
   }
