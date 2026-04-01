@@ -61,6 +61,8 @@ export default function ETMEVisualizer() {
   const [interactionMode, setInteractionMode] = useState('play'); // 'play' | 'mark'
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackPositionMs, setPlaybackPositionMs] = useState(0);
+  const [bpm, setBpm] = useState(120);
+  const bpmRef = useRef(120);
   const playbackPositionRef = useRef(0);
   const playbackStartAcTimeRef = useRef(0);
   const playbackOffsetRef = useRef(0);
@@ -679,9 +681,15 @@ export default function ETMEVisualizer() {
   useEffect(() => {
     const handleKeyDown = (e) => {
       const handlers = handlersRef.current;
-      // Space = play/pause (when not in an input)
-      if (e.key === ' ' && !e.target.matches('input, textarea, select, button')) {
+      // Space = play/pause — always fires regardless of focused element
+      if (e.key === ' ') {
+        // Don't hijack space inside text inputs
+        if (e.target.matches('textarea')) return;
         e.preventDefault();
+        // Blur any focused button so it doesn't intercept the key
+        if (document.activeElement && document.activeElement !== document.body) {
+          document.activeElement.blur();
+        }
         handlers.togglePlayback?.();
         return;
       }
@@ -957,37 +965,36 @@ export default function ETMEVisualizer() {
     if (ac.state === 'suspended') ac.resume();
 
     const offset = playbackPositionRef.current;
-    const acStart = ac.currentTime + 0.05; // small scheduling buffer
+    const acStart = ac.currentTime + 0.05;
     playbackStartAcTimeRef.current = acStart;
     playbackOffsetRef.current = offset;
+    const rate = bpmRef.current / 120; // scale: 120 BPM = 1.0x
 
-    // Schedule notes
+    // Schedule notes scaled by BPM rate
     const nodes = [];
     for (const note of data.notes) {
-      const delay = (note.onset - offset) / 1000;
-      if (delay < -0.1) continue; // skip notes already past
+      const delay = ((note.onset - offset) / 1000) / rate;
+      if (delay < -0.1) continue;
       const startAt = acStart + Math.max(0, delay);
-      const n = playNoteAudio(ac, note.pitch, note.velocity, startAt, note.duration);
+      const n = playNoteAudio(ac, note.pitch, note.velocity, startAt, note.duration / rate);
       nodes.push(n);
     }
     scheduledNodesRef.current = nodes;
     setIsPlaying(true);
 
-    // Animation loop — update cursor and auto-scroll
+    // Animation loop — advance cursor at BPM rate
     const lastNoteEnd = data.notes.reduce((m, n) => Math.max(m, n.onset + n.duration), 0);
     const tick = () => {
+      const r = bpmRef.current / 120;
       const elapsedSec = ac.currentTime - playbackStartAcTimeRef.current;
-      const pos = playbackOffsetRef.current + elapsedSec * 1000;
+      const pos = playbackOffsetRef.current + elapsedSec * 1000 * r;
       if (pos >= lastNoteEnd + 200) { stopPlayback(); return; }
       playbackPositionRef.current = pos;
-      renderRef.current?.(); // redraw full canvas with cursor
-      // Auto-scroll canvas to follow cursor
+      renderRef.current?.();
       const wrapper = wrapperRef.current;
       if (wrapper) {
         const cursorX = pos * effectiveScaleRef.current;
-        const viewLeft = wrapper.scrollLeft;
-        const viewRight = viewLeft + wrapper.clientWidth;
-        // Scroll right when cursor hits 80% of visible width
+        const viewRight = wrapper.scrollLeft + wrapper.clientWidth;
         if (cursorX > viewRight - wrapper.clientWidth * 0.2) {
           wrapper.scrollLeft = cursorX - wrapper.clientWidth * 0.3;
         }
@@ -1010,6 +1017,8 @@ export default function ETMEVisualizer() {
   // Keep a ref to seekTo so handleCanvasClick can call it without declaring seekTo as a dep (TDZ fix)
   const seekToRef = useRef(null);
   useEffect(() => { seekToRef.current = seekTo; }, [seekTo]);
+  // Keep bpmRef in sync with bpm state
+  useEffect(() => { bpmRef.current = bpm; }, [bpm]);
 
   // Tooltip handler
   const handleMouseMove = useCallback((e) => {
@@ -1276,13 +1285,33 @@ export default function ETMEVisualizer() {
           {(playbackPositionMs / 1000).toFixed(2)}s
         </span>
         <button
-          onClick={() => seekTo(0)}
+          onClick={() => seekToRef.current?.(0)}
           style={{ padding: '3px 8px', borderRadius: 4, cursor: 'pointer', fontSize: 11,
             border: '1px solid var(--border)', background: 'transparent', color: 'var(--text-secondary)' }}
           title="Rewind to start"
         >
           ⏮
         </button>
+
+        {/* BPM control */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginLeft: 4 }}>
+          <span style={{ fontSize: 10, color: 'var(--text-secondary)', whiteSpace: 'nowrap' }}>BPM</span>
+          <input
+            type="number" min={20} max={300} step={1} value={bpm}
+            onChange={e => setBpm(Math.max(20, Math.min(300, +e.target.value || 120)))}
+            style={{
+              width: 50, padding: '2px 4px', background: '#1a1a2e',
+              border: '1px solid #333', color: '#fff', borderRadius: 4,
+              fontSize: 11, textAlign: 'center'
+            }}
+          />
+          <input
+            type="range" min={40} max={240} step={1} value={bpm}
+            onChange={e => setBpm(+e.target.value)}
+            style={{ width: 72, accentColor: '#4a9eff', cursor: 'pointer' }}
+            title={`${bpm} BPM`}
+          />
+        </div>
 
         <div style={{ width: 1, height: 16, background: 'var(--border)', margin: '0 4px' }} />
 
