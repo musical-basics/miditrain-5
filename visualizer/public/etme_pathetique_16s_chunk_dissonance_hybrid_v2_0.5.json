@@ -1194,22 +1194,22 @@
       "pitch": 63,
       "velocity": 63,
       "onset": 3000,
-      "duration": 733,
+      "duration": 750,
       "hue": 295.4,
       "sat": 60.7,
       "lightness": 54.6,
       "tonal_distance": 4.6,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 27.6,
-        "pmass": 1.21,
+        "diff": 27.4,
+        "pmass": 1.22,
         "rmass": 0.89,
         "threshold": 0.75,
         "particles": [
           {
             "int": "b3",
             "o": 5,
-            "m": 0.42
+            "m": 0.43
           },
           {
             "int": "5",
@@ -1235,15 +1235,15 @@
       "tonal_distance": 4.6,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 27.6,
-        "pmass": 1.21,
+        "diff": 27.4,
+        "pmass": 1.22,
         "rmass": 0.89,
         "threshold": 0.75,
         "particles": [
           {
             "int": "b3",
             "o": 5,
-            "m": 0.42
+            "m": 0.43
           },
           {
             "int": "5",
@@ -1269,15 +1269,15 @@
       "tonal_distance": 4.6,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 27.6,
-        "pmass": 1.21,
+        "diff": 27.4,
+        "pmass": 1.22,
         "rmass": 0.89,
         "threshold": 0.75,
         "particles": [
           {
             "int": "b3",
             "o": 5,
-            "m": 0.42
+            "m": 0.43
           },
           {
             "int": "5",
@@ -1303,9 +1303,9 @@
       "tonal_distance": 7.8,
       "regime_state": "Stable",
       "debug": {
-        "diff": 49.0,
+        "diff": 48.7,
         "pmass": 0.24,
-        "rmass": 0.98,
+        "rmass": 0.99,
         "threshold": 0.75,
         "particles": [
           {
@@ -1327,9 +1327,9 @@
       "tonal_distance": 6.8,
       "regime_state": "Stable",
       "debug": {
-        "diff": 20.7,
+        "diff": 21.0,
         "pmass": 0.48,
-        "rmass": 0.98,
+        "rmass": 0.99,
         "threshold": 0.75,
         "particles": [
           {
@@ -1351,9 +1351,9 @@
       "tonal_distance": 0.0,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 26.9,
+        "diff": 26.7,
         "pmass": 0.72,
-        "rmass": 0.98,
+        "rmass": 0.99,
         "threshold": 0.75,
         "particles": [
           {
@@ -1397,7 +1397,7 @@
       "pitch": 39,
       "velocity": 76,
       "onset": 3500,
-      "duration": 233,
+      "duration": 500,
       "hue": 317.7,
       "sat": 51.2,
       "lightness": 41.6,
@@ -1426,7 +1426,7 @@
       "pitch": 58,
       "velocity": 62,
       "onset": 3625,
-      "duration": 108,
+      "duration": 125,
       "hue": 281.3,
       "sat": 51.9,
       "lightness": 44.2,
@@ -1442,6 +1442,6890 @@
             "int": "b7",
             "o": 4,
             "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 64,
+      "velocity": 61,
+      "onset": 3750,
+      "duration": 250,
+      "hue": 45.3,
+      "sat": 96.6,
+      "lightness": 57.6,
+      "tonal_distance": 14.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 82.1,
+        "pmass": 0.75,
+        "rmass": 0.58,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "3",
+            "o": 5,
+            "m": 0.28
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 59,
+      "onset": 3750,
+      "duration": 125,
+      "hue": 45.3,
+      "sat": 96.6,
+      "lightness": 57.6,
+      "tonal_distance": 14.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 82.1,
+        "pmass": 0.75,
+        "rmass": 0.58,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "3",
+            "o": 5,
+            "m": 0.28
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 58,
+      "velocity": 62,
+      "onset": 3875,
+      "duration": 125,
+      "hue": 29.5,
+      "sat": 31.9,
+      "lightness": 55.0,
+      "tonal_distance": 0.5,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 166.3,
+        "pmass": 0.24,
+        "rmass": 0.51,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 65,
+      "velocity": 65,
+      "onset": 4000,
+      "duration": 500,
+      "hue": 358.1,
+      "sat": 14.3,
+      "lightness": 48.9,
+      "tonal_distance": 1.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 141.0,
+        "pmass": 1.15,
+        "rmass": 0.51,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "4",
+            "o": 5,
+            "m": 0.29
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.25
+          },
+          {
+            "int": "b2",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 63,
+      "onset": 4000,
+      "duration": 125,
+      "hue": 358.1,
+      "sat": 14.3,
+      "lightness": 48.9,
+      "tonal_distance": 1.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 141.0,
+        "pmass": 1.15,
+        "rmass": 0.51,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "4",
+            "o": 5,
+            "m": 0.29
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.25
+          },
+          {
+            "int": "b2",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 37,
+      "velocity": 81,
+      "onset": 4000,
+      "duration": 500,
+      "hue": 358.1,
+      "sat": 14.3,
+      "lightness": 48.9,
+      "tonal_distance": 1.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 141.0,
+        "pmass": 1.15,
+        "rmass": 0.51,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "4",
+            "o": 5,
+            "m": 0.29
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.25
+          },
+          {
+            "int": "b2",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 58,
+      "velocity": 62,
+      "onset": 4125,
+      "duration": 125,
+      "hue": 268.8,
+      "sat": 20.2,
+      "lightness": 49.1,
+      "tonal_distance": 1.2,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 107.3,
+        "pmass": 0.24,
+        "rmass": 0.91,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 59,
+      "onset": 4250,
+      "duration": 125,
+      "hue": 30.0,
+      "sat": 100.0,
+      "lightness": 50.0,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 37.6,
+        "pmass": 0.48,
+        "rmass": 0.91,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 58,
+      "velocity": 62,
+      "onset": 4375,
+      "duration": 125,
+      "hue": 309.7,
+      "sat": 26.0,
+      "lightness": 50.0,
+      "tonal_distance": 9.7,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 150.0,
+        "pmass": 0.24,
+        "rmass": 0.23,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 58,
+      "velocity": 61,
+      "onset": 4500,
+      "duration": 375,
+      "hue": 202.5,
+      "sat": 31.0,
+      "lightness": 50.0,
+      "tonal_distance": 7.5,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 168.6,
+        "pmass": 1.02,
+        "rmass": 0.23,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.23
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 59,
+      "onset": 4500,
+      "duration": 125,
+      "hue": 202.5,
+      "sat": 31.0,
+      "lightness": 50.0,
+      "tonal_distance": 7.5,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 168.6,
+        "pmass": 1.02,
+        "rmass": 0.23,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.23
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 49,
+      "velocity": 77,
+      "onset": 4500,
+      "duration": 500,
+      "hue": 202.5,
+      "sat": 31.0,
+      "lightness": 50.0,
+      "tonal_distance": 7.5,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 168.6,
+        "pmass": 1.02,
+        "rmass": 0.23,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.23
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 58,
+      "onset": 4625,
+      "duration": 125,
+      "hue": 235.3,
+      "sat": 38.8,
+      "lightness": 50.0,
+      "tonal_distance": 4.7,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 67.5,
+        "pmass": 0.23,
+        "rmass": 0.78,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 62,
+      "onset": 4750,
+      "duration": 125,
+      "hue": 30.0,
+      "sat": 100.0,
+      "lightness": 50.0,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 130.8,
+        "pmass": 0.47,
+        "rmass": 0.78,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 60,
+      "velocity": 61,
+      "onset": 4875,
+      "duration": 62,
+      "hue": 316.0,
+      "sat": 70.7,
+      "lightness": 57.6,
+      "tonal_distance": 14.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 70.1,
+        "pmass": 0.51,
+        "rmass": 0.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.28
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 59,
+      "onset": 4875,
+      "duration": 125,
+      "hue": 316.0,
+      "sat": 70.7,
+      "lightness": 57.6,
+      "tonal_distance": 14.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 70.1,
+        "pmass": 0.51,
+        "rmass": 0.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.28
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 61,
+      "velocity": 62,
+      "onset": 4937,
+      "duration": 62,
+      "hue": 269.0,
+      "sat": 32.4,
+      "lightness": 60.1,
+      "tonal_distance": 1.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 150.0,
+        "pmass": 0.28,
+        "rmass": 0.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.28
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 67,
+      "onset": 5000,
+      "duration": 500,
+      "hue": 301.9,
+      "sat": 79.1,
+      "lightness": 53.7,
+      "tonal_distance": 1.9,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 79.7,
+        "pmass": 0.89,
+        "rmass": 0.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.3
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 56,
+      "velocity": 67,
+      "onset": 5000,
+      "duration": 125,
+      "hue": 301.9,
+      "sat": 79.1,
+      "lightness": 53.7,
+      "tonal_distance": 1.9,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 79.7,
+        "pmass": 0.89,
+        "rmass": 0.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.3
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 48,
+      "velocity": 81,
+      "onset": 5000,
+      "duration": 500,
+      "hue": 301.9,
+      "sat": 79.1,
+      "lightness": 53.7,
+      "tonal_distance": 1.9,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 79.7,
+        "pmass": 0.89,
+        "rmass": 0.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.3
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 59,
+      "onset": 5125,
+      "duration": 125,
+      "hue": 301.9,
+      "sat": 79.1,
+      "lightness": 53.7,
+      "tonal_distance": 1.9,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 30.7,
+        "pmass": 0.23,
+        "rmass": 1.64,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 56,
+      "velocity": 63,
+      "onset": 5250,
+      "duration": 125,
+      "hue": 301.9,
+      "sat": 78.8,
+      "lightness": 53.7,
+      "tonal_distance": 1.9,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 6.5,
+        "pmass": 0.25,
+        "rmass": 1.81,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 59,
+      "onset": 5375,
+      "duration": 125,
+      "hue": 301.9,
+      "sat": 78.8,
+      "lightness": 53.7,
+      "tonal_distance": 1.9,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 24.9,
+        "pmass": 0.23,
+        "rmass": 1.98,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 57,
+      "velocity": 61,
+      "onset": 5500,
+      "duration": 500,
+      "hue": 330.7,
+      "sat": 38.3,
+      "lightness": 44.2,
+      "tonal_distance": 0.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 40.2,
+        "pmass": 0.82,
+        "rmass": 2.15,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "6",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 60,
+      "onset": 5500,
+      "duration": 125,
+      "hue": 330.7,
+      "sat": 38.3,
+      "lightness": 44.2,
+      "tonal_distance": 0.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 40.2,
+        "pmass": 0.82,
+        "rmass": 2.15,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "6",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 41,
+      "velocity": 76,
+      "onset": 5500,
+      "duration": 500,
+      "hue": 330.7,
+      "sat": 38.3,
+      "lightness": 44.2,
+      "tonal_distance": 0.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 40.2,
+        "pmass": 0.82,
+        "rmass": 2.15,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "6",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 48,
+      "velocity": 59,
+      "onset": 5625,
+      "duration": 125,
+      "hue": 343.5,
+      "sat": 50.9,
+      "lightness": 45.5,
+      "tonal_distance": 13.5,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 29.4,
+        "pmass": 0.23,
+        "rmass": 0.82,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.23
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 62,
+      "onset": 5750,
+      "duration": 125,
+      "hue": 270.0,
+      "sat": 100.0,
+      "lightness": 50.0,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 17.0,
+        "pmass": 0.48,
+        "rmass": 0.82,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 48,
+      "velocity": 60,
+      "onset": 5875,
+      "duration": 125,
+      "hue": 314.1,
+      "sat": 70.7,
+      "lightness": 50.0,
+      "tonal_distance": 14.1,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 90.0,
+        "pmass": 0.24,
+        "rmass": 0.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 61,
+      "velocity": 65,
+      "onset": 6000,
+      "duration": 500,
+      "hue": 245.9,
+      "sat": 53.3,
+      "lightness": 43.2,
+      "tonal_distance": 5.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 3.9,
+        "pmass": 1.21,
+        "rmass": 0.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.29
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.27
+          },
+          {
+            "int": "b7",
+            "o": 2,
+            "m": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 53,
+      "velocity": 68,
+      "onset": 6000,
+      "duration": 125,
+      "hue": 245.9,
+      "sat": 53.3,
+      "lightness": 43.2,
+      "tonal_distance": 5.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 3.9,
+        "pmass": 1.21,
+        "rmass": 0.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.29
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.27
+          },
+          {
+            "int": "b7",
+            "o": 2,
+            "m": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 34,
+      "velocity": 81,
+      "onset": 6000,
+      "duration": 500,
+      "hue": 245.9,
+      "sat": 53.3,
+      "lightness": 43.2,
+      "tonal_distance": 5.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 3.9,
+        "pmass": 1.21,
+        "rmass": 0.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.29
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.27
+          },
+          {
+            "int": "b7",
+            "o": 2,
+            "m": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 49,
+      "velocity": 60,
+      "onset": 6125,
+      "duration": 125,
+      "hue": 224.3,
+      "sat": 54.4,
+      "lightness": 44.7,
+      "tonal_distance": 14.3,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 61.3,
+        "pmass": 0.24,
+        "rmass": 0.98,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 53,
+      "velocity": 63,
+      "onset": 6250,
+      "duration": 125,
+      "hue": 222.5,
+      "sat": 55.9,
+      "lightness": 44.6,
+      "tonal_distance": 12.5,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 107.3,
+        "pmass": 0.25,
+        "rmass": 1.18,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 49,
+      "velocity": 60,
+      "onset": 6375,
+      "duration": 125,
+      "hue": 222.5,
+      "sat": 55.9,
+      "lightness": 44.6,
+      "tonal_distance": 12.5,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 66.0,
+        "pmass": 0.24,
+        "rmass": 1.38,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 60,
+      "velocity": 61,
+      "onset": 6500,
+      "duration": 125,
+      "hue": 270.8,
+      "sat": 38.6,
+      "lightness": 48.9,
+      "tonal_distance": 0.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 49.3,
+        "pmass": 0.86,
+        "rmass": 1.57,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.28
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "b3",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 49,
+      "velocity": 60,
+      "onset": 6500,
+      "duration": 125,
+      "hue": 270.8,
+      "sat": 38.6,
+      "lightness": 48.9,
+      "tonal_distance": 0.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 49.3,
+        "pmass": 0.86,
+        "rmass": 1.57,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.28
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "b3",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 39,
+      "velocity": 76,
+      "onset": 6500,
+      "duration": 500,
+      "hue": 270.8,
+      "sat": 38.6,
+      "lightness": 48.9,
+      "tonal_distance": 0.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 49.3,
+        "pmass": 0.86,
+        "rmass": 1.57,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.28
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "b3",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 58,
+      "velocity": 60,
+      "onset": 6625,
+      "duration": 125,
+      "hue": 209.7,
+      "sat": 86.6,
+      "lightness": 50.0,
+      "tonal_distance": 0.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 66.9,
+        "pmass": 0.48,
+        "rmass": 0.86,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 49,
+      "velocity": 61,
+      "onset": 6625,
+      "duration": 125,
+      "hue": 209.7,
+      "sat": 86.6,
+      "lightness": 50.0,
+      "tonal_distance": 0.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 66.9,
+        "pmass": 0.48,
+        "rmass": 0.86,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 56,
+      "velocity": 59,
+      "onset": 6750,
+      "duration": 125,
+      "hue": 220.1,
+      "sat": 66.4,
+      "lightness": 50.0,
+      "tonal_distance": 10.1,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 28.6,
+        "pmass": 0.47,
+        "rmass": 0.48,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.23
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 49,
+      "velocity": 61,
+      "onset": 6750,
+      "duration": 125,
+      "hue": 220.1,
+      "sat": 66.4,
+      "lightness": 50.0,
+      "tonal_distance": 10.1,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 28.6,
+        "pmass": 0.47,
+        "rmass": 0.48,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.23
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 59,
+      "onset": 6875,
+      "duration": 125,
+      "hue": 108.6,
+      "sat": 25.9,
+      "lightness": 50.0,
+      "tonal_distance": 11.4,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 2.2,
+        "pmass": 0.94,
+        "rmass": 0.48,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.23
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 49,
+      "velocity": 61,
+      "onset": 6875,
+      "duration": 125,
+      "hue": 108.6,
+      "sat": 25.9,
+      "lightness": 50.0,
+      "tonal_distance": 11.4,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 2.2,
+        "pmass": 0.94,
+        "rmass": 0.48,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.23
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 66,
+      "onset": 7000,
+      "duration": 500,
+      "hue": 261.0,
+      "sat": 16.5,
+      "lightness": 43.9,
+      "tonal_distance": 9.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 167.3,
+        "pmass": 1.19,
+        "rmass": 0.47,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "b6",
+            "o": 2,
+            "m": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 58,
+      "velocity": 66,
+      "onset": 7000,
+      "duration": 500,
+      "hue": 261.0,
+      "sat": 16.5,
+      "lightness": 43.9,
+      "tonal_distance": 9.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 167.3,
+        "pmass": 1.19,
+        "rmass": 0.47,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "b6",
+            "o": 2,
+            "m": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 49,
+      "velocity": 65,
+      "onset": 7000,
+      "duration": 125,
+      "hue": 261.0,
+      "sat": 16.5,
+      "lightness": 43.9,
+      "tonal_distance": 9.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 167.3,
+        "pmass": 1.19,
+        "rmass": 0.47,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "b6",
+            "o": 2,
+            "m": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 32,
+      "velocity": 81,
+      "onset": 7000,
+      "duration": 250,
+      "hue": 261.0,
+      "sat": 16.5,
+      "lightness": 43.9,
+      "tonal_distance": 9.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 167.3,
+        "pmass": 1.19,
+        "rmass": 0.47,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.26
+          },
+          {
+            "int": "b6",
+            "o": 2,
+            "m": 0.41
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 62,
+      "onset": 7125,
+      "duration": 125,
+      "hue": 270.0,
+      "sat": 100.0,
+      "lightness": 50.0,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 165.2,
+        "pmass": 1.43,
+        "rmass": 0.47,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 49,
+      "velocity": 60,
+      "onset": 7250,
+      "duration": 125,
+      "hue": 252.7,
+      "sat": 51.3,
+      "lightness": 41.5,
+      "tonal_distance": 12.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 11.0,
+        "pmass": 0.59,
+        "rmass": 0.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 44,
+      "velocity": 78,
+      "onset": 7250,
+      "duration": 250,
+      "hue": 252.7,
+      "sat": 51.3,
+      "lightness": 41.5,
+      "tonal_distance": 12.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 11.0,
+        "pmass": 0.59,
+        "rmass": 0.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 62,
+      "onset": 7375,
+      "duration": 125,
+      "hue": 260.8,
+      "sat": 65.6,
+      "lightness": 44.1,
+      "tonal_distance": 9.2,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 11.0,
+        "pmass": 0.24,
+        "rmass": 0.59,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 56,
+      "velocity": 61,
+      "onset": 7500,
+      "duration": 207,
+      "hue": 304.0,
+      "sat": 88.8,
+      "lightness": 39.9,
+      "tonal_distance": 4.0,
+      "regime_state": "Swallowed Spike",
+      "debug": {
+        "diff": 51.6,
+        "pmass": 0.86,
+        "rmass": 0.8,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "b6",
+            "o": 2,
+            "m": 0.38
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 48,
+      "velocity": 60,
+      "onset": 7500,
+      "duration": 82,
+      "hue": 304.0,
+      "sat": 88.8,
+      "lightness": 39.9,
+      "tonal_distance": 4.0,
+      "regime_state": "Swallowed Spike",
+      "debug": {
+        "diff": 51.6,
+        "pmass": 0.86,
+        "rmass": 0.8,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "b6",
+            "o": 2,
+            "m": 0.38
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 32,
+      "velocity": 74,
+      "onset": 7500,
+      "duration": 500,
+      "hue": 304.0,
+      "sat": 88.8,
+      "lightness": 39.9,
+      "tonal_distance": 4.0,
+      "regime_state": "Swallowed Spike",
+      "debug": {
+        "diff": 51.6,
+        "pmass": 0.86,
+        "rmass": 0.8,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.24
+          },
+          {
+            "int": "b6",
+            "o": 2,
+            "m": 0.38
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 62,
+      "onset": 7582,
+      "duration": 40,
+      "hue": 305.5,
+      "sat": 85.5,
+      "lightness": 41.4,
+      "tonal_distance": 5.5,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 6.0,
+        "pmass": 0.24,
+        "rmass": 0.8,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.24
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 56,
+      "velocity": 67,
+      "onset": 7666,
+      "duration": 83,
+      "hue": 300.0,
+      "sat": 100.0,
+      "lightness": 39.0,
+      "tonal_distance": 0.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 34.0,
+        "pmass": 0.26,
+        "rmass": 1.02,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.26
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 60,
+      "velocity": 68,
+      "onset": 7750,
+      "duration": 41,
+      "hue": 328.6,
+      "sat": 86.6,
+      "lightness": 41.5,
+      "tonal_distance": 1.4,
+      "regime_state": "Swallowed Spike",
+      "debug": {
+        "diff": 84.8,
+        "pmass": 0.31,
+        "rmass": 1.25,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 69,
+      "onset": 7832,
+      "duration": 40,
+      "hue": 285.5,
+      "sat": 96.6,
+      "lightness": 41.7,
+      "tonal_distance": 14.5,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 5.2,
+        "pmass": 0.31,
+        "rmass": 1.25,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 68,
+      "velocity": 69,
+      "onset": 7916,
+      "duration": 41,
+      "hue": 300.0,
+      "sat": 100.0,
+      "lightness": 41.7,
+      "tonal_distance": 0.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 26.2,
+        "pmass": 0.31,
+        "rmass": 1.52,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 60,
+      "velocity": 76,
+      "onset": 8000,
+      "duration": 375,
+      "hue": 328.9,
+      "sat": 86.6,
+      "lightness": 57.0,
+      "tonal_distance": 1.1,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 51.6,
+        "pmass": 1.42,
+        "rmass": 1.79,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.39
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.32
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 72,
+      "velocity": 76,
+      "onset": 8000,
+      "duration": 500,
+      "hue": 328.9,
+      "sat": 86.6,
+      "lightness": 57.0,
+      "tonal_distance": 1.1,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 51.6,
+        "pmass": 1.42,
+        "rmass": 1.79,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.39
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.32
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 56,
+      "velocity": 81,
+      "onset": 8000,
+      "duration": 125,
+      "hue": 328.9,
+      "sat": 86.6,
+      "lightness": 57.0,
+      "tonal_distance": 1.1,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 51.6,
+        "pmass": 1.42,
+        "rmass": 1.79,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.39
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.32
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 44,
+      "velocity": 81,
+      "onset": 8000,
+      "duration": 500,
+      "hue": 328.9,
+      "sat": 86.6,
+      "lightness": 57.0,
+      "tonal_distance": 1.1,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 51.6,
+        "pmass": 1.42,
+        "rmass": 1.79,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.39
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.32
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 71,
+      "onset": 8125,
+      "duration": 125,
+      "hue": 270.0,
+      "sat": 100.0,
+      "lightness": 57.3,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 61.1,
+        "pmass": 0.61,
+        "rmass": 1.42,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 74,
+      "onset": 8125,
+      "duration": 125,
+      "hue": 270.0,
+      "sat": 100.0,
+      "lightness": 57.3,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 61.1,
+        "pmass": 0.61,
+        "rmass": 1.42,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 60,
+      "velocity": 68,
+      "onset": 8250,
+      "duration": 250,
+      "hue": 327.5,
+      "sat": 86.7,
+      "lightness": 56.9,
+      "tonal_distance": 2.5,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 59.8,
+        "pmass": 0.62,
+        "rmass": 0.61,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 56,
+      "velocity": 79,
+      "onset": 8250,
+      "duration": 125,
+      "hue": 327.5,
+      "sat": 86.7,
+      "lightness": 56.9,
+      "tonal_distance": 2.5,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 59.8,
+        "pmass": 0.62,
+        "rmass": 0.61,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 72,
+      "onset": 8375,
+      "duration": 125,
+      "hue": 270.0,
+      "sat": 100.0,
+      "lightness": 57.4,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 59.8,
+        "pmass": 0.62,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 74,
+      "onset": 8375,
+      "duration": 125,
+      "hue": 270.0,
+      "sat": 100.0,
+      "lightness": 57.4,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 59.8,
+        "pmass": 0.62,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 58,
+      "velocity": 71,
+      "onset": 8500,
+      "duration": 375,
+      "hue": 226.6,
+      "sat": 39.1,
+      "lightness": 53.6,
+      "tonal_distance": 13.4,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 42.3,
+        "pmass": 1.21,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.28
+          },
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 70,
+      "velocity": 71,
+      "onset": 8500,
+      "duration": 500,
+      "hue": 226.6,
+      "sat": 39.1,
+      "lightness": 53.6,
+      "tonal_distance": 13.4,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 42.3,
+        "pmass": 1.21,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.28
+          },
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 78,
+      "onset": 8500,
+      "duration": 125,
+      "hue": 226.6,
+      "sat": 39.1,
+      "lightness": 53.6,
+      "tonal_distance": 13.4,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 42.3,
+        "pmass": 1.21,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.28
+          },
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 49,
+      "velocity": 76,
+      "onset": 8500,
+      "duration": 500,
+      "hue": 226.6,
+      "sat": 39.1,
+      "lightness": 53.6,
+      "tonal_distance": 13.4,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 42.3,
+        "pmass": 1.21,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.28
+          },
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 72,
+      "onset": 8625,
+      "duration": 125,
+      "hue": 270.0,
+      "sat": 100.0,
+      "lightness": 57.4,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 42.3,
+        "pmass": 0.62,
+        "rmass": 1.21,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 74,
+      "onset": 8625,
+      "duration": 125,
+      "hue": 270.0,
+      "sat": 100.0,
+      "lightness": 57.4,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 42.3,
+        "pmass": 0.62,
+        "rmass": 1.21,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 58,
+      "velocity": 68,
+      "onset": 8750,
+      "duration": 250,
+      "hue": 330.6,
+      "sat": 26.9,
+      "lightness": 50.0,
+      "tonal_distance": 0.6,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 60.6,
+        "pmass": 0.58,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.27
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 79,
+      "onset": 8750,
+      "duration": 125,
+      "hue": 330.6,
+      "sat": 26.9,
+      "lightness": 50.0,
+      "tonal_distance": 0.6,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 60.6,
+        "pmass": 0.58,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.27
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 73,
+      "onset": 8875,
+      "duration": 125,
+      "hue": 270.0,
+      "sat": 100.0,
+      "lightness": 57.4,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 60.6,
+        "pmass": 0.62,
+        "rmass": 0.58,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 74,
+      "onset": 8875,
+      "duration": 125,
+      "hue": 270.0,
+      "sat": 100.0,
+      "lightness": 57.4,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 60.6,
+        "pmass": 0.62,
+        "rmass": 0.58,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 76,
+      "onset": 9000,
+      "duration": 375,
+      "hue": 298.7,
+      "sat": 80.8,
+      "lightness": 60.8,
+      "tonal_distance": 1.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 21.7,
+        "pmass": 1.58,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b3",
+            "o": 6,
+            "m": 0.58
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.33
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 75,
+      "velocity": 76,
+      "onset": 9000,
+      "duration": 750,
+      "hue": 298.7,
+      "sat": 80.8,
+      "lightness": 60.8,
+      "tonal_distance": 1.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 21.7,
+        "pmass": 1.58,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b3",
+            "o": 6,
+            "m": 0.58
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.33
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 56,
+      "velocity": 84,
+      "onset": 9000,
+      "duration": 125,
+      "hue": 298.7,
+      "sat": 80.8,
+      "lightness": 60.8,
+      "tonal_distance": 1.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 21.7,
+        "pmass": 1.58,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b3",
+            "o": 6,
+            "m": 0.58
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.33
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 48,
+      "velocity": 81,
+      "onset": 9000,
+      "duration": 500,
+      "hue": 298.7,
+      "sat": 80.8,
+      "lightness": 60.8,
+      "tonal_distance": 1.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 21.7,
+        "pmass": 1.58,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b3",
+            "o": 6,
+            "m": 0.58
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.33
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 68,
+      "velocity": 74,
+      "onset": 9125,
+      "duration": 125,
+      "hue": 293.8,
+      "sat": 85.3,
+      "lightness": 59.7,
+      "tonal_distance": 6.2,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 5.7,
+        "pmass": 0.63,
+        "rmass": 1.58,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 74,
+      "onset": 9125,
+      "duration": 125,
+      "hue": 293.8,
+      "sat": 85.3,
+      "lightness": 59.7,
+      "tonal_distance": 6.2,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 5.7,
+        "pmass": 0.63,
+        "rmass": 1.58,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 69,
+      "onset": 9250,
+      "duration": 250,
+      "hue": 290.2,
+      "sat": 86.1,
+      "lightness": 60.5,
+      "tonal_distance": 9.8,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 4.5,
+        "pmass": 0.62,
+        "rmass": 2.19,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 56,
+      "velocity": 79,
+      "onset": 9250,
+      "duration": 125,
+      "hue": 290.2,
+      "sat": 86.1,
+      "lightness": 60.5,
+      "tonal_distance": 9.8,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 4.5,
+        "pmass": 0.62,
+        "rmass": 2.19,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 68,
+      "velocity": 74,
+      "onset": 9375,
+      "duration": 125,
+      "hue": 290.2,
+      "sat": 86.1,
+      "lightness": 60.5,
+      "tonal_distance": 9.8,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 2.0,
+        "pmass": 0.63,
+        "rmass": 2.8,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 74,
+      "onset": 9375,
+      "duration": 125,
+      "hue": 290.2,
+      "sat": 86.1,
+      "lightness": 60.5,
+      "tonal_distance": 9.8,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 2.0,
+        "pmass": 0.63,
+        "rmass": 2.8,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 68,
+      "onset": 9500,
+      "duration": 125,
+      "hue": 3.9,
+      "sat": 60.2,
+      "lightness": 49.5,
+      "tonal_distance": 3.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 74.4,
+        "pmass": 0.96,
+        "rmass": 3.41,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 78,
+      "onset": 9500,
+      "duration": 125,
+      "hue": 3.9,
+      "sat": 60.2,
+      "lightness": 49.5,
+      "tonal_distance": 3.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 74.4,
+        "pmass": 0.96,
+        "rmass": 3.41,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 43,
+      "velocity": 76,
+      "onset": 9500,
+      "duration": 500,
+      "hue": 3.9,
+      "sat": 60.2,
+      "lightness": 49.5,
+      "tonal_distance": 3.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 74.4,
+        "pmass": 0.96,
+        "rmass": 3.41,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 70,
+      "velocity": 76,
+      "onset": 9625,
+      "duration": 125,
+      "hue": 254.8,
+      "sat": 96.6,
+      "lightness": 57.6,
+      "tonal_distance": 14.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 108.1,
+        "pmass": 0.64,
+        "rmass": 0.96,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 74,
+      "onset": 9625,
+      "duration": 125,
+      "hue": 254.8,
+      "sat": 96.6,
+      "lightness": 57.6,
+      "tonal_distance": 14.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 108.1,
+        "pmass": 0.64,
+        "rmass": 0.96,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 73,
+      "velocity": 71,
+      "onset": 9750,
+      "duration": 250,
+      "hue": 264.6,
+      "sat": 12.7,
+      "lightness": 64.4,
+      "tonal_distance": 5.4,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 16.2,
+        "pmass": 0.98,
+        "rmass": 0.64,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 6,
+            "m": 0.36
+          },
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.3
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 67,
+      "onset": 9750,
+      "duration": 125,
+      "hue": 264.6,
+      "sat": 12.7,
+      "lightness": 64.4,
+      "tonal_distance": 5.4,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 16.2,
+        "pmass": 0.98,
+        "rmass": 0.64,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 6,
+            "m": 0.36
+          },
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.3
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 79,
+      "onset": 9750,
+      "duration": 125,
+      "hue": 264.6,
+      "sat": 12.7,
+      "lightness": 64.4,
+      "tonal_distance": 5.4,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 16.2,
+        "pmass": 0.98,
+        "rmass": 0.64,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 6,
+            "m": 0.36
+          },
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.3
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 70,
+      "velocity": 75,
+      "onset": 9875,
+      "duration": 125,
+      "hue": 254.9,
+      "sat": 96.6,
+      "lightness": 57.6,
+      "tonal_distance": 14.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 16.3,
+        "pmass": 0.63,
+        "rmass": 0.98,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 74,
+      "onset": 9875,
+      "duration": 125,
+      "hue": 254.9,
+      "sat": 96.6,
+      "lightness": 57.6,
+      "tonal_distance": 14.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 16.3,
+        "pmass": 0.63,
+        "rmass": 0.98,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 75,
+      "onset": 10000,
+      "duration": 250,
+      "hue": 305.9,
+      "sat": 85.4,
+      "lightness": 56.9,
+      "tonal_distance": 5.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 54.0,
+        "pmass": 1.42,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.38
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.33
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 72,
+      "velocity": 75,
+      "onset": 10000,
+      "duration": 250,
+      "hue": 305.9,
+      "sat": 85.4,
+      "lightness": 56.9,
+      "tonal_distance": 5.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 54.0,
+        "pmass": 1.42,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.38
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.33
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 56,
+      "velocity": 84,
+      "onset": 10000,
+      "duration": 125,
+      "hue": 305.9,
+      "sat": 85.4,
+      "lightness": 56.9,
+      "tonal_distance": 5.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 54.0,
+        "pmass": 1.42,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.38
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.33
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 44,
+      "velocity": 81,
+      "onset": 10000,
+      "duration": 250,
+      "hue": 305.9,
+      "sat": 85.4,
+      "lightness": 56.9,
+      "tonal_distance": 5.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 54.0,
+        "pmass": 1.42,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.38
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.33
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 68,
+      "velocity": 71,
+      "onset": 10125,
+      "duration": 125,
+      "hue": 298.6,
+      "sat": 87.5,
+      "lightness": 57.0,
+      "tonal_distance": 1.4,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 22.1,
+        "pmass": 0.61,
+        "rmass": 1.42,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 74,
+      "onset": 10125,
+      "duration": 125,
+      "hue": 298.6,
+      "sat": 87.5,
+      "lightness": 57.0,
+      "tonal_distance": 1.4,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 22.1,
+        "pmass": 0.61,
+        "rmass": 1.42,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 72,
+      "onset": 10250,
+      "duration": 250,
+      "hue": 333.3,
+      "sat": 50.1,
+      "lightness": 57.0,
+      "tonal_distance": 3.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 26.8,
+        "pmass": 1.35,
+        "rmass": 2.01,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 75,
+      "velocity": 72,
+      "onset": 10250,
+      "duration": 250,
+      "hue": 333.3,
+      "sat": 50.1,
+      "lightness": 57.0,
+      "tonal_distance": 3.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 26.8,
+        "pmass": 1.35,
+        "rmass": 2.01,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 78,
+      "onset": 10250,
+      "duration": 125,
+      "hue": 333.3,
+      "sat": 50.1,
+      "lightness": 57.0,
+      "tonal_distance": 3.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 26.8,
+        "pmass": 1.35,
+        "rmass": 2.01,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 43,
+      "velocity": 76,
+      "onset": 10250,
+      "duration": 250,
+      "hue": 333.3,
+      "sat": 50.1,
+      "lightness": 57.0,
+      "tonal_distance": 3.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 26.8,
+        "pmass": 1.35,
+        "rmass": 2.01,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 70,
+      "velocity": 72,
+      "onset": 10375,
+      "duration": 125,
+      "hue": 255.2,
+      "sat": 96.6,
+      "lightness": 57.4,
+      "tonal_distance": 14.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 72.7,
+        "pmass": 0.62,
+        "rmass": 1.35,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 74,
+      "onset": 10375,
+      "duration": 125,
+      "hue": 255.2,
+      "sat": 96.6,
+      "lightness": 57.4,
+      "tonal_distance": 14.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 72.7,
+        "pmass": 0.62,
+        "rmass": 1.35,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 68,
+      "velocity": 73,
+      "onset": 10500,
+      "duration": 250,
+      "hue": 315.4,
+      "sat": 96.6,
+      "lightness": 57.2,
+      "tonal_distance": 14.6,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 60.2,
+        "pmass": 1.35,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b6",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.3
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 80,
+      "velocity": 73,
+      "onset": 10500,
+      "duration": 250,
+      "hue": 315.4,
+      "sat": 96.6,
+      "lightness": 57.2,
+      "tonal_distance": 14.6,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 60.2,
+        "pmass": 1.35,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b6",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.3
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 53,
+      "velocity": 77,
+      "onset": 10500,
+      "duration": 125,
+      "hue": 315.4,
+      "sat": 96.6,
+      "lightness": 57.2,
+      "tonal_distance": 14.6,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 60.2,
+        "pmass": 1.35,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b6",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.3
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 41,
+      "velocity": 76,
+      "onset": 10500,
+      "duration": 250,
+      "hue": 315.4,
+      "sat": 96.6,
+      "lightness": 57.2,
+      "tonal_distance": 14.6,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 60.2,
+        "pmass": 1.35,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b6",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.3
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 72,
+      "velocity": 72,
+      "onset": 10625,
+      "duration": 125,
+      "hue": 330.0,
+      "sat": 86.6,
+      "lightness": 57.5,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 17.7,
+        "pmass": 0.69,
+        "rmass": 1.35,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 44,
+      "velocity": 72,
+      "onset": 10625,
+      "duration": 125,
+      "hue": 330.0,
+      "sat": 86.6,
+      "lightness": 57.5,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 17.7,
+        "pmass": 0.69,
+        "rmass": 1.35,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 70,
+      "velocity": 72,
+      "onset": 10750,
+      "duration": 250,
+      "hue": 287.3,
+      "sat": 70.8,
+      "lightness": 57.0,
+      "tonal_distance": 12.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 48.5,
+        "pmass": 1.35,
+        "rmass": 0.69,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b7",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 82,
+      "velocity": 72,
+      "onset": 10750,
+      "duration": 250,
+      "hue": 287.3,
+      "sat": 70.8,
+      "lightness": 57.0,
+      "tonal_distance": 12.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 48.5,
+        "pmass": 1.35,
+        "rmass": 0.69,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b7",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 53,
+      "velocity": 80,
+      "onset": 10750,
+      "duration": 125,
+      "hue": 287.3,
+      "sat": 70.8,
+      "lightness": 57.0,
+      "tonal_distance": 12.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 48.5,
+        "pmass": 1.35,
+        "rmass": 0.69,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b7",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 41,
+      "velocity": 76,
+      "onset": 10750,
+      "duration": 250,
+      "hue": 287.3,
+      "sat": 70.8,
+      "lightness": 57.0,
+      "tonal_distance": 12.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 48.5,
+        "pmass": 1.35,
+        "rmass": 0.69,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b7",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 74,
+      "velocity": 72,
+      "onset": 10875,
+      "duration": 125,
+      "hue": 300.0,
+      "sat": 0.7,
+      "lightness": 57.3,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 163.5,
+        "pmass": 0.7,
+        "rmass": 1.35,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "2",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 44,
+      "velocity": 73,
+      "onset": 10875,
+      "duration": 125,
+      "hue": 300.0,
+      "sat": 0.7,
+      "lightness": 57.3,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 163.5,
+        "pmass": 0.7,
+        "rmass": 1.35,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "2",
+            "o": 6,
+            "m": 0.37
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 75,
+      "velocity": 73,
+      "onset": 11000,
+      "duration": 750,
+      "hue": 298.2,
+      "sat": 58.8,
+      "lightness": 59.5,
+      "tonal_distance": 1.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 170.4,
+        "pmass": 1.23,
+        "rmass": 0.7,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 6,
+            "m": 0.56
+          },
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 3,
+            "m": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 67,
+      "velocity": 71,
+      "onset": 11000,
+      "duration": 125,
+      "hue": 298.2,
+      "sat": 58.8,
+      "lightness": 59.5,
+      "tonal_distance": 1.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 170.4,
+        "pmass": 1.23,
+        "rmass": 0.7,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 6,
+            "m": 0.56
+          },
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 3,
+            "m": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 39,
+      "velocity": 77,
+      "onset": 11000,
+      "duration": 125,
+      "hue": 298.2,
+      "sat": 58.8,
+      "lightness": 59.5,
+      "tonal_distance": 1.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 170.4,
+        "pmass": 1.23,
+        "rmass": 0.7,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 6,
+            "m": 0.56
+          },
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 3,
+            "m": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 70,
+      "velocity": 71,
+      "onset": 11125,
+      "duration": 125,
+      "hue": 322.2,
+      "sat": 26.1,
+      "lightness": 49.5,
+      "tonal_distance": 7.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 31.8,
+        "pmass": 0.67,
+        "rmass": 1.23,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "5",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 43,
+      "velocity": 76,
+      "onset": 11125,
+      "duration": 125,
+      "hue": 322.2,
+      "sat": 26.1,
+      "lightness": 49.5,
+      "tonal_distance": 7.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 31.8,
+        "pmass": 0.67,
+        "rmass": 1.23,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "5",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 67,
+      "velocity": 69,
+      "onset": 11250,
+      "duration": 125,
+      "hue": 312.1,
+      "sat": 25.9,
+      "lightness": 49.3,
+      "tonal_distance": 12.1,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 20.1,
+        "pmass": 0.67,
+        "rmass": 0.67,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 46,
+      "velocity": 78,
+      "onset": 11250,
+      "duration": 125,
+      "hue": 312.1,
+      "sat": 25.9,
+      "lightness": 49.3,
+      "tonal_distance": 12.1,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 20.1,
+        "pmass": 0.67,
+        "rmass": 0.67,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 70,
+      "velocity": 73,
+      "onset": 11375,
+      "duration": 125,
+      "hue": 255.9,
+      "sat": 96.6,
+      "lightness": 57.1,
+      "tonal_distance": 14.1,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 57.3,
+        "pmass": 0.65,
+        "rmass": 1.33,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 82,
+      "onset": 11375,
+      "duration": 125,
+      "hue": 255.9,
+      "sat": 96.6,
+      "lightness": 57.1,
+      "tonal_distance": 14.1,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 57.3,
+        "pmass": 0.65,
+        "rmass": 1.33,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 67,
+      "velocity": 69,
+      "onset": 11500,
+      "duration": 125,
+      "hue": 30.0,
+      "sat": 100.0,
+      "lightness": 56.8,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 135.2,
+        "pmass": 0.64,
+        "rmass": 0.65,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 83,
+      "onset": 11500,
+      "duration": 125,
+      "hue": 30.0,
+      "sat": 100.0,
+      "lightness": 56.8,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 135.2,
+        "pmass": 0.64,
+        "rmass": 0.65,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 70,
+      "velocity": 73,
+      "onset": 11625,
+      "duration": 125,
+      "hue": 240.0,
+      "sat": 100.0,
+      "lightness": 57.1,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 150.0,
+        "pmass": 0.65,
+        "rmass": 0.64,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 58,
+      "velocity": 82,
+      "onset": 11625,
+      "duration": 125,
+      "hue": 240.0,
+      "sat": 100.0,
+      "lightness": 57.1,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 150.0,
+        "pmass": 0.65,
+        "rmass": 0.64,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.32
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 76,
+      "velocity": 71,
+      "onset": 11750,
+      "duration": 250,
+      "hue": 39.8,
+      "sat": 97.0,
+      "lightness": 64.7,
+      "tonal_distance": 9.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 161.1,
+        "pmass": 0.97,
+        "rmass": 0.65,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "3",
+            "o": 6,
+            "m": 0.36
+          },
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 67,
+      "velocity": 69,
+      "onset": 11750,
+      "duration": 125,
+      "hue": 39.8,
+      "sat": 97.0,
+      "lightness": 64.7,
+      "tonal_distance": 9.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 161.1,
+        "pmass": 0.97,
+        "rmass": 0.65,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "3",
+            "o": 6,
+            "m": 0.36
+          },
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 76,
+      "onset": 11750,
+      "duration": 125,
+      "hue": 39.8,
+      "sat": 97.0,
+      "lightness": 64.7,
+      "tonal_distance": 9.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 161.1,
+        "pmass": 0.97,
+        "rmass": 0.65,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "3",
+            "o": 6,
+            "m": 0.36
+          },
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 70,
+      "velocity": 73,
+      "onset": 11875,
+      "duration": 125,
+      "hue": 240.0,
+      "sat": 100.0,
+      "lightness": 57.2,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 161.1,
+        "pmass": 0.64,
+        "rmass": 0.97,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 58,
+      "velocity": 79,
+      "onset": 11875,
+      "duration": 125,
+      "hue": 240.0,
+      "sat": 100.0,
+      "lightness": 57.2,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 161.1,
+        "pmass": 0.64,
+        "rmass": 0.97,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 77,
+      "velocity": 76,
+      "onset": 12000,
+      "duration": 500,
+      "hue": 359.0,
+      "sat": 24.4,
+      "lightness": 60.1,
+      "tonal_distance": 1.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 114.6,
+        "pmass": 1.06,
+        "rmass": 0.64,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "4",
+            "o": 6,
+            "m": 0.39
+          },
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b2",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 67,
+      "velocity": 74,
+      "onset": 12000,
+      "duration": 125,
+      "hue": 359.0,
+      "sat": 24.4,
+      "lightness": 60.1,
+      "tonal_distance": 1.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 114.6,
+        "pmass": 1.06,
+        "rmass": 0.64,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "4",
+            "o": 6,
+            "m": 0.39
+          },
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b2",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 37,
+      "velocity": 75,
+      "onset": 12000,
+      "duration": 125,
+      "hue": 359.0,
+      "sat": 24.4,
+      "lightness": 60.1,
+      "tonal_distance": 1.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 114.6,
+        "pmass": 1.06,
+        "rmass": 0.64,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "4",
+            "o": 6,
+            "m": 0.39
+          },
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b2",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 70,
+      "velocity": 73,
+      "onset": 12125,
+      "duration": 125,
+      "hue": 317.9,
+      "sat": 25.9,
+      "lightness": 49.8,
+      "tonal_distance": 12.1,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 36.8,
+        "pmass": 0.67,
+        "rmass": 1.06,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "5",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 43,
+      "velocity": 75,
+      "onset": 12125,
+      "duration": 125,
+      "hue": 317.9,
+      "sat": 25.9,
+      "lightness": 49.8,
+      "tonal_distance": 12.1,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 36.8,
+        "pmass": 0.67,
+        "rmass": 1.06,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "5",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 67,
+      "velocity": 69,
+      "onset": 12250,
+      "duration": 125,
+      "hue": 310.6,
+      "sat": 26.0,
+      "lightness": 49.5,
+      "tonal_distance": 10.6,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 14.4,
+        "pmass": 0.66,
+        "rmass": 0.67,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 46,
+      "velocity": 77,
+      "onset": 12250,
+      "duration": 125,
+      "hue": 310.6,
+      "sat": 26.0,
+      "lightness": 49.5,
+      "tonal_distance": 10.6,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 14.4,
+        "pmass": 0.66,
+        "rmass": 0.67,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.35
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 70,
+      "velocity": 73,
+      "onset": 12375,
+      "duration": 125,
+      "hue": 208.7,
+      "sat": 86.6,
+      "lightness": 57.2,
+      "tonal_distance": 1.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 99.6,
+        "pmass": 0.64,
+        "rmass": 1.33,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 49,
+      "velocity": 79,
+      "onset": 12375,
+      "duration": 125,
+      "hue": 208.7,
+      "sat": 86.6,
+      "lightness": 57.2,
+      "tonal_distance": 1.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 99.6,
+        "pmass": 0.64,
+        "rmass": 1.33,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 70,
+      "velocity": 71,
+      "onset": 12500,
+      "duration": 375,
+      "hue": 8.8,
+      "sat": 43.8,
+      "lightness": 59.4,
+      "tonal_distance": 8.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 155.2,
+        "pmass": 0.96,
+        "rmass": 0.64,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 67,
+      "velocity": 69,
+      "onset": 12500,
+      "duration": 125,
+      "hue": 8.8,
+      "sat": 43.8,
+      "lightness": 59.4,
+      "tonal_distance": 8.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 155.2,
+        "pmass": 0.96,
+        "rmass": 0.64,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 84,
+      "onset": 12500,
+      "duration": 125,
+      "hue": 8.8,
+      "sat": 43.8,
+      "lightness": 59.4,
+      "tonal_distance": 8.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 155.2,
+        "pmass": 0.96,
+        "rmass": 0.64,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 67,
+      "onset": 12625,
+      "duration": 125,
+      "hue": 253.4,
+      "sat": 96.6,
+      "lightness": 56.7,
+      "tonal_distance": 13.4,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 111.8,
+        "pmass": 0.63,
+        "rmass": 0.96,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.3
+          },
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 58,
+      "velocity": 83,
+      "onset": 12625,
+      "duration": 125,
+      "hue": 253.4,
+      "sat": 96.6,
+      "lightness": 56.7,
+      "tonal_distance": 13.4,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 111.8,
+        "pmass": 0.63,
+        "rmass": 0.96,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.3
+          },
+          {
+            "int": "b7",
+            "o": 4,
+            "m": 0.33
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 67,
+      "velocity": 72,
+      "onset": 12750,
+      "duration": 125,
+      "hue": 30.0,
+      "sat": 100.0,
+      "lightness": 57.3,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 135.6,
+        "pmass": 0.63,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 76,
+      "onset": 12750,
+      "duration": 125,
+      "hue": 30.0,
+      "sat": 100.0,
+      "lightness": 57.3,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 135.6,
+        "pmass": 0.63,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 72,
+      "velocity": 71,
+      "onset": 12875,
+      "duration": 62,
+      "hue": 269.2,
+      "sat": 32.2,
+      "lightness": 64.9,
+      "tonal_distance": 0.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 105.4,
+        "pmass": 0.95,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.36
+          },
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.28
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 68,
+      "onset": 12875,
+      "duration": 125,
+      "hue": 269.2,
+      "sat": 32.2,
+      "lightness": 64.9,
+      "tonal_distance": 0.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 105.4,
+        "pmass": 0.95,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.36
+          },
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.28
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 49,
+      "velocity": 72,
+      "onset": 12875,
+      "duration": 125,
+      "hue": 269.2,
+      "sat": 32.2,
+      "lightness": 64.9,
+      "tonal_distance": 0.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 105.4,
+        "pmass": 0.95,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.36
+          },
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.28
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 73,
+      "velocity": 72,
+      "onset": 12937,
+      "duration": 62,
+      "hue": 223.0,
+      "sat": 35.3,
+      "lightness": 68.8,
+      "tonal_distance": 13.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 150.0,
+        "pmass": 0.37,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 6,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 75,
+      "velocity": 78,
+      "onset": 13000,
+      "duration": 500,
+      "hue": 282.0,
+      "sat": 58.5,
+      "lightness": 62.1,
+      "tonal_distance": 12.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 85.6,
+        "pmass": 1.06,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 6,
+            "m": 0.4
+          },
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.36
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 68,
+      "velocity": 79,
+      "onset": 13000,
+      "duration": 125,
+      "hue": 282.0,
+      "sat": 58.5,
+      "lightness": 62.1,
+      "tonal_distance": 12.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 85.6,
+        "pmass": 1.06,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 6,
+            "m": 0.4
+          },
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.36
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 48,
+      "velocity": 78,
+      "onset": 13000,
+      "duration": 125,
+      "hue": 282.0,
+      "sat": 58.5,
+      "lightness": 62.1,
+      "tonal_distance": 12.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 85.6,
+        "pmass": 1.06,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 6,
+            "m": 0.4
+          },
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.36
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 68,
+      "onset": 13125,
+      "duration": 125,
+      "hue": 292.0,
+      "sat": 82.7,
+      "lightness": 62.0,
+      "tonal_distance": 8.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 11.9,
+        "pmass": 0.61,
+        "rmass": 2.32,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 77,
+      "onset": 13125,
+      "duration": 125,
+      "hue": 292.0,
+      "sat": 82.7,
+      "lightness": 62.0,
+      "tonal_distance": 8.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 11.9,
+        "pmass": 0.61,
+        "rmass": 2.32,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 68,
+      "velocity": 74,
+      "onset": 13250,
+      "duration": 125,
+      "hue": 291.3,
+      "sat": 82.8,
+      "lightness": 62.0,
+      "tonal_distance": 8.7,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 50.7,
+        "pmass": 0.63,
+        "rmass": 2.85,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 48,
+      "velocity": 75,
+      "onset": 13250,
+      "duration": 125,
+      "hue": 291.3,
+      "sat": 82.8,
+      "lightness": 62.0,
+      "tonal_distance": 8.7,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 50.7,
+        "pmass": 0.63,
+        "rmass": 2.85,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 68,
+      "onset": 13375,
+      "duration": 125,
+      "hue": 291.2,
+      "sat": 82.9,
+      "lightness": 62.0,
+      "tonal_distance": 8.8,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 20.8,
+        "pmass": 0.61,
+        "rmass": 3.39,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 78,
+      "onset": 13375,
+      "duration": 125,
+      "hue": 291.2,
+      "sat": 82.9,
+      "lightness": 62.0,
+      "tonal_distance": 8.8,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 20.8,
+        "pmass": 0.61,
+        "rmass": 3.39,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 69,
+      "velocity": 71,
+      "onset": 13500,
+      "duration": 500,
+      "hue": 345.3,
+      "sat": 49.9,
+      "lightness": 53.3,
+      "tonal_distance": 14.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 58.9,
+        "pmass": 1.28,
+        "rmass": 3.89,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "6",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.3
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 70,
+      "onset": 13500,
+      "duration": 125,
+      "hue": 345.3,
+      "sat": 49.9,
+      "lightness": 53.3,
+      "tonal_distance": 14.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 58.9,
+        "pmass": 1.28,
+        "rmass": 3.89,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "6",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.3
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 48,
+      "velocity": 75,
+      "onset": 13500,
+      "duration": 125,
+      "hue": 345.3,
+      "sat": 49.9,
+      "lightness": 53.3,
+      "tonal_distance": 14.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 58.9,
+        "pmass": 1.28,
+        "rmass": 3.89,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "6",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.3
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 41,
+      "velocity": 76,
+      "onset": 13500,
+      "duration": 500,
+      "hue": 345.3,
+      "sat": 49.9,
+      "lightness": 53.3,
+      "tonal_distance": 14.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 58.9,
+        "pmass": 1.28,
+        "rmass": 3.89,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "6",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.3
+          },
+          {
+            "int": "4",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 60,
+      "velocity": 68,
+      "onset": 13625,
+      "duration": 125,
+      "hue": 344.5,
+      "sat": 65.6,
+      "lightness": 54.5,
+      "tonal_distance": 14.5,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 0.6,
+        "pmass": 0.62,
+        "rmass": 1.28,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 53,
+      "velocity": 80,
+      "onset": 13625,
+      "duration": 125,
+      "hue": 344.5,
+      "sat": 65.6,
+      "lightness": 54.5,
+      "tonal_distance": 14.5,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 0.6,
+        "pmass": 0.62,
+        "rmass": 1.28,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 72,
+      "onset": 13750,
+      "duration": 125,
+      "hue": 344.1,
+      "sat": 65.3,
+      "lightness": 54.6,
+      "tonal_distance": 14.1,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 32.7,
+        "pmass": 0.62,
+        "rmass": 1.87,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 48,
+      "velocity": 74,
+      "onset": 13750,
+      "duration": 125,
+      "hue": 344.1,
+      "sat": 65.3,
+      "lightness": 54.6,
+      "tonal_distance": 14.1,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 32.7,
+        "pmass": 0.62,
+        "rmass": 1.87,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "1",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 60,
+      "velocity": 69,
+      "onset": 13875,
+      "duration": 125,
+      "hue": 344.2,
+      "sat": 65.3,
+      "lightness": 54.6,
+      "tonal_distance": 14.2,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 9.4,
+        "pmass": 0.62,
+        "rmass": 2.44,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 53,
+      "velocity": 79,
+      "onset": 13875,
+      "duration": 125,
+      "hue": 344.2,
+      "sat": 65.3,
+      "lightness": 54.6,
+      "tonal_distance": 14.2,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 9.4,
+        "pmass": 0.62,
+        "rmass": 2.44,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 73,
+      "velocity": 76,
+      "onset": 14000,
+      "duration": 500,
+      "hue": 220.8,
+      "sat": 53.3,
+      "lightness": 57.1,
+      "tonal_distance": 10.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 117.8,
+        "pmass": 1.42,
+        "rmass": 3.02,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 6,
+            "m": 0.39
+          },
+          {
+            "int": "4",
+            "o": 5,
+            "m": 0.36
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 65,
+      "velocity": 79,
+      "onset": 14000,
+      "duration": 125,
+      "hue": 220.8,
+      "sat": 53.3,
+      "lightness": 57.1,
+      "tonal_distance": 10.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 117.8,
+        "pmass": 1.42,
+        "rmass": 3.02,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 6,
+            "m": 0.39
+          },
+          {
+            "int": "4",
+            "o": 5,
+            "m": 0.36
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 49,
+      "velocity": 79,
+      "onset": 14000,
+      "duration": 125,
+      "hue": 220.8,
+      "sat": 53.3,
+      "lightness": 57.1,
+      "tonal_distance": 10.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 117.8,
+        "pmass": 1.42,
+        "rmass": 3.02,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 6,
+            "m": 0.39
+          },
+          {
+            "int": "4",
+            "o": 5,
+            "m": 0.36
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 46,
+      "velocity": 81,
+      "onset": 14000,
+      "duration": 500,
+      "hue": 220.8,
+      "sat": 53.3,
+      "lightness": 57.1,
+      "tonal_distance": 10.8,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 117.8,
+        "pmass": 1.42,
+        "rmass": 3.02,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 6,
+            "m": 0.39
+          },
+          {
+            "int": "4",
+            "o": 5,
+            "m": 0.36
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.31
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.37
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 61,
+      "velocity": 69,
+      "onset": 14125,
+      "duration": 125,
+      "hue": 229.4,
+      "sat": 42.4,
+      "lightness": 57.1,
+      "tonal_distance": 10.6,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 33.7,
+        "pmass": 0.62,
+        "rmass": 1.42,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 53,
+      "velocity": 79,
+      "onset": 14125,
+      "duration": 125,
+      "hue": 229.4,
+      "sat": 42.4,
+      "lightness": 57.1,
+      "tonal_distance": 10.6,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 33.7,
+        "pmass": 0.62,
+        "rmass": 1.42,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 65,
+      "velocity": 74,
+      "onset": 14250,
+      "duration": 125,
+      "hue": 229.1,
+      "sat": 42.8,
+      "lightness": 57.1,
+      "tonal_distance": 10.9,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 43.3,
+        "pmass": 0.63,
+        "rmass": 2.03,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "4",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 49,
+      "velocity": 74,
+      "onset": 14250,
+      "duration": 125,
+      "hue": 229.1,
+      "sat": 42.8,
+      "lightness": 57.1,
+      "tonal_distance": 10.9,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 43.3,
+        "pmass": 0.63,
+        "rmass": 2.03,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "4",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b2",
+            "o": 4,
+            "m": 0.29
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 61,
+      "velocity": 69,
+      "onset": 14375,
+      "duration": 125,
+      "hue": 228.8,
+      "sat": 43.0,
+      "lightness": 57.1,
+      "tonal_distance": 11.2,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 20.4,
+        "pmass": 0.62,
+        "rmass": 2.64,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 53,
+      "velocity": 78,
+      "onset": 14375,
+      "duration": 125,
+      "hue": 228.8,
+      "sat": 43.0,
+      "lightness": 57.1,
+      "tonal_distance": 11.2,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 20.4,
+        "pmass": 0.62,
+        "rmass": 2.64,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "4",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 72,
+      "velocity": 71,
+      "onset": 14500,
+      "duration": 125,
+      "hue": 255.7,
+      "sat": 49.5,
+      "lightness": 53.3,
+      "tonal_distance": 14.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 23.8,
+        "pmass": 1.35,
+        "rmass": 3.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.36
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 61,
+      "velocity": 70,
+      "onset": 14500,
+      "duration": 125,
+      "hue": 255.7,
+      "sat": 49.5,
+      "lightness": 53.3,
+      "tonal_distance": 14.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 23.8,
+        "pmass": 1.35,
+        "rmass": 3.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.36
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 46,
+      "velocity": 73,
+      "onset": 14500,
+      "duration": 125,
+      "hue": 255.7,
+      "sat": 49.5,
+      "lightness": 53.3,
+      "tonal_distance": 14.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 23.8,
+        "pmass": 1.35,
+        "rmass": 3.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.36
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 39,
+      "velocity": 76,
+      "onset": 14500,
+      "duration": 500,
+      "hue": 255.7,
+      "sat": 49.5,
+      "lightness": 53.3,
+      "tonal_distance": 14.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 23.8,
+        "pmass": 1.35,
+        "rmass": 3.24,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "1",
+            "o": 6,
+            "m": 0.36
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 70,
+      "velocity": 70,
+      "onset": 14625,
+      "duration": 125,
+      "hue": 243.0,
+      "sat": 61.3,
+      "lightness": 56.0,
+      "tonal_distance": 3.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 28.9,
+        "pmass": 0.95,
+        "rmass": 1.35,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 61,
+      "velocity": 71,
+      "onset": 14625,
+      "duration": 125,
+      "hue": 243.0,
+      "sat": 61.3,
+      "lightness": 56.0,
+      "tonal_distance": 3.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 28.9,
+        "pmass": 0.95,
+        "rmass": 1.35,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 78,
+      "onset": 14625,
+      "duration": 125,
+      "hue": 243.0,
+      "sat": 61.3,
+      "lightness": 56.0,
+      "tonal_distance": 3.0,
+      "regime_state": "Stable",
+      "debug": {
+        "diff": 28.9,
+        "pmass": 0.95,
+        "rmass": 1.35,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 68,
+      "velocity": 69,
+      "onset": 14750,
+      "duration": 125,
+      "hue": 239.3,
+      "sat": 67.3,
+      "lightness": 54.6,
+      "tonal_distance": 0.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 3.7,
+        "pmass": 0.97,
+        "rmass": 2.28,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 61,
+      "velocity": 71,
+      "onset": 14750,
+      "duration": 125,
+      "hue": 239.3,
+      "sat": 67.3,
+      "lightness": 54.6,
+      "tonal_distance": 0.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 3.7,
+        "pmass": 0.97,
+        "rmass": 2.28,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 46,
+      "velocity": 74,
+      "onset": 14750,
+      "duration": 125,
+      "hue": 239.3,
+      "sat": 67.3,
+      "lightness": 54.6,
+      "tonal_distance": 0.7,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 3.7,
+        "pmass": 0.97,
+        "rmass": 2.28,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b7",
+            "o": 3,
+            "m": 0.34
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 67,
+      "velocity": 69,
+      "onset": 14875,
+      "duration": 125,
+      "hue": 255.8,
+      "sat": 21.0,
+      "lightness": 59.6,
+      "tonal_distance": 14.2,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 12.5,
+        "pmass": 0.94,
+        "rmass": 0.97,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 61,
+      "velocity": 71,
+      "onset": 14875,
+      "duration": 125,
+      "hue": 255.8,
+      "sat": 21.0,
+      "lightness": 59.6,
+      "tonal_distance": 14.2,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 12.5,
+        "pmass": 0.94,
+        "rmass": 0.97,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 79,
+      "onset": 14875,
+      "duration": 125,
+      "hue": 255.8,
+      "sat": 21.0,
+      "lightness": 59.6,
+      "tonal_distance": 14.2,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 12.5,
+        "pmass": 0.94,
+        "rmass": 0.97,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "5",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 70,
+      "velocity": 77,
+      "onset": 15000,
+      "duration": 500,
+      "hue": 241.9,
+      "sat": 66.6,
+      "lightness": 54.6,
+      "tonal_distance": 1.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 5.5,
+        "pmass": 1.33,
+        "rmass": 0.94,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.35
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.64
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 61,
+      "velocity": 75,
+      "onset": 15000,
+      "duration": 125,
+      "hue": 241.9,
+      "sat": 66.6,
+      "lightness": 54.6,
+      "tonal_distance": 1.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 5.5,
+        "pmass": 1.33,
+        "rmass": 0.94,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.35
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.64
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 44,
+      "velocity": 81,
+      "onset": 15000,
+      "duration": 875,
+      "hue": 241.9,
+      "sat": 66.6,
+      "lightness": 54.6,
+      "tonal_distance": 1.9,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 5.5,
+        "pmass": 1.33,
+        "rmass": 0.94,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b7",
+            "o": 5,
+            "m": 0.35
+          },
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.34
+          },
+          {
+            "int": "b6",
+            "o": 3,
+            "m": 0.64
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 73,
+      "onset": 15125,
+      "duration": 125,
+      "hue": 270.0,
+      "sat": 100.0,
+      "lightness": 57.3,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 12.7,
+        "pmass": 0.63,
+        "rmass": 1.33,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 77,
+      "onset": 15125,
+      "duration": 125,
+      "hue": 270.0,
+      "sat": 100.0,
+      "lightness": 57.3,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 12.7,
+        "pmass": 0.63,
+        "rmass": 1.33,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 61,
+      "velocity": 70,
+      "onset": 15250,
+      "duration": 125,
+      "hue": 92.3,
+      "sat": 26.5,
+      "lightness": 57.0,
+      "tonal_distance": 2.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 163.0,
+        "pmass": 0.63,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 55,
+      "velocity": 79,
+      "onset": 15250,
+      "duration": 125,
+      "hue": 92.3,
+      "sat": 26.5,
+      "lightness": 57.0,
+      "tonal_distance": 2.3,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 163.0,
+        "pmass": 0.63,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b2",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "5",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 63,
+      "velocity": 72,
+      "onset": 15375,
+      "duration": 125,
+      "hue": 270.0,
+      "sat": 100.0,
+      "lightness": 57.3,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 163.0,
+        "pmass": 0.62,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 51,
+      "velocity": 75,
+      "onset": 15375,
+      "duration": 125,
+      "hue": 270.0,
+      "sat": 100.0,
+      "lightness": 57.3,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 163.0,
+        "pmass": 0.62,
+        "rmass": 0.63,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b3",
+            "o": 5,
+            "m": 0.33
+          },
+          {
+            "int": "b3",
+            "o": 4,
+            "m": 0.3
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 68,
+      "velocity": 71,
+      "onset": 15500,
+      "duration": 375,
+      "hue": 317.9,
+      "sat": 88.6,
+      "lightness": 59.5,
+      "tonal_distance": 12.1,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 48.8,
+        "pmass": 0.95,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 60,
+      "velocity": 69,
+      "onset": 15500,
+      "duration": 375,
+      "hue": 317.9,
+      "sat": 88.6,
+      "lightness": 59.5,
+      "tonal_distance": 12.1,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 48.8,
+        "pmass": 0.95,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.31
+          }
+        ]
+      }
+    },
+    {
+      "pitch": 56,
+      "velocity": 80,
+      "onset": 15500,
+      "duration": 375,
+      "hue": 317.9,
+      "sat": 88.6,
+      "lightness": 59.5,
+      "tonal_distance": 12.1,
+      "regime_state": "TRANSITION SPIKE!",
+      "debug": {
+        "diff": 48.8,
+        "pmass": 0.95,
+        "rmass": 0.62,
+        "threshold": 0.75,
+        "particles": [
+          {
+            "int": "b6",
+            "o": 5,
+            "m": 0.32
+          },
+          {
+            "int": "1",
+            "o": 5,
+            "m": 0.31
+          },
+          {
+            "int": "b6",
+            "o": 4,
+            "m": 0.31
           }
         ]
       }
@@ -1612,16 +8496,16 @@
       "start_time": 3000,
       "end_time": 3125,
       "state": "TRANSITION SPIKE!",
-      "hue": 292.2,
-      "saturation": 52.6,
-      "v_vec": 21.1
+      "hue": 292.0,
+      "saturation": 52.9,
+      "v_vec": 21.4
     },
     {
       "start_time": 3125,
       "end_time": 3375,
       "state": "Stable",
-      "hue": 292.2,
-      "saturation": 52.6,
+      "hue": 292.0,
+      "saturation": 52.9,
       "v_vec": 0.0
     },
     {
@@ -1630,7 +8514,7 @@
       "state": "TRANSITION SPIKE!",
       "hue": 240.0,
       "saturation": 100.0,
-      "v_vec": 79.5
+      "v_vec": 79.3
     },
     {
       "start_time": 3500,
@@ -1642,15 +8526,631 @@
     },
     {
       "start_time": 3625,
-      "end_time": 3733,
+      "end_time": 3750,
       "state": "Stable",
       "hue": 280.2,
       "saturation": 54.4,
       "v_vec": 0.0
+    },
+    {
+      "start_time": 3750,
+      "end_time": 3875,
+      "state": "TRANSITION SPIKE!",
+      "hue": 33.5,
+      "saturation": 34.6,
+      "v_vec": 75.2
+    },
+    {
+      "start_time": 3875,
+      "end_time": 4000,
+      "state": "Stable",
+      "hue": 33.5,
+      "saturation": 34.6,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 4000,
+      "end_time": 4125,
+      "state": "TRANSITION SPIKE!",
+      "hue": 265.3,
+      "saturation": 20.4,
+      "v_vec": 49.9
+    },
+    {
+      "start_time": 4125,
+      "end_time": 4250,
+      "state": "Stable",
+      "hue": 265.3,
+      "saturation": 20.4,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 4250,
+      "end_time": 4375,
+      "state": "TRANSITION SPIKE!",
+      "hue": 309.7,
+      "saturation": 26.0,
+      "v_vec": 18.3
+    },
+    {
+      "start_time": 4375,
+      "end_time": 4500,
+      "state": "Stable",
+      "hue": 309.7,
+      "saturation": 26.0,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 4500,
+      "end_time": 4625,
+      "state": "TRANSITION SPIKE!",
+      "hue": 235.3,
+      "saturation": 38.8,
+      "v_vec": 40.5
+    },
+    {
+      "start_time": 4625,
+      "end_time": 4750,
+      "state": "Stable",
+      "hue": 235.3,
+      "saturation": 38.8,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 4750,
+      "end_time": 4875,
+      "state": "TRANSITION SPIKE!",
+      "hue": 30.0,
+      "saturation": 100.0,
+      "v_vec": 136.1
+    },
+    {
+      "start_time": 4875,
+      "end_time": 4937,
+      "state": "TRANSITION SPIKE!",
+      "hue": 291.6,
+      "saturation": 65.0,
+      "v_vec": 127.0
+    },
+    {
+      "start_time": 4937,
+      "end_time": 5500,
+      "state": "Stable",
+      "hue": 291.6,
+      "saturation": 65.0,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 5500,
+      "end_time": 5625,
+      "state": "TRANSITION SPIKE!",
+      "hue": 342.4,
+      "saturation": 52.8,
+      "v_vec": 51.8
+    },
+    {
+      "start_time": 5625,
+      "end_time": 5750,
+      "state": "Stable",
+      "hue": 342.4,
+      "saturation": 52.8,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 5750,
+      "end_time": 5875,
+      "state": "TRANSITION SPIKE!",
+      "hue": 314.1,
+      "saturation": 70.7,
+      "v_vec": 34.9
+    },
+    {
+      "start_time": 5875,
+      "end_time": 6000,
+      "state": "Stable",
+      "hue": 314.1,
+      "saturation": 70.7,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 6000,
+      "end_time": 6125,
+      "state": "TRANSITION SPIKE!",
+      "hue": 229.5,
+      "saturation": 47.8,
+      "v_vec": 81.5
+    },
+    {
+      "start_time": 6125,
+      "end_time": 6500,
+      "state": "Stable",
+      "hue": 229.5,
+      "saturation": 47.8,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 6500,
+      "end_time": 6625,
+      "state": "TRANSITION SPIKE!",
+      "hue": 276.6,
+      "saturation": 40.4,
+      "v_vec": 35.9
+    },
+    {
+      "start_time": 6625,
+      "end_time": 6750,
+      "state": "TRANSITION SPIKE!",
+      "hue": 220.1,
+      "saturation": 66.4,
+      "v_vec": 55.6
+    },
+    {
+      "start_time": 6750,
+      "end_time": 6875,
+      "state": "Stable",
+      "hue": 220.1,
+      "saturation": 66.4,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 6875,
+      "end_time": 7000,
+      "state": "TRANSITION SPIKE!",
+      "hue": 271.3,
+      "saturation": 20.3,
+      "v_vec": 56.0
+    },
+    {
+      "start_time": 7000,
+      "end_time": 7125,
+      "state": "Stable",
+      "hue": 271.3,
+      "saturation": 20.3,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 7125,
+      "end_time": 7250,
+      "state": "TRANSITION SPIKE!",
+      "hue": 270.0,
+      "saturation": 100.0,
+      "v_vec": 79.7
+    },
+    {
+      "start_time": 7250,
+      "end_time": 7375,
+      "state": "TRANSITION SPIKE!",
+      "hue": 296.8,
+      "saturation": 76.7,
+      "v_vec": 46.8
+    },
+    {
+      "start_time": 7375,
+      "end_time": 8000,
+      "state": "Stable",
+      "hue": 296.8,
+      "saturation": 76.7,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 8000,
+      "end_time": 8125,
+      "state": "TRANSITION SPIKE!",
+      "hue": 331.1,
+      "saturation": 86.6,
+      "v_vec": 49.1
+    },
+    {
+      "start_time": 8125,
+      "end_time": 8250,
+      "state": "TRANSITION SPIKE!",
+      "hue": 270.0,
+      "saturation": 100.0,
+      "v_vec": 95.6
+    },
+    {
+      "start_time": 8250,
+      "end_time": 8375,
+      "state": "TRANSITION SPIKE!",
+      "hue": 329.8,
+      "saturation": 86.6,
+      "v_vec": 93.8
+    },
+    {
+      "start_time": 8375,
+      "end_time": 8500,
+      "state": "TRANSITION SPIKE!",
+      "hue": 270.0,
+      "saturation": 100.0,
+      "v_vec": 93.8
+    },
+    {
+      "start_time": 8500,
+      "end_time": 8625,
+      "state": "TRANSITION SPIKE!",
+      "hue": 227.7,
+      "saturation": 41.1,
+      "v_vec": 74.9
+    },
+    {
+      "start_time": 8625,
+      "end_time": 8750,
+      "state": "TRANSITION SPIKE!",
+      "hue": 270.0,
+      "saturation": 100.0,
+      "v_vec": 74.9
+    },
+    {
+      "start_time": 8750,
+      "end_time": 8875,
+      "state": "TRANSITION SPIKE!",
+      "hue": 330.6,
+      "saturation": 26.9,
+      "v_vec": 89.9
+    },
+    {
+      "start_time": 8875,
+      "end_time": 9000,
+      "state": "TRANSITION SPIKE!",
+      "hue": 270.0,
+      "saturation": 100.0,
+      "v_vec": 89.9
+    },
+    {
+      "start_time": 9000,
+      "end_time": 9125,
+      "state": "TRANSITION SPIKE!",
+      "hue": 288.2,
+      "saturation": 90.2,
+      "v_vec": 31.7
+    },
+    {
+      "start_time": 9125,
+      "end_time": 9500,
+      "state": "Stable",
+      "hue": 288.2,
+      "saturation": 90.2,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 9500,
+      "end_time": 9625,
+      "state": "TRANSITION SPIKE!",
+      "hue": 1.8,
+      "saturation": 58.8,
+      "v_vec": 92.7
+    },
+    {
+      "start_time": 9625,
+      "end_time": 9750,
+      "state": "TRANSITION SPIKE!",
+      "hue": 253.7,
+      "saturation": 96.6,
+      "v_vec": 127.8
+    },
+    {
+      "start_time": 9750,
+      "end_time": 9875,
+      "state": "TRANSITION SPIKE!",
+      "hue": 237.5,
+      "saturation": 17.9,
+      "v_vec": 79.6
+    },
+    {
+      "start_time": 9875,
+      "end_time": 10000,
+      "state": "TRANSITION SPIKE!",
+      "hue": 253.8,
+      "saturation": 96.6,
+      "v_vec": 79.6
+    },
+    {
+      "start_time": 10000,
+      "end_time": 10125,
+      "state": "TRANSITION SPIKE!",
+      "hue": 300.6,
+      "saturation": 86.4,
+      "v_vec": 73.2
+    },
+    {
+      "start_time": 10125,
+      "end_time": 10250,
+      "state": "Stable",
+      "hue": 300.6,
+      "saturation": 86.4,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 10250,
+      "end_time": 10375,
+      "state": "TRANSITION SPIKE!",
+      "hue": 326.8,
+      "saturation": 50.1,
+      "v_vec": 47.0
+    },
+    {
+      "start_time": 10375,
+      "end_time": 10500,
+      "state": "TRANSITION SPIKE!",
+      "hue": 254.1,
+      "saturation": 96.6,
+      "v_vec": 94.6
+    },
+    {
+      "start_time": 10500,
+      "end_time": 10625,
+      "state": "TRANSITION SPIKE!",
+      "hue": 314.4,
+      "saturation": 96.6,
+      "v_vec": 96.9
+    },
+    {
+      "start_time": 10625,
+      "end_time": 10750,
+      "state": "TRANSITION SPIKE!",
+      "hue": 332.0,
+      "saturation": 86.7,
+      "v_vec": 29.8
+    },
+    {
+      "start_time": 10750,
+      "end_time": 10875,
+      "state": "TRANSITION SPIKE!",
+      "hue": 283.5,
+      "saturation": 70.7,
+      "v_vec": 66.3
+    },
+    {
+      "start_time": 10875,
+      "end_time": 11000,
+      "state": "TRANSITION SPIKE!",
+      "hue": 120.0,
+      "saturation": 5.4,
+      "v_vec": 76.0
+    },
+    {
+      "start_time": 11000,
+      "end_time": 11125,
+      "state": "TRANSITION SPIKE!",
+      "hue": 290.4,
+      "saturation": 64.9,
+      "v_vec": 70.3
+    },
+    {
+      "start_time": 11125,
+      "end_time": 11250,
+      "state": "TRANSITION SPIKE!",
+      "hue": 312.1,
+      "saturation": 25.9,
+      "v_vec": 41.9
+    },
+    {
+      "start_time": 11250,
+      "end_time": 11375,
+      "state": "Stable",
+      "hue": 312.1,
+      "saturation": 25.9,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 11375,
+      "end_time": 11500,
+      "state": "TRANSITION SPIKE!",
+      "hue": 254.8,
+      "saturation": 96.6,
+      "v_vec": 85.4
+    },
+    {
+      "start_time": 11500,
+      "end_time": 11625,
+      "state": "TRANSITION SPIKE!",
+      "hue": 30.0,
+      "saturation": 100.0,
+      "v_vec": 181.8
+    },
+    {
+      "start_time": 11625,
+      "end_time": 11750,
+      "state": "TRANSITION SPIKE!",
+      "hue": 240.0,
+      "saturation": 100.0,
+      "v_vec": 193.2
+    },
+    {
+      "start_time": 11750,
+      "end_time": 11875,
+      "state": "TRANSITION SPIKE!",
+      "hue": 41.1,
+      "saturation": 96.8,
+      "v_vec": 194.1
+    },
+    {
+      "start_time": 11875,
+      "end_time": 12000,
+      "state": "TRANSITION SPIKE!",
+      "hue": 240.0,
+      "saturation": 100.0,
+      "v_vec": 194.1
+    },
+    {
+      "start_time": 12000,
+      "end_time": 12125,
+      "state": "TRANSITION SPIKE!",
+      "hue": 354.6,
+      "saturation": 27.1,
+      "v_vec": 114.0
+    },
+    {
+      "start_time": 12125,
+      "end_time": 12250,
+      "state": "TRANSITION SPIKE!",
+      "hue": 310.6,
+      "saturation": 26.0,
+      "v_vec": 19.9
+    },
+    {
+      "start_time": 12250,
+      "end_time": 12375,
+      "state": "Stable",
+      "hue": 310.6,
+      "saturation": 26.0,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 12375,
+      "end_time": 12500,
+      "state": "TRANSITION SPIKE!",
+      "hue": 211.0,
+      "saturation": 86.6,
+      "v_vec": 94.5
+    },
+    {
+      "start_time": 12500,
+      "end_time": 12625,
+      "state": "TRANSITION SPIKE!",
+      "hue": 6.2,
+      "saturation": 41.3,
+      "v_vec": 125.3
+    },
+    {
+      "start_time": 12625,
+      "end_time": 12750,
+      "state": "TRANSITION SPIKE!",
+      "hue": 254.4,
+      "saturation": 96.6,
+      "v_vec": 118.3
+    },
+    {
+      "start_time": 12750,
+      "end_time": 12875,
+      "state": "TRANSITION SPIKE!",
+      "hue": 30.0,
+      "saturation": 100.0,
+      "v_vec": 182.0
+    },
+    {
+      "start_time": 12875,
+      "end_time": 12937,
+      "state": "TRANSITION SPIKE!",
+      "hue": 284.6,
+      "saturation": 61.7,
+      "v_vec": 130.7
+    },
+    {
+      "start_time": 12937,
+      "end_time": 13500,
+      "state": "Stable",
+      "hue": 284.6,
+      "saturation": 61.7,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 13500,
+      "end_time": 13625,
+      "state": "TRANSITION SPIKE!",
+      "hue": 338.5,
+      "saturation": 70.0,
+      "v_vec": 60.1
+    },
+    {
+      "start_time": 13625,
+      "end_time": 14000,
+      "state": "Stable",
+      "hue": 338.5,
+      "saturation": 70.0,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 14000,
+      "end_time": 14125,
+      "state": "TRANSITION SPIKE!",
+      "hue": 235.7,
+      "saturation": 35.8,
+      "v_vec": 85.4
+    },
+    {
+      "start_time": 14125,
+      "end_time": 14500,
+      "state": "Stable",
+      "hue": 235.7,
+      "saturation": 35.8,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 14500,
+      "end_time": 14625,
+      "state": "TRANSITION SPIKE!",
+      "hue": 243.7,
+      "saturation": 58.8,
+      "v_vec": 23.9
+    },
+    {
+      "start_time": 14625,
+      "end_time": 14750,
+      "state": "Stable",
+      "hue": 243.7,
+      "saturation": 58.8,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 14750,
+      "end_time": 14875,
+      "state": "TRANSITION SPIKE!",
+      "hue": 239.3,
+      "saturation": 67.3,
+      "v_vec": 9.8
+    },
+    {
+      "start_time": 14875,
+      "end_time": 15000,
+      "state": "TRANSITION SPIKE!",
+      "hue": 251.8,
+      "saturation": 17.2,
+      "v_vec": 50.6
+    },
+    {
+      "start_time": 15000,
+      "end_time": 15125,
+      "state": "TRANSITION SPIKE!",
+      "hue": 257.3,
+      "saturation": 66.1,
+      "v_vec": 49.0
+    },
+    {
+      "start_time": 15125,
+      "end_time": 15250,
+      "state": "TRANSITION SPIKE!",
+      "hue": 270.0,
+      "saturation": 100.0,
+      "v_vec": 38.4
+    },
+    {
+      "start_time": 15250,
+      "end_time": 15375,
+      "state": "TRANSITION SPIKE!",
+      "hue": 107.0,
+      "saturation": 25.9,
+      "v_vec": 125.0
+    },
+    {
+      "start_time": 15375,
+      "end_time": 15500,
+      "state": "TRANSITION SPIKE!",
+      "hue": 270.0,
+      "saturation": 100.0,
+      "v_vec": 125.0
+    },
+    {
+      "start_time": 15500,
+      "end_time": 15875,
+      "state": "TRANSITION SPIKE!",
+      "hue": 318.8,
+      "saturation": 88.3,
+      "v_vec": 78.6
     }
   ],
   "stats": {
-    "total_notes": 49,
-    "total_regimes": 25
+    "total_notes": 265,
+    "total_regimes": 102
   }
 }

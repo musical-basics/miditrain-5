@@ -1369,11 +1369,11 @@
       "velocity": 59,
       "onset": 3500,
       "duration": 125,
-      "hue": 274.7,
-      "sat": 71.9,
-      "lightness": 49.4,
-      "tonal_distance": 4.7,
-      "regime_state": "Stable",
+      "hue": 317.7,
+      "sat": 51.2,
+      "lightness": 41.6,
+      "tonal_distance": 12.3,
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
         "diff": 2.2,
         "pmass": 1.3,
@@ -1398,11 +1398,11 @@
       "velocity": 76,
       "onset": 3500,
       "duration": 500,
-      "hue": 274.7,
-      "sat": 71.9,
-      "lightness": 49.4,
-      "tonal_distance": 4.7,
-      "regime_state": "Stable",
+      "hue": 317.7,
+      "sat": 51.2,
+      "lightness": 41.6,
+      "tonal_distance": 12.3,
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
         "diff": 2.2,
         "pmass": 1.3,
@@ -1427,15 +1427,15 @@
       "velocity": 62,
       "onset": 3625,
       "duration": 125,
-      "hue": 277.0,
-      "sat": 63.2,
-      "lightness": 49.3,
-      "tonal_distance": 7.0,
+      "hue": 281.3,
+      "sat": 51.9,
+      "lightness": 44.2,
+      "tonal_distance": 11.3,
       "regime_state": "Stable",
       "debug": {
-        "diff": 55.8,
+        "diff": 71.4,
         "pmass": 0.24,
-        "rmass": 1.57,
+        "rmass": 0.58,
         "threshold": 0.75,
         "particles": [
           {
@@ -1457,9 +1457,9 @@
       "tonal_distance": 14.7,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 97.7,
+        "diff": 82.1,
         "pmass": 0.75,
-        "rmass": 1.57,
+        "rmass": 0.58,
         "threshold": 0.75,
         "particles": [
           {
@@ -1486,9 +1486,9 @@
       "tonal_distance": 14.7,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 97.7,
+        "diff": 82.1,
         "pmass": 0.75,
-        "rmass": 1.57,
+        "rmass": 0.58,
         "threshold": 0.75,
         "particles": [
           {
@@ -1915,11 +1915,11 @@
       "velocity": 62,
       "onset": 4937,
       "duration": 62,
-      "hue": 269.0,
-      "sat": 32.4,
-      "lightness": 60.1,
-      "tonal_distance": 1.0,
-      "regime_state": "Stable",
+      "hue": 180.0,
+      "sat": 100.0,
+      "lightness": 65.0,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
         "diff": 34.4,
         "pmass": 0.75,
@@ -1939,15 +1939,15 @@
       "velocity": 67,
       "onset": 5000,
       "duration": 500,
-      "hue": 301.9,
-      "sat": 79.1,
-      "lightness": 53.7,
-      "tonal_distance": 1.9,
-      "regime_state": "Stable",
+      "hue": 312.5,
+      "sat": 78.9,
+      "lightness": 54.7,
+      "tonal_distance": 12.5,
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 113.6,
-        "pmass": 1.36,
-        "rmass": 0.78,
+        "diff": 9.6,
+        "pmass": 0.89,
+        "rmass": 0.51,
         "threshold": 0.75,
         "particles": [
           {
@@ -1973,15 +1973,15 @@
       "velocity": 67,
       "onset": 5000,
       "duration": 125,
-      "hue": 301.9,
-      "sat": 79.1,
-      "lightness": 53.7,
-      "tonal_distance": 1.9,
-      "regime_state": "Stable",
+      "hue": 312.5,
+      "sat": 78.9,
+      "lightness": 54.7,
+      "tonal_distance": 12.5,
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 113.6,
-        "pmass": 1.36,
-        "rmass": 0.78,
+        "diff": 9.6,
+        "pmass": 0.89,
+        "rmass": 0.51,
         "threshold": 0.75,
         "particles": [
           {
@@ -2007,15 +2007,15 @@
       "velocity": 81,
       "onset": 5000,
       "duration": 500,
-      "hue": 301.9,
-      "sat": 79.1,
-      "lightness": 53.7,
-      "tonal_distance": 1.9,
-      "regime_state": "Stable",
+      "hue": 312.5,
+      "sat": 78.9,
+      "lightness": 54.7,
+      "tonal_distance": 12.5,
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 113.6,
-        "pmass": 1.36,
-        "rmass": 0.78,
+        "diff": 9.6,
+        "pmass": 0.89,
+        "rmass": 0.51,
         "threshold": 0.75,
         "particles": [
           {
@@ -2047,9 +2047,9 @@
       "tonal_distance": 1.9,
       "regime_state": "Stable",
       "debug": {
-        "diff": 30.7,
+        "diff": 40.3,
         "pmass": 0.23,
-        "rmass": 1.64,
+        "rmass": 0.89,
         "threshold": 0.75,
         "particles": [
           {
@@ -2071,9 +2071,9 @@
       "tonal_distance": 1.9,
       "regime_state": "Stable",
       "debug": {
-        "diff": 6.5,
+        "diff": 0.4,
         "pmass": 0.25,
-        "rmass": 1.81,
+        "rmass": 1.09,
         "threshold": 0.75,
         "particles": [
           {
@@ -2095,9 +2095,9 @@
       "tonal_distance": 1.9,
       "regime_state": "Stable",
       "debug": {
-        "diff": 24.9,
+        "diff": 29.7,
         "pmass": 0.23,
-        "rmass": 1.98,
+        "rmass": 1.3,
         "threshold": 0.75,
         "particles": [
           {
@@ -2119,9 +2119,9 @@
       "tonal_distance": 0.7,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 40.2,
+        "diff": 36.7,
         "pmass": 0.82,
-        "rmass": 2.15,
+        "rmass": 1.49,
         "threshold": 0.75,
         "particles": [
           {
@@ -2153,9 +2153,9 @@
       "tonal_distance": 0.7,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 40.2,
+        "diff": 36.7,
         "pmass": 0.82,
-        "rmass": 2.15,
+        "rmass": 1.49,
         "threshold": 0.75,
         "particles": [
           {
@@ -2187,9 +2187,9 @@
       "tonal_distance": 0.7,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 40.2,
+        "diff": 36.7,
         "pmass": 0.82,
-        "rmass": 2.15,
+        "rmass": 1.49,
         "threshold": 0.75,
         "particles": [
           {
@@ -3225,7 +3225,7 @@
       "sat": 86.6,
       "lightness": 57.0,
       "tonal_distance": 1.1,
-      "regime_state": "Stable",
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
         "diff": 52.0,
         "pmass": 2.04,
@@ -3264,7 +3264,7 @@
       "sat": 86.6,
       "lightness": 57.0,
       "tonal_distance": 1.1,
-      "regime_state": "Stable",
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
         "diff": 52.0,
         "pmass": 2.04,
@@ -3303,7 +3303,7 @@
       "sat": 86.6,
       "lightness": 57.0,
       "tonal_distance": 1.1,
-      "regime_state": "Stable",
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
         "diff": 52.0,
         "pmass": 2.04,
@@ -3342,7 +3342,7 @@
       "sat": 86.6,
       "lightness": 57.0,
       "tonal_distance": 1.1,
-      "regime_state": "Stable",
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
         "diff": 52.0,
         "pmass": 2.04,
@@ -3383,9 +3383,9 @@
       "tonal_distance": 9.2,
       "regime_state": "Stable",
       "debug": {
-        "diff": 54.9,
+        "diff": 61.1,
         "pmass": 0.61,
-        "rmass": 1.73,
+        "rmass": 1.42,
         "threshold": 0.75,
         "particles": [
           {
@@ -3412,9 +3412,9 @@
       "tonal_distance": 9.2,
       "regime_state": "Stable",
       "debug": {
-        "diff": 54.9,
+        "diff": 61.1,
         "pmass": 0.61,
-        "rmass": 1.73,
+        "rmass": 1.42,
         "threshold": 0.75,
         "particles": [
           {
@@ -3441,9 +3441,9 @@
       "tonal_distance": 2.5,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 27.2,
+        "diff": 33.4,
         "pmass": 1.23,
-        "rmass": 1.73,
+        "rmass": 1.42,
         "threshold": 0.75,
         "particles": [
           {
@@ -3470,9 +3470,9 @@
       "tonal_distance": 2.5,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 27.2,
+        "diff": 33.4,
         "pmass": 1.23,
-        "rmass": 1.73,
+        "rmass": 1.42,
         "threshold": 0.75,
         "particles": [
           {
@@ -6535,11 +6535,11 @@
       "velocity": 72,
       "onset": 12937,
       "duration": 62,
-      "hue": 223.0,
-      "sat": 35.3,
-      "lightness": 68.8,
-      "tonal_distance": 13.0,
-      "regime_state": "Stable",
+      "hue": 180.0,
+      "sat": 100.0,
+      "lightness": 80.0,
+      "tonal_distance": 0.0,
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
         "diff": 150.0,
         "pmass": 0.37,
@@ -6559,15 +6559,15 @@
       "velocity": 78,
       "onset": 13000,
       "duration": 500,
-      "hue": 282.0,
-      "sat": 58.5,
-      "lightness": 62.1,
-      "tonal_distance": 12.0,
-      "regime_state": "Stable",
+      "hue": 308.7,
+      "sat": 79.9,
+      "lightness": 65.0,
+      "tonal_distance": 8.7,
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 85.6,
+        "diff": 19.9,
         "pmass": 1.06,
-        "rmass": 0.63,
+        "rmass": 0.95,
         "threshold": 0.75,
         "particles": [
           {
@@ -6593,15 +6593,15 @@
       "velocity": 79,
       "onset": 13000,
       "duration": 125,
-      "hue": 282.0,
-      "sat": 58.5,
-      "lightness": 62.1,
-      "tonal_distance": 12.0,
-      "regime_state": "Stable",
+      "hue": 308.7,
+      "sat": 79.9,
+      "lightness": 65.0,
+      "tonal_distance": 8.7,
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 85.6,
+        "diff": 19.9,
         "pmass": 1.06,
-        "rmass": 0.63,
+        "rmass": 0.95,
         "threshold": 0.75,
         "particles": [
           {
@@ -6627,15 +6627,15 @@
       "velocity": 78,
       "onset": 13000,
       "duration": 125,
-      "hue": 282.0,
-      "sat": 58.5,
-      "lightness": 62.1,
-      "tonal_distance": 12.0,
-      "regime_state": "Stable",
+      "hue": 308.7,
+      "sat": 79.9,
+      "lightness": 65.0,
+      "tonal_distance": 8.7,
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 85.6,
+        "diff": 19.9,
         "pmass": 1.06,
-        "rmass": 0.63,
+        "rmass": 0.95,
         "threshold": 0.75,
         "particles": [
           {
@@ -6667,9 +6667,9 @@
       "tonal_distance": 8.0,
       "regime_state": "Stable",
       "debug": {
-        "diff": 11.9,
+        "diff": 34.4,
         "pmass": 0.61,
-        "rmass": 2.32,
+        "rmass": 1.06,
         "threshold": 0.75,
         "particles": [
           {
@@ -6696,9 +6696,9 @@
       "tonal_distance": 8.0,
       "regime_state": "Stable",
       "debug": {
-        "diff": 11.9,
+        "diff": 34.4,
         "pmass": 0.61,
-        "rmass": 2.32,
+        "rmass": 1.06,
         "threshold": 0.75,
         "particles": [
           {
@@ -6725,9 +6725,9 @@
       "tonal_distance": 8.7,
       "regime_state": "Stable",
       "debug": {
-        "diff": 50.7,
+        "diff": 38.4,
         "pmass": 0.63,
-        "rmass": 2.85,
+        "rmass": 1.64,
         "threshold": 0.75,
         "particles": [
           {
@@ -6754,9 +6754,9 @@
       "tonal_distance": 8.7,
       "regime_state": "Stable",
       "debug": {
-        "diff": 50.7,
+        "diff": 38.4,
         "pmass": 0.63,
-        "rmass": 2.85,
+        "rmass": 1.64,
         "threshold": 0.75,
         "particles": [
           {
@@ -6783,9 +6783,9 @@
       "tonal_distance": 8.8,
       "regime_state": "Stable",
       "debug": {
-        "diff": 20.8,
+        "diff": 30.9,
         "pmass": 0.61,
-        "rmass": 3.39,
+        "rmass": 2.22,
         "threshold": 0.75,
         "particles": [
           {
@@ -6812,9 +6812,9 @@
       "tonal_distance": 8.8,
       "regime_state": "Stable",
       "debug": {
-        "diff": 20.8,
+        "diff": 30.9,
         "pmass": 0.61,
-        "rmass": 3.39,
+        "rmass": 2.22,
         "threshold": 0.75,
         "particles": [
           {
@@ -6841,9 +6841,9 @@
       "tonal_distance": 14.7,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 58.9,
+        "diff": 51.8,
         "pmass": 1.28,
-        "rmass": 3.89,
+        "rmass": 2.77,
         "threshold": 0.75,
         "particles": [
           {
@@ -6880,9 +6880,9 @@
       "tonal_distance": 14.7,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 58.9,
+        "diff": 51.8,
         "pmass": 1.28,
-        "rmass": 3.89,
+        "rmass": 2.77,
         "threshold": 0.75,
         "particles": [
           {
@@ -6919,9 +6919,9 @@
       "tonal_distance": 14.7,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 58.9,
+        "diff": 51.8,
         "pmass": 1.28,
-        "rmass": 3.89,
+        "rmass": 2.77,
         "threshold": 0.75,
         "particles": [
           {
@@ -6958,9 +6958,9 @@
       "tonal_distance": 14.7,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 58.9,
+        "diff": 51.8,
         "pmass": 1.28,
-        "rmass": 3.89,
+        "rmass": 2.77,
         "threshold": 0.75,
         "particles": [
           {
@@ -8464,16 +8464,32 @@
       "start_time": 3000,
       "end_time": 3125,
       "state": "TRANSITION SPIKE!",
-      "hue": 280.2,
-      "saturation": 55.0,
-      "v_vec": 23.4
+      "hue": 280.3,
+      "saturation": 55.3,
+      "v_vec": 23.7
     },
     {
       "start_time": 3125,
+      "end_time": 3500,
+      "state": "Stable",
+      "hue": 280.3,
+      "saturation": 55.3,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 3500,
+      "end_time": 3625,
+      "state": "TRANSITION SPIKE!",
+      "hue": 280.2,
+      "saturation": 54.4,
+      "v_vec": 0.9
+    },
+    {
+      "start_time": 3625,
       "end_time": 3750,
       "state": "Stable",
       "hue": 280.2,
-      "saturation": 55.0,
+      "saturation": 54.4,
       "v_vec": 0.0
     },
     {
@@ -8482,7 +8498,7 @@
       "state": "TRANSITION SPIKE!",
       "hue": 33.5,
       "saturation": 34.6,
-      "v_vec": 75.7
+      "v_vec": 75.2
     },
     {
       "start_time": 3875,
@@ -8528,16 +8544,32 @@
       "start_time": 4875,
       "end_time": 4937,
       "state": "TRANSITION SPIKE!",
-      "hue": 291.6,
-      "saturation": 65.0,
-      "v_vec": 51.0
+      "hue": 319.9,
+      "saturation": 71.0,
+      "v_vec": 62.7
     },
     {
       "start_time": 4937,
+      "end_time": 5000,
+      "state": "TRANSITION SPIKE!",
+      "hue": 180.0,
+      "saturation": 100.0,
+      "v_vec": 160.9
+    },
+    {
+      "start_time": 5000,
+      "end_time": 5125,
+      "state": "TRANSITION SPIKE!",
+      "hue": 295.4,
+      "saturation": 83.9,
+      "v_vec": 155.6
+    },
+    {
+      "start_time": 5125,
       "end_time": 5500,
       "state": "Stable",
-      "hue": 291.6,
-      "saturation": 65.0,
+      "hue": 295.4,
+      "saturation": 83.9,
       "v_vec": 0.0
     },
     {
@@ -8546,7 +8578,7 @@
       "state": "TRANSITION SPIKE!",
       "hue": 331.7,
       "saturation": 56.8,
-      "v_vec": 42.5
+      "v_vec": 50.9
     },
     {
       "start_time": 5625,
@@ -8624,16 +8656,24 @@
       "start_time": 7916,
       "end_time": 8000,
       "state": "TRANSITION SPIKE!",
-      "hue": 309.8,
-      "saturation": 82.1,
-      "v_vec": 29.8
+      "hue": 300.0,
+      "saturation": 100.0,
+      "v_vec": 37.7
     },
     {
       "start_time": 8000,
+      "end_time": 8125,
+      "state": "TRANSITION SPIKE!",
+      "hue": 311.7,
+      "saturation": 79.6,
+      "v_vec": 27.4
+    },
+    {
+      "start_time": 8125,
       "end_time": 8250,
       "state": "Stable",
-      "hue": 309.8,
-      "saturation": 82.1,
+      "hue": 311.7,
+      "saturation": 79.6,
       "v_vec": 0.0
     },
     {
@@ -8642,7 +8682,7 @@
       "state": "TRANSITION SPIKE!",
       "hue": 297.6,
       "saturation": 80.9,
-      "v_vec": 17.4
+      "v_vec": 19.8
     },
     {
       "start_time": 8375,
@@ -8921,15 +8961,31 @@
       "end_time": 12937,
       "state": "TRANSITION SPIKE!",
       "hue": 284.6,
-      "saturation": 61.7,
-      "v_vec": 130.7
+      "saturation": 33.3,
+      "v_vec": 113.5
     },
     {
       "start_time": 12937,
+      "end_time": 13000,
+      "state": "TRANSITION SPIKE!",
+      "hue": 180.0,
+      "saturation": 100.0,
+      "v_vec": 113.1
+    },
+    {
+      "start_time": 13000,
+      "end_time": 13125,
+      "state": "TRANSITION SPIKE!",
+      "hue": 293.1,
+      "saturation": 82.8,
+      "v_vec": 152.8
+    },
+    {
+      "start_time": 13125,
       "end_time": 13500,
       "state": "Stable",
-      "hue": 284.6,
-      "saturation": 61.7,
+      "hue": 293.1,
+      "saturation": 82.8,
       "v_vec": 0.0
     },
     {
@@ -8938,7 +8994,7 @@
       "state": "TRANSITION SPIKE!",
       "hue": 338.5,
       "saturation": 70.0,
-      "v_vec": 60.1
+      "v_vec": 60.2
     },
     {
       "start_time": 13625,
@@ -9031,6 +9087,6 @@
   ],
   "stats": {
     "total_notes": 265,
-    "total_regimes": 87
+    "total_regimes": 94
   }
 }

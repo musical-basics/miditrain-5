@@ -53,9 +53,21 @@ export default function ETMEVisualizer() {
   const [engineLogs, setEngineLogs] = useState([]);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
   const [isBatchRunning, setIsBatchRunning] = useState(false);
-  const [batchJobs, setBatchJobs] = useState([]); // { id, label, status: 'pending'|'running'|'done'|'error' }
+  const [batchJobs, setBatchJobs] = useState([]);
   const [batchLog, setBatchLog] = useState([]);
   const [isBatchDone, setIsBatchDone] = useState(false);
+
+  // Playback
+  const [interactionMode, setInteractionMode] = useState('play'); // 'play' | 'mark'
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [playbackPositionMs, setPlaybackPositionMs] = useState(0);
+  const playbackPositionRef = useRef(0);
+  const playbackStartAcTimeRef = useRef(0);
+  const playbackOffsetRef = useRef(0);
+  const audioContextRef = useRef(null);
+  const scheduledNodesRef = useRef([]);
+  const animFrameRef = useRef(null);
+  const renderRef = useRef(null); // latest render function for rAF loop
 
   const [isUploading, setIsUploading] = useState(false);
   const [midiOptions, setMidiOptions] = useState([
@@ -631,19 +643,44 @@ export default function ETMEVisualizer() {
       ctx.fillRect(dsMinX, 0, dsW, rollH);
     }
 
+    // ===== Draw playback cursor =====
+    {
+      const cursorX = playbackPositionRef.current * effectiveScale;
+      ctx.save();
+      ctx.strokeStyle = 'rgba(255,255,255,0.9)';
+      ctx.lineWidth = 2;
+      ctx.shadowColor = 'rgba(255, 255, 255, 0.6)';
+      ctx.shadowBlur = 6;
+      ctx.beginPath(); ctx.moveTo(cursorX, 0); ctx.lineTo(cursorX, rollH); ctx.stroke();
+      ctx.restore();
+      // Triangle head at top
+      ctx.fillStyle = 'rgba(255,255,255,0.95)';
+      ctx.beginPath();
+      ctx.moveTo(cursorX - 6, 0); ctx.lineTo(cursorX + 6, 0); ctx.lineTo(cursorX, 10);
+      ctx.closePath(); ctx.fill();
+    }
+
   }, [data, currentView, msPxInput, noteHeight, markers, selectedMarkerIds, showComparison, dragSelect]);
 
+  // Keep renderRef always pointing to the latest render function
+  useEffect(() => { renderRef.current = render; }, [render]);
   useEffect(() => { render(); }, [render]);
 
-  // Update handlers ref for keyboard shortcuts
+  // Update handlers ref
   useEffect(() => {
-    handlersRef.current = { undo, redo, selectedMarkerIds, markerHistory, historyIndex };
-  }, [undo, redo, selectedMarkerIds, markerHistory, historyIndex]);
+    handlersRef.current = { undo, redo, selectedMarkerIds, markerHistory, historyIndex, togglePlayback, interactionMode };
+  }, [undo, redo, selectedMarkerIds, markerHistory, historyIndex, togglePlayback, interactionMode]);
 
   // Keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e) => {
       const handlers = handlersRef.current;
+      // Space = play/pause (when not in an input)
+      if (e.key === ' ' && !e.target.matches('input, textarea, select, button')) {
+        e.preventDefault();
+        handlers.togglePlayback?.();
+        return;
+      }
       if ((e.ctrlKey || e.metaKey) && e.key === 'z' && !e.shiftKey) {
         e.preventDefault();
         handlers.undo?.();
@@ -757,7 +794,7 @@ export default function ETMEVisualizer() {
     setDragSelect(null);
   }, [markers]);
 
-  // Click handler for placing markers (ruler area only)
+  // Click handler — play mode: seek. Mark mode: place marker in ruler.
   const handleCanvasClick = useCallback((e) => {
     if (!data) return;
     const canvas = canvasRef.current;
@@ -766,13 +803,18 @@ export default function ETMEVisualizer() {
     const my = e.clientY - rect.top;
     const pitchRange = PITCH_MAX - PITCH_MIN + 1;
     const rollH = pitchRange * noteHeight;
-
-    // Only place markers in the ruler area
-    if (my < rollH) return;
-
     const timeMs = mx / effectiveScaleRef.current;
 
-    // Check if clicking near an existing marker handle in ruler
+    // PLAY MODE: any click seeks
+    if (interactionMode === 'play') {
+      seekTo(timeMs);
+      return;
+    }
+
+    // MARK MODE: ruler area only
+    if (my < rollH) return;
+
+    // Check if clicking near an existing marker handle
     let nearestMarker = null;
     let nearestDist = Infinity;
     for (const m of markers) {
@@ -780,7 +822,6 @@ export default function ETMEVisualizer() {
       const dist = Math.abs(markerX - mx);
       if (dist < nearestDist) { nearestMarker = m; nearestDist = dist; }
     }
-
     if (nearestMarker && nearestDist < 15) {
       if (e.shiftKey) {
         setSelectedMarkerIds(prev => {
@@ -803,7 +844,8 @@ export default function ETMEVisualizer() {
       tier: markerMode
     };
     updateMarkersWithHistory([...markers, newMarker].sort((a, b) => a.time_ms - b.time_ms));
-  }, [data, noteHeight, markerMode, markers, updateMarkersWithHistory]);
+  }, [data, noteHeight, markerMode, markers, updateMarkersWithHistory, interactionMode, seekTo]);
+
 
 
   // Right-click to delete nearest marker
@@ -826,6 +868,135 @@ export default function ETMEVisualizer() {
       updateMarkersWithHistory(markers.filter(m => m.id !== nearest.id));
     }
   }, [data, markers, updateMarkersWithHistory]);
+
+  // ===== WEB AUDIO PIANO SYNTHESIS =====
+  function playNoteAudio(ac, pitch, velocity, startTime, duration_ms) {
+    const freq = 440 * Math.pow(2, (pitch - 69) / 12);
+    const vol = (velocity / 127) * 0.35;
+    const dur = Math.max(0.08, duration_ms / 1000);
+
+    const gain = ac.createGain();
+    gain.connect(ac.destination);
+    gain.gain.setValueAtTime(0, startTime);
+    gain.gain.linearRampToValueAtTime(vol, startTime + 0.006);     // 6ms attack
+    gain.gain.exponentialRampToValueAtTime(vol * 0.35, startTime + 0.08); // decay
+    gain.gain.exponentialRampToValueAtTime(0.0001, startTime + dur + 0.25); // release
+
+    // Fundamental (sine)
+    const o1 = ac.createOscillator();
+    o1.type = 'sine';
+    o1.frequency.value = freq;
+    o1.connect(gain);
+    o1.start(startTime);
+    o1.stop(startTime + dur + 0.3);
+
+    // Octave (triangle at lower vol for brightness)
+    const g2 = ac.createGain();
+    g2.gain.value = 0.12;
+    g2.connect(ac.destination);
+    const o2 = ac.createOscillator();
+    o2.type = 'triangle';
+    o2.frequency.value = freq * 2;
+    o2.connect(g2);
+    g2.gain.setValueAtTime(0, startTime);
+    g2.gain.linearRampToValueAtTime(vol * 0.12, startTime + 0.004);
+    g2.gain.exponentialRampToValueAtTime(0.0001, startTime + dur + 0.15);
+    o2.start(startTime);
+    o2.stop(startTime + dur + 0.2);
+
+    return { gain, g2, o1, o2 };
+  }
+
+  // Stop all scheduled audio and the rAF loop
+  const stopPlayback = useCallback(() => {
+    setIsPlaying(false);
+    if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
+    animFrameRef.current = null;
+    const ac = audioContextRef.current;
+    for (const node of scheduledNodesRef.current) {
+      try {
+        node.gain.gain.cancelScheduledValues(ac.currentTime);
+        node.gain.gain.setValueAtTime(node.gain.gain.value, ac.currentTime);
+        node.gain.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + 0.04);
+        node.o1.stop(ac.currentTime + 0.05);
+        node.g2.gain.cancelScheduledValues(ac.currentTime);
+        node.g2.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + 0.04);
+        node.o2.stop(ac.currentTime + 0.05);
+      } catch(e) {}
+    }
+    scheduledNodesRef.current = [];
+    renderRef.current?.(); // redraw cursor in paused position
+  }, []);
+
+  // Seek to a time position (ms) without starting playback
+  const seekTo = useCallback((ms) => {
+    const wasPlaying = isPlaying;
+    stopPlayback();
+    playbackPositionRef.current = ms;
+    playbackOffsetRef.current = ms;
+    setPlaybackPositionMs(ms);
+    renderRef.current?.();
+    // Re-auto-scroll to show the new cursor position
+    const wrapper = wrapperRef.current;
+    if (wrapper) {
+      const x = ms * effectiveScaleRef.current;
+      const targetLeft = x - wrapper.clientWidth / 2;
+      wrapper.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+    }
+  }, [isPlaying, stopPlayback]);
+
+  // Schedule and play notes from the current offset
+  const startPlayback = useCallback(() => {
+    if (!data?.notes) return;
+    if (!audioContextRef.current) audioContextRef.current = new AudioContext();
+    const ac = audioContextRef.current;
+    if (ac.state === 'suspended') ac.resume();
+
+    const offset = playbackPositionRef.current;
+    const acStart = ac.currentTime + 0.05; // small scheduling buffer
+    playbackStartAcTimeRef.current = acStart;
+    playbackOffsetRef.current = offset;
+
+    // Schedule notes
+    const nodes = [];
+    for (const note of data.notes) {
+      const delay = (note.onset - offset) / 1000;
+      if (delay < -0.1) continue; // skip notes already past
+      const startAt = acStart + Math.max(0, delay);
+      const n = playNoteAudio(ac, note.pitch, note.velocity, startAt, note.duration);
+      nodes.push(n);
+    }
+    scheduledNodesRef.current = nodes;
+    setIsPlaying(true);
+
+    // Animation loop — update cursor and auto-scroll
+    const lastNoteEnd = data.notes.reduce((m, n) => Math.max(m, n.onset + n.duration), 0);
+    const tick = () => {
+      const elapsedSec = ac.currentTime - playbackStartAcTimeRef.current;
+      const pos = playbackOffsetRef.current + elapsedSec * 1000;
+      if (pos >= lastNoteEnd + 200) { stopPlayback(); return; }
+      playbackPositionRef.current = pos;
+      renderRef.current?.(); // redraw full canvas with cursor
+      // Auto-scroll canvas to follow cursor
+      const wrapper = wrapperRef.current;
+      if (wrapper) {
+        const cursorX = pos * effectiveScaleRef.current;
+        const viewLeft = wrapper.scrollLeft;
+        const viewRight = viewLeft + wrapper.clientWidth;
+        // Scroll right when cursor hits 80% of visible width
+        if (cursorX > viewRight - wrapper.clientWidth * 0.2) {
+          wrapper.scrollLeft = cursorX - wrapper.clientWidth * 0.3;
+        }
+      }
+      animFrameRef.current = requestAnimationFrame(tick);
+    };
+    animFrameRef.current = requestAnimationFrame(tick);
+  }, [data, stopPlayback]);
+
+  const togglePlayback = useCallback(() => {
+    if (isPlaying) stopPlayback();
+    else startPlayback();
+  }, [isPlaying, startPlayback, stopPlayback]);
 
   // Tooltip handler
   const handleMouseMove = useCallback((e) => {
@@ -1060,19 +1231,58 @@ export default function ETMEVisualizer() {
 
       {/* MARKER TOOLBAR */}
       <div className="marker-toolbar">
-        <span style={{ fontWeight: 600, color: 'var(--text-secondary)', marginRight: 8 }}>MARKERS:</span>
+        {/* Mode toggle */}
         <button
-          className={`marker-mode-btn ${markerMode === 'tier1' ? 'active tier1' : ''}`}
-          onClick={() => setMarkerMode('tier1')}
+          onClick={() => { if(interactionMode!=='play'){stopPlayback(); setInteractionMode('play');}  }}
+          className={`marker-mode-btn${interactionMode === 'play' ? ' active tier1' : ''}`}
+          style={interactionMode === 'play' ? { background: 'rgba(255,255,255,0.1)', borderColor: '#fff', color: '#fff' } : {}}
         >
-          T1 Downbeat+Harmonic
+          🎵 Play
         </button>
         <button
-          className={`marker-mode-btn ${markerMode === 'tier2' ? 'active tier2' : ''}`}
-          onClick={() => setMarkerMode('tier2')}
+          onClick={() => { if(interactionMode!=='mark') setInteractionMode('mark'); }}
+          className={`marker-mode-btn${interactionMode === 'mark' ? ' active tier1' : ''}`}
         >
-          T2 Harmonic Spike
+          ✏️ Mark
         </button>
+
+        {/* Playback controls (always visible) */}
+        <button
+          onClick={togglePlayback}
+          style={{
+            padding: '4px 14px', borderRadius: 4, cursor: 'pointer', fontWeight: 700,
+            border: '1px solid', fontSize: 13,
+            borderColor: isPlaying ? '#ef4444' : '#4a9eff',
+            background: isPlaying ? 'rgba(239,68,68,0.15)' : 'rgba(74,158,255,0.15)',
+            color: isPlaying ? '#ef4444' : '#4a9eff',
+          }}
+        >
+          {isPlaying ? '⏸' : '▶'}
+        </button>
+        <span style={{ fontSize: 10, color: 'var(--text-secondary)', minWidth: 60, fontVariantNumeric: 'tabular-nums' }}>
+          {(playbackPositionMs / 1000).toFixed(2)}s
+        </span>
+        <button
+          onClick={() => seekTo(0)}
+          style={{ padding: '3px 8px', borderRadius: 4, cursor: 'pointer', fontSize: 11,
+            border: '1px solid var(--border)', background: 'transparent', color: 'var(--text-secondary)' }}
+          title="Rewind to start"
+        >
+          ⏮
+        </button>
+
+        <div style={{ width: 1, height: 16, background: 'var(--border)', margin: '0 4px' }} />
+
+        {/* Marker controls (only meaningful in mark mode) */}
+        <button className={`marker-mode-btn${markerMode === 'tier1' ? ' active tier1' : ''}`}
+          onClick={() => setMarkerMode('tier1')} disabled={interactionMode !== 'mark'}
+          style={{ opacity: interactionMode !== 'mark' ? 0.35 : 1 }}
+        >T1 Downbeat+Harmonic</button>
+        <button className={`marker-mode-btn${markerMode === 'tier2' ? ' active tier2' : ''}`}
+          onClick={() => setMarkerMode('tier2')} disabled={interactionMode !== 'mark'}
+          style={{ opacity: interactionMode !== 'mark' ? 0.35 : 1 }}
+        >T2 Harmonic Spike</button>
+
         <div style={{ borderLeft: '1px solid var(--border)', height: 20, margin: '0 8px' }} />
         <button
           onClick={undo}
