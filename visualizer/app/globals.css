@@ -213,7 +213,7 @@ body {
     z-index: 50;
     backdrop-filter: blur(20px);
     box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-    max-width: 280px;
+    max-width: 300px;
 }
 .legend h3 { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 10px; }
 .legend-item { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; color: var(--text-secondary); }
@@ -222,10 +222,10 @@ body {
 /* ===== COMPARISON PANEL ===== */
 .comparison-panel {
     position: fixed;
-    left: 20px;
-    bottom: 20px;
-    width: 380px;
-    max-height: calc(100vh - 280px);
+    right: 20px;
+    bottom: 370px; /* sits above the legend box (~320px tall + 20px bottom + gap) */
+    width: 300px;
+    max-height: calc(100vh - 430px);
     background: var(--bg-panel);
     border: 1px solid var(--border);
     border-radius: 10px;
