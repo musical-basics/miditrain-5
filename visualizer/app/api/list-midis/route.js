@@ -6,6 +6,7 @@ export async function GET() {
   try {
     const rootDir = path.resolve(process.cwd(), '..');
     const midisFiles = await fs.readdir(path.join(rootDir, 'midis'), { withFileTypes: true }).catch(() => []);
+    const publicFiles = await fs.readdir(path.join(process.cwd(), 'public'), { withFileTypes: true }).catch(() => []);
 
     const allMidis = [];
     allMidis.push({ label: 'Pathetique Full Chunk', value: 'pathetique_full_chunk' });
@@ -19,8 +20,31 @@ export async function GET() {
       }
     }
 
+    // Detect optimizer output files: etme_*_optimized_N.json
+    const optimizedFiles = publicFiles
+      .filter(f => f.isFile() && f.name.match(/^etme_.+_optimized_\d+\.json$/))
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    for (const f of optimizedFiles) {
+      // Parse rank and embed metadata from the file if available
+      const match = f.name.match(/_optimized_(\d+)\.json$/);
+      const rank = match ? match[1] : '?';
+      let label = `🏆 Optimized #${rank}`;
+      try {
+        const raw = await fs.readFile(path.join(process.cwd(), 'public', f.name), 'utf-8');
+        const parsed = JSON.parse(raw);
+        const meta = parsed?.optimizer_meta;
+        if (meta) {
+          label = `🏆 Opt #${rank} — F-beta=${meta.f_beta?.toFixed(1)}% P=${meta.precision?.toFixed(0)}% R=${meta.recall?.toFixed(0)}% FP=${meta.fp}`;
+        }
+      } catch (_) {}
+      // The value is a special key: __optimized__:<filename>
+      allMidis.push({ label, value: `__optimized__:${f.name}` });
+    }
+
     return NextResponse.json({ midis: allMidis });
   } catch (e) {
     return NextResponse.json({ error: e.message }, { status: 500 });
   }
 }
+

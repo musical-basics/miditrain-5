@@ -322,10 +322,16 @@ export default function ETMEVisualizer() {
 
   // Load data when any selector changes
   useEffect(() => {
-    const baseKey = getBaseKey();
-    const etmeFile = (['hybrid', 'hybrid_split', 'jaccard_only', 'jaccard_only_split', 'hybrid_v2', 'hybrid_v2_split'].includes(breakModel))
-      ? `etme_${baseKey}_${angleMap}_${breakModel}_${jaccardThreshold}.json`
-      : `etme_${baseKey}_${angleMap}_${breakModel}.json`;
+    let etmeFile;
+    if (midiFile.startsWith('__optimized__:')) {
+      // Optimizer output — load the named JSON directly from public/
+      etmeFile = midiFile.replace('__optimized__:', '');
+    } else {
+      const baseKey = getBaseKey();
+      etmeFile = (['hybrid', 'hybrid_split', 'jaccard_only', 'jaccard_only_split', 'hybrid_v2', 'hybrid_v2_split'].includes(breakModel))
+        ? `etme_${baseKey}_${angleMap}_${breakModel}_${jaccardThreshold}.json`
+        : `etme_${baseKey}_${angleMap}_${breakModel}.json`;
+    }
 
     fetch(`/${etmeFile}?t=${Date.now()}_${refreshTrigger}`)
       .then(r => { if (!r.ok) return null; return r.json(); })
