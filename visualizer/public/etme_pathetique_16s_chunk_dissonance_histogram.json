@@ -1369,11 +1369,11 @@
       "velocity": 59,
       "onset": 3500,
       "duration": 125,
-      "hue": 274.7,
-      "sat": 71.9,
-      "lightness": 49.4,
-      "tonal_distance": 4.7,
-      "regime_state": "Stable",
+      "hue": 317.7,
+      "sat": 51.2,
+      "lightness": 41.6,
+      "tonal_distance": 12.3,
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
         "diff": 2.5,
         "pmass": 1.3,
@@ -1398,11 +1398,11 @@
       "velocity": 76,
       "onset": 3500,
       "duration": 233,
-      "hue": 274.7,
-      "sat": 71.9,
-      "lightness": 49.4,
-      "tonal_distance": 4.7,
-      "regime_state": "Stable",
+      "hue": 317.7,
+      "sat": 51.2,
+      "lightness": 41.6,
+      "tonal_distance": 12.3,
+      "regime_state": "TRANSITION SPIKE!",
       "debug": {
         "diff": 2.5,
         "pmass": 1.3,
@@ -1427,15 +1427,15 @@
       "velocity": 62,
       "onset": 3625,
       "duration": 108,
-      "hue": 277.0,
-      "sat": 63.2,
-      "lightness": 49.3,
-      "tonal_distance": 7.0,
+      "hue": 281.3,
+      "sat": 51.9,
+      "lightness": 44.2,
+      "tonal_distance": 11.3,
       "regime_state": "Stable",
       "debug": {
-        "diff": 56.1,
+        "diff": 71.4,
         "pmass": 0.24,
-        "rmass": 1.56,
+        "rmass": 0.58,
         "threshold": 0.75,
         "particles": [
           {
@@ -1580,21 +1580,37 @@
       "start_time": 3000,
       "end_time": 3125,
       "state": "TRANSITION SPIKE!",
-      "hue": 280.3,
-      "saturation": 54.8,
-      "v_vec": 23.3
+      "hue": 280.4,
+      "saturation": 55.1,
+      "v_vec": 23.5
     },
     {
       "start_time": 3125,
+      "end_time": 3500,
+      "state": "Stable",
+      "hue": 280.4,
+      "saturation": 55.1,
+      "v_vec": 0.0
+    },
+    {
+      "start_time": 3500,
+      "end_time": 3625,
+      "state": "TRANSITION SPIKE!",
+      "hue": 280.2,
+      "saturation": 54.4,
+      "v_vec": 0.7
+    },
+    {
+      "start_time": 3625,
       "end_time": 3733,
       "state": "Stable",
-      "hue": 280.3,
-      "saturation": 54.8,
+      "hue": 280.2,
+      "saturation": 54.4,
       "v_vec": 0.0
     }
   ],
   "stats": {
     "total_notes": 49,
-    "total_regimes": 18
+    "total_regimes": 20
   }
 }
