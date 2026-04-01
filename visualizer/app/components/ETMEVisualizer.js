@@ -763,6 +763,19 @@ export default function ETMEVisualizer() {
     });
   };
 
+  // Scroll canvas to a given time_ms, centering it in the viewport.
+  // If markerId is provided, also select that marker.
+  const scrollToTime = useCallback((time_ms, markerId) => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+    const x = time_ms * effectiveScaleRef.current;
+    const targetLeft = x - wrapper.clientWidth / 2;
+    wrapper.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
+    if (markerId) {
+      setSelectedMarkerIds(new Set([markerId]));
+    }
+  }, []);
+
   // Export markers as JSON download
   const exportMarkers = () => {
     const blob = new Blob([JSON.stringify(markers, null, 2)], { type: 'application/json' });
@@ -1068,16 +1081,28 @@ export default function ETMEVisualizer() {
             </div>
           </div>
           <div style={{ maxHeight: 'calc(100vh - 250px)', overflowY: 'auto' }}>
-            {comparisonStats.details.map((d, i) => (
-              <div key={i} style={{
-                fontSize: 10, padding: '4px 6px', marginBottom: 2, borderRadius: 4,
-                background: d.type === 'tp' ? 'rgba(16,185,129,0.1)' : d.type === 'fp' ? 'rgba(239,68,68,0.1)' : 'rgba(245,158,11,0.1)',
-                color: d.type === 'tp' ? '#10b981' : d.type === 'fp' ? '#ef4444' : '#f59e0b',
-                borderLeft: `3px solid ${d.type === 'tp' ? '#10b981' : d.type === 'fp' ? '#ef4444' : '#f59e0b'}`
-              }}>
-                {d.label}
-              </div>
-            ))}
+            {comparisonStats.details.map((d, i) => {
+              const accent = d.type === 'tp' ? '#10b981' : d.type === 'fp' ? '#ef4444' : '#f59e0b';
+              return (
+                <div
+                  key={i}
+                  onClick={() => scrollToTime(d.time_ms, d.markerId)}
+                  title="Click to navigate"
+                  style={{
+                    fontSize: 10, padding: '4px 6px', marginBottom: 2, borderRadius: 4,
+                    background: d.type === 'tp' ? 'rgba(16,185,129,0.1)' : d.type === 'fp' ? 'rgba(239,68,68,0.1)' : 'rgba(245,158,11,0.1)',
+                    color: accent,
+                    borderLeft: `3px solid ${accent}`,
+                    cursor: 'pointer',
+                    transition: 'background 0.15s',
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.background = d.type === 'tp' ? 'rgba(16,185,129,0.22)' : d.type === 'fp' ? 'rgba(239,68,68,0.22)' : 'rgba(245,158,11,0.22)'}
+                  onMouseLeave={e => e.currentTarget.style.background = d.type === 'tp' ? 'rgba(16,185,129,0.1)' : d.type === 'fp' ? 'rgba(239,68,68,0.1)' : 'rgba(245,158,11,0.1)'}
+                >
+                  {d.label}
+                </div>
+              );
+            })}
           </div>
         </div>
       )}
@@ -1161,10 +1186,6 @@ function computeComparison(markers, regimes, tolerance) {
   const userTimes = markers.map(m => m.time_ms);
 
   // MODEL boundaries = predictions, USER markers = ground truth
-  // TP: model boundary that matches a user marker (within tolerance)
-  // FP: model boundary with NO user marker nearby  ← penalizes noisy/overcalling models
-  // FN: user marker with NO model boundary nearby  ← penalizes models that miss boundaries
-
   const matchedUser = new Set();
   const matchedModel = new Set();
   const details = [];
@@ -1183,36 +1204,42 @@ function computeComparison(markers, regimes, tolerance) {
       matchedUser.add(bestUi);
       details.push({
         type: 'tp',
-        label: `MATCH: Model @${modelBounds[mi]}ms <-> User ${markers[bestUi].tier.toUpperCase()} @${userTimes[bestUi]}ms (${bestDist}ms)`
+        time_ms: modelBounds[mi],
+        markerId: markers[bestUi].id,
+        label: `MATCH: Model @${modelBounds[mi]}ms ↔ User ${markers[bestUi].tier.toUpperCase()} @${userTimes[bestUi]}ms (${bestDist}ms)`
       });
     }
   }
 
-  // False positives: model boundaries with no user marker nearby (the model overcalled)
+  // False positives: model boundaries with no user marker nearby
   for (let mi = 0; mi < modelBounds.length; mi++) {
     if (!matchedModel.has(mi)) {
       details.push({
         type: 'fp',
-        label: `FP: Model boundary @${modelBounds[mi]}ms -- no user marker nearby`
+        time_ms: modelBounds[mi],
+        markerId: null,
+        label: `FP: Model @${modelBounds[mi]}ms -- no user marker nearby`
       });
     }
   }
 
-  // False negatives: user markers with no model boundary nearby (the model missed this boundary)
+  // False negatives: user markers with no model boundary nearby
   for (let ui = 0; ui < userTimes.length; ui++) {
     if (!matchedUser.has(ui)) {
       details.push({
         type: 'fn',
+        time_ms: userTimes[ui],
+        markerId: markers[ui].id,
         label: `FN: User ${markers[ui].tier.toUpperCase()} @${userTimes[ui]}ms -- no model boundary nearby`
       });
     }
   }
 
   const tp = matchedModel.size;
-  const fp = modelBounds.length - tp;   // model boundaries that didn't match any user marker
-  const fn = userTimes.length - matchedUser.size; // user markers that no model boundary covered
-  const precision = tp + fp > 0 ? Math.round(tp / (tp + fp) * 100) : 0; // of model boundaries, how many were correct
-  const recall = tp + fn > 0 ? Math.round(tp / (tp + fn) * 100) : 0;    // of user markers, how many did model find
+  const fp = modelBounds.length - tp;
+  const fn = userTimes.length - matchedUser.size;
+  const precision = tp + fp > 0 ? Math.round(tp / (tp + fp) * 100) : 0;
+  const recall = tp + fn > 0 ? Math.round(tp / (tp + fn) * 100) : 0;
   const f1 = precision + recall > 0 ? Math.round(2 * precision * recall / (precision + recall)) : 0;
 
   return { tp, fp, fn, precision, recall, f1, details };
