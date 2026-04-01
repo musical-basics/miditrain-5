@@ -52,6 +52,10 @@ export default function ETMEVisualizer() {
   const [isEngineDone, setIsEngineDone] = useState(false);
   const [engineLogs, setEngineLogs] = useState([]);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
+  const [isBatchRunning, setIsBatchRunning] = useState(false);
+  const [batchJobs, setBatchJobs] = useState([]); // { id, label, status: 'pending'|'running'|'done'|'error' }
+  const [batchLog, setBatchLog] = useState([]);
+  const [isBatchDone, setIsBatchDone] = useState(false);
 
   const [isUploading, setIsUploading] = useState(false);
   const [midiOptions, setMidiOptions] = useState([
@@ -176,6 +180,102 @@ export default function ETMEVisualizer() {
     setRefreshTrigger(prev => prev + 1);
     setIsEngineDone(true);
   }, [midiFile, angleMap, breakModel, jaccardThreshold, minBreakMass]);
+
+  // ===== BATCH RUN ENGINE =====
+  const BATCH_CONFIGS = [
+    { breakModel: 'centroid',           label: 'Centroid (Angle)',        needsJaccard: false },
+    { breakModel: 'histogram',          label: 'Histogram (Cosine)',      needsJaccard: false },
+    { breakModel: 'hybrid',             label: 'Hybrid',                  needsJaccard: true },
+    { breakModel: 'hybrid_split',       label: 'Hybrid-Split',            needsJaccard: true },
+    { breakModel: 'hybrid_v2',          label: 'Hybrid-V2',               needsJaccard: true },
+    { breakModel: 'hybrid_v2_split',    label: 'Hybrid-V2 Split',         needsJaccard: true },
+    { breakModel: 'jaccard_only',       label: 'Jaccard-Only',            needsJaccard: true },
+    { breakModel: 'jaccard_only_split', label: 'Jaccard-Only Split',      needsJaccard: true },
+  ];
+  const JACCARD_THRESHOLDS = [0.3, 0.5, 0.7];
+
+  const runBatchEngine = useCallback(async () => {
+    // Build full job list
+    const jobs = [];
+    for (const cfg of BATCH_CONFIGS) {
+      if (cfg.needsJaccard) {
+        for (const j of JACCARD_THRESHOLDS) {
+          jobs.push({ id: `${cfg.breakModel}_${j}`, breakModel: cfg.breakModel, jaccard: j,
+            label: `${cfg.label}  J=${j}`, status: 'pending' });
+        }
+      } else {
+        jobs.push({ id: cfg.breakModel, breakModel: cfg.breakModel, jaccard: null,
+          label: cfg.label, status: 'pending' });
+      }
+    }
+    setBatchJobs(jobs);
+    setBatchLog([`Batch run: ${jobs.length} jobs for ${midiFile} (${angleMap}, mass=${minBreakMass})`]);
+    setIsBatchDone(false);
+    setIsBatchRunning(true);
+
+    const runScript = async (script, args, logFn) => {
+      const resp = await fetch('/api/run-python', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ script, args })
+      });
+      if (!resp.body) return false;
+      const reader = resp.body.getReader();
+      const decoder = new TextDecoder();
+      let done = false; let buffer = '';
+      while (!done) {
+        const { value, done: rd } = await reader.read();
+        done = rd;
+        if (value) {
+          buffer += decoder.decode(value, { stream: true });
+          const parts = buffer.split('\n\n'); buffer = parts.pop();
+          for (const part of parts) {
+            const dm = part.match(/data: (.*)/);
+            const em = part.match(/event: (.*)/);
+            if (dm) {
+              const msg = JSON.parse(dm[1]);
+              const evt = em ? em[1].trim() : '';
+              if (evt === 'done') return msg.code === 0;
+              if (msg.text) logFn(msg.text.trim());
+            }
+          }
+        }
+      }
+      return false;
+    };
+
+    const updatedJobs = [...jobs];
+    for (let i = 0; i < updatedJobs.length; i++) {
+      const job = updatedJobs[i];
+      // Mark running
+      updatedJobs[i] = { ...job, status: 'running' };
+      setBatchJobs([...updatedJobs]);
+      setBatchLog(prev => [...prev, `\n[${i+1}/${updatedJobs.length}] Running: ${job.label}...`]);
+
+      const args = [
+        '--midi_key', midiFile,
+        '--angle_map', angleMap,
+        '--break_method', job.breakModel,
+        '--min_break_mass', minBreakMass.toString(),
+        ...(job.jaccard !== null ? ['--jaccard', job.jaccard.toString()] : [])
+      ];
+
+      let ok = false;
+      try {
+        ok = await runScript('export_etme_data.py', args,
+          (txt) => setBatchLog(prev => [...prev, txt]));
+      } catch(e) {
+        setBatchLog(prev => [...prev, `ERROR: ${e.message}`]);
+      }
+
+      updatedJobs[i] = { ...updatedJobs[i], status: ok ? 'done' : 'error' };
+      setBatchJobs([...updatedJobs]);
+    }
+
+    setBatchLog(prev => [...prev, `\n✅ Batch complete! ${updatedJobs.filter(j => j.status === 'done').length}/${updatedJobs.length} succeeded.`]);
+    setRefreshTrigger(prev => prev + 1);
+    setIsBatchDone(true);
+  }, [midiFile, angleMap, minBreakMass]);
 
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
@@ -890,6 +990,17 @@ export default function ETMEVisualizer() {
           Run Engine
         </button>
         <button
+          onClick={runBatchEngine}
+          title="Run all 8 break models × 3 Jaccard thresholds (20 jobs)"
+          style={{
+            marginLeft: '6px', padding: '4px 12px', fontSize: '11px',
+            background: '#6a1b9a', color: '#fff', border: '1px solid #4a148c',
+            borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold'
+          }}
+        >
+          ⚡ Batch Run
+        </button>
+        <button
           onClick={() => setIsDarkMode(!isDarkMode)}
           style={{
             marginLeft: '8px', padding: '4px 8px',
@@ -1151,6 +1262,74 @@ export default function ETMEVisualizer() {
             </div>
             <div style={{ padding: '16px', overflowY: 'auto', flex: 1, fontFamily: 'monospace', fontSize: '12px', color: '#a0a0b0', whiteSpace: 'pre-wrap' }}>
               {engineLogs.map((log, i) => <div key={i} style={{ marginBottom: '4px' }}>{log}</div>)}
+              <div ref={logsEndRef} />
+            </div>
+          </div>
+          <style dangerouslySetInnerHTML={{__html: '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }'}} />
+        </div>
+      )}
+
+      {/* BATCH ENGINE MODAL */}
+      {isBatchRunning && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+          background: 'rgba(0,0,0,0.88)', zIndex: 9999,
+          display: 'flex', alignItems: 'center', justifyContent: 'center'
+        }}>
+          <div style={{
+            background: '#0d0d12', width: '860px', height: '700px',
+            border: '1px solid #333', borderRadius: '10px',
+            display: 'flex', flexDirection: 'column', overflow: 'hidden',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.6)'
+          }}>
+            {/* Header */}
+            <div style={{ padding: '12px 18px', background: '#111118', borderBottom: '1px solid #222', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <h3 style={{ margin: 0, color: '#e0e0e0', fontSize: '14px' }}>⚡ Batch Engine Run</h3>
+                <div style={{ fontSize: 10, color: '#666', marginTop: 2 }}>{midiFile} · {angleMap} · mass={minBreakMass}</div>
+              </div>
+              {isBatchDone ? (
+                <button
+                  onClick={() => setIsBatchRunning(false)}
+                  style={{ background: '#6a1b9a', color: '#fff', border: 'none', borderRadius: '4px', padding: '6px 16px', cursor: 'pointer', fontWeight: 'bold' }}
+                >
+                  Dismiss
+                </button>
+              ) : (
+                <div style={{ width: 16, height: 16, border: '2px solid rgba(255,255,255,0.2)', borderTop: '2px solid #ab47bc', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+              )}
+            </div>
+            {/* Job checklist */}
+            <div style={{ padding: '12px 18px', borderBottom: '1px solid #1a1a2e', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px 24px', maxHeight: 280, overflowY: 'auto' }}>
+              {batchJobs.map(job => {
+                const icon = job.status === 'pending' ? '○' : job.status === 'running' ? '⟳' : job.status === 'done' ? '✅' : '❌';
+                const color = job.status === 'pending' ? '#555' : job.status === 'running' ? '#ab47bc' : job.status === 'done' ? '#4caf50' : '#ef5350';
+                return (
+                  <div key={job.id} style={{ fontSize: 11, color, display: 'flex', alignItems: 'center', gap: 6, padding: '2px 0' }}>
+                    <span style={{ fontSize: 13 }}>{icon}</span>
+                    <span>{job.label}</span>
+                  </div>
+                );
+              })}
+            </div>
+            {/* Progress bar */}
+            {batchJobs.length > 0 && (() => {
+              const done = batchJobs.filter(j => j.status === 'done' || j.status === 'error').length;
+              const pct = Math.round(done / batchJobs.length * 100);
+              return (
+                <div style={{ padding: '8px 18px', borderBottom: '1px solid #1a1a2e' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 10, color: '#666', marginBottom: 4 }}>
+                    <span>{done}/{batchJobs.length} complete</span><span>{pct}%</span>
+                  </div>
+                  <div style={{ height: 4, background: '#222', borderRadius: 2 }}>
+                    <div style={{ height: 4, width: `${pct}%`, background: 'linear-gradient(90deg, #6a1b9a, #ab47bc)', borderRadius: 2, transition: 'width 0.3s' }} />
+                  </div>
+                </div>
+              );
+            })()}
+            {/* Log pane */}
+            <div style={{ padding: '12px 18px', overflowY: 'auto', flex: 1, fontFamily: 'monospace', fontSize: '11px', color: '#a0a0b0', whiteSpace: 'pre-wrap' }}>
+              {batchLog.map((l, i) => <div key={i} style={{ marginBottom: 3 }}>{l}</div>)}
               <div ref={logsEndRef} />
             </div>
           </div>
