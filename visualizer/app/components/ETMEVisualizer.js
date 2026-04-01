@@ -667,9 +667,13 @@ export default function ETMEVisualizer() {
   useEffect(() => { render(); }, [render]);
 
   // Update handlers ref
+  // NOTE: togglePlayback and interactionMode are intentionally excluded from deps
+  // to avoid TDZ (they're defined later in the file). The keyboard handler only
+  // reads from handlersRef.current at call-time, so it always gets the latest value
+  // via the effect below that runs after all hooks are defined.
   useEffect(() => {
-    handlersRef.current = { undo, redo, selectedMarkerIds, markerHistory, historyIndex, togglePlayback, interactionMode };
-  }, [undo, redo, selectedMarkerIds, markerHistory, historyIndex, togglePlayback, interactionMode]);
+    handlersRef.current = { undo, redo, selectedMarkerIds, markerHistory, historyIndex };
+  }, [undo, redo, selectedMarkerIds, markerHistory, historyIndex]);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -807,7 +811,7 @@ export default function ETMEVisualizer() {
 
     // PLAY MODE: any click seeks
     if (interactionMode === 'play') {
-      seekTo(timeMs);
+      seekToRef.current?.(timeMs);
       return;
     }
 
@@ -844,7 +848,7 @@ export default function ETMEVisualizer() {
       tier: markerMode
     };
     updateMarkersWithHistory([...markers, newMarker].sort((a, b) => a.time_ms - b.time_ms));
-  }, [data, noteHeight, markerMode, markers, updateMarkersWithHistory, interactionMode, seekTo]);
+  }, [data, noteHeight, markerMode, markers, updateMarkersWithHistory, interactionMode]);
 
 
 
@@ -997,6 +1001,15 @@ export default function ETMEVisualizer() {
     if (isPlaying) stopPlayback();
     else startPlayback();
   }, [isPlaying, startPlayback, stopPlayback]);
+
+  // Patch handlersRef with playback functions (defined after the main handlersRef effect above)
+  useEffect(() => {
+    handlersRef.current = { ...handlersRef.current, togglePlayback, interactionMode };
+  }, [togglePlayback, interactionMode]);
+
+  // Keep a ref to seekTo so handleCanvasClick can call it without declaring seekTo as a dep (TDZ fix)
+  const seekToRef = useRef(null);
+  useEffect(() => { seekToRef.current = seekTo; }, [seekTo]);
 
   // Tooltip handler
   const handleMouseMove = useCallback((e) => {
