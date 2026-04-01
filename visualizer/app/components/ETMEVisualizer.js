@@ -63,13 +63,14 @@ export default function ETMEVisualizer() {
   const [playbackPositionMs, setPlaybackPositionMs] = useState(0);
   const [bpm, setBpm] = useState(120);
   const bpmRef = useRef(120);
+  const togglePlaybackRef = useRef(null); // always points to latest togglePlayback (avoids TDZ in kbd handler)
   const playbackPositionRef = useRef(0);
   const playbackStartAcTimeRef = useRef(0);
   const playbackOffsetRef = useRef(0);
   const audioContextRef = useRef(null);
   const scheduledNodesRef = useRef([]);
   const animFrameRef = useRef(null);
-  const renderRef = useRef(null); // latest render function for rAF loop
+  const renderRef = useRef(null);
 
   const [isUploading, setIsUploading] = useState(false);
   const [midiOptions, setMidiOptions] = useState([
@@ -681,16 +682,11 @@ export default function ETMEVisualizer() {
   useEffect(() => {
     const handleKeyDown = (e) => {
       const handlers = handlersRef.current;
-      // Space = play/pause — always fires regardless of focused element
+      // Space = play/pause — fires regardless of focused element
       if (e.key === ' ') {
-        // Don't hijack space inside text inputs
         if (e.target.matches('textarea')) return;
         e.preventDefault();
-        // Blur any focused button so it doesn't intercept the key
-        if (document.activeElement && document.activeElement !== document.body) {
-          document.activeElement.blur();
-        }
-        handlers.togglePlayback?.();
+        togglePlaybackRef.current?.();
         return;
       }
       if ((e.ctrlKey || e.metaKey) && e.key === 'z' && !e.shiftKey) {
@@ -1017,8 +1013,9 @@ export default function ETMEVisualizer() {
   // Keep a ref to seekTo so handleCanvasClick can call it without declaring seekTo as a dep (TDZ fix)
   const seekToRef = useRef(null);
   useEffect(() => { seekToRef.current = seekTo; }, [seekTo]);
-  // Keep bpmRef in sync with bpm state
+  // Keep bpmRef and togglePlaybackRef in sync
   useEffect(() => { bpmRef.current = bpm; }, [bpm]);
+  useEffect(() => { togglePlaybackRef.current = togglePlayback; }, [togglePlayback]);
 
   // Tooltip handler
   const handleMouseMove = useCallback((e) => {
@@ -1294,21 +1291,23 @@ export default function ETMEVisualizer() {
         </button>
 
         {/* BPM control */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginLeft: 4 }}>
-          <span style={{ fontSize: 10, color: 'var(--text-secondary)', whiteSpace: 'nowrap' }}>BPM</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginLeft: '4px' }} suppressHydrationWarning>
+          <span style={{ fontSize: '10px', color: 'var(--text-secondary)', whiteSpace: 'nowrap' }}>BPM</span>
           <input
             type="number" min={20} max={300} step={1} value={bpm}
             onChange={e => setBpm(Math.max(20, Math.min(300, +e.target.value || 120)))}
+            suppressHydrationWarning
             style={{
-              width: 50, padding: '2px 4px', background: '#1a1a2e',
-              border: '1px solid #333', color: '#fff', borderRadius: 4,
-              fontSize: 11, textAlign: 'center'
+              width: '50px', padding: '2px 4px', background: '#1a1a2e',
+              border: '1px solid #333', color: '#fff', borderRadius: '4px',
+              fontSize: '11px', textAlign: 'center'
             }}
           />
           <input
             type="range" min={40} max={240} step={1} value={bpm}
             onChange={e => setBpm(+e.target.value)}
-            style={{ width: 72, accentColor: '#4a9eff', cursor: 'pointer' }}
+            suppressHydrationWarning
+            style={{ width: '72px', accentColor: '#4a9eff', cursor: 'pointer' }}
             title={`${bpm} BPM`}
           />
         </div>
