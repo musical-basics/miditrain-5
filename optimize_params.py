@@ -52,10 +52,9 @@ sys.path.insert(0, os.path.dirname(__file__))
 from harmonic_regime_detector import HarmonicRegimeDetector
 from export_etme_data import extract_keyframes, export_analysis
 
-REPO_ROOT = Path(__file__).parent
-MIDI_PATH = REPO_ROOT / "midis" / "pathetique_16s_chunk.mid"
-MARKERS_PATH = REPO_ROOT / "markers" / "pathetique_16s_chunk_markers.json"
-PUBLIC_DIR = REPO_ROOT / "visualizer" / "public"
+REPO_ROOT    = Path(__file__).parent
+DEFAULT_CHUNK = "pathetique_64s_chunk"
+PUBLIC_DIR   = REPO_ROOT / "visualizer" / "public"
 
 # ─── Tier weights for FN penalty ─────────────────────────────────────────────
 TIER_WEIGHTS = {
@@ -200,11 +199,18 @@ def build_trials(grid):
 
 def main():
     parser = argparse.ArgumentParser(description="Harmonic Regime Parameter Optimizer")
+    parser.add_argument("--chunk",         type=str,   default=DEFAULT_CHUNK,
+                        help=f"Base name of the MIDI/markers chunk (default: {DEFAULT_CHUNK})")
     parser.add_argument("--tolerance",     type=int,   default=100,  help="Matching window in ms (default 100)")
     parser.add_argument("--top_n",         type=int,   default=5,    help="Number of top configs to export")
     parser.add_argument("--min_precision", type=float, default=0.0,  help="Optional hard floor on precision %% (0 = disabled)")
     parser.add_argument("--quick",         action="store_true",      help="Use quick (smaller) grid for fast testing")
     args = parser.parse_args()
+
+    midi_path    = REPO_ROOT / "midis"   / f"{args.chunk}.mid"
+    markers_path = REPO_ROOT / "markers" / f"{args.chunk}_markers.json"
+    assert midi_path.exists(),    f"MIDI not found: {midi_path}"
+    assert markers_path.exists(), f"Markers not found: {markers_path}"
 
     grid = QUICK_GRID if args.quick else FULL_GRID
     trials = list(build_trials(grid))
@@ -212,8 +218,9 @@ def main():
 
     print(f"\n{'='*70}")
     print(f"  HARMONIC REGIME OPTIMIZER")
-    print(f"  Midi:       {MIDI_PATH.name}")
-    print(f"  Markers:    {MARKERS_PATH.name}")
+    print(f"  Chunk:      {args.chunk}")
+    print(f"  Midi:       {midi_path.name}")
+    print(f"  Markers:    {markers_path.name}")
     print(f"  Tolerance:  {args.tolerance} ms")
     print(f"  Objective:  minimize (FP + FN)  — fewest total errors wins")
     print(f"  Tiebreaker: fewest FP  (prefer FN over FP when total errors equal)")
@@ -223,16 +230,16 @@ def main():
     print(f"{'='*70}\n")
 
     # Load ground-truth markers
-    with open(MARKERS_PATH) as f:
+    with open(markers_path) as f:
         marker_data = json.load(f)
-    markers = marker_data["markers"]
+    markers = marker_data if isinstance(marker_data, list) else marker_data["markers"]
     print(f"  Ground truth: {len(markers)} markers  "
           f"({sum(1 for m in markers if m['tier']=='tier1')} Tier1, "
           f"{sum(1 for m in markers if m['tier']=='tier2')} Tier2)\n")
 
     # Pre-extract keyframes once (reused for every trial)
     print("  Pre-extracting keyframes...")
-    keyframes = extract_keyframes(str(MIDI_PATH))
+    keyframes = extract_keyframes(str(midi_path))
     print(f"  {len(keyframes)} keyframes extracted.\n")
 
     # ─── Grid search ──────────────────────────────────────────────────────────
@@ -302,14 +309,14 @@ def main():
     exported = []
 
     for rank, r in enumerate(top, 1):
-        out_path = PUBLIC_DIR / f"etme_pathetique_16s_chunk_optimized_{rank}.json"
+        out_path = PUBLIC_DIR / f"etme_{args.chunk}_optimized_{rank}.json"
         print(f"    #{rank} → {out_path.name}  "
               f"({r['break_method']} J={r['jaccard_threshold']} "
               f"BA={r['break_angle']} MBM={r['min_break_mass']} "
               f"D={r['debounce_ms']}ms)  "
               f"errors={r['total_errors']} FP={r['fp']} FN={r['fn']}")
         export_analysis(
-            midi_path=str(MIDI_PATH),
+            midi_path=str(midi_path),
             output_json=str(out_path),
             angle_map=r["angle_map"],
             break_method=r["break_method"],

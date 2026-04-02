@@ -270,9 +270,11 @@ if __name__ == "__main__":
     parser.add_argument('--min_break_mass', type=float, default=0.75, help='Minimum mass to trigger regime break')
     args = parser.parse_args()
 
+    # Auto-discover all .mid files in midis/ so new chunks work immediately
+    midis_dir = os.path.join(os.path.dirname(__file__), 'midis')
     midis = {
-        'pathetique_full_chunk': 'midis/pathetique_full_chunk.mid',
-        'pathetique_16s_chunk': 'midis/pathetique_16s_chunk.mid',
+        os.path.splitext(f)[0]: os.path.join('midis', f)
+        for f in os.listdir(midis_dir) if f.endswith('.mid')
     }
 
     if args.midi_key and args.angle_map and args.break_method:
