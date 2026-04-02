@@ -109,7 +109,7 @@ MIDI file → extract_keyframes (50ms grouping) → HarmonicRegimeDetector → r
 - Precision above 90% means detected boundaries are highly trustworthy
 
 ### Known Limitations
-- **No tempo awareness** — all timing uses the 120 BPM tick convention (`tick × 500.0 / tpq`)
+- **Grid-quantized MIDI only (for now)** — current testing uses the 120 BPM tick convention (`tick × 500.0 / tpq`) which gives clean 125ms/250ms/375ms grid points. This is a debugging convenience, not a fundamental limitation. Live/recorded MIDI (non-quantized) is the next frontier and will require tempo matching between the project and the recorded performance.
 - **Monophonic bass assumption** — `bass_multiplier` applies to the lowest note per keyframe; polyphonic bass lines may behave unexpectedly
 - **Long regime inertia** — even with `max_anchor_size=6`, regimes that persist for 10+ seconds can still resist breaking on subtle harmonic shifts
 - **Dense chromatic passages** — the final 10s of the 64s chunk (development-style material) remains the hardest region, with 12 of 27 remaining FNs concentrated there
