@@ -19,49 +19,27 @@ MIDIS_DIR   = REPO_ROOT / "midis"
 MARKERS_DIR = REPO_ROOT / "markers"
 
 
-def ms_to_ticks(score, ms: float) -> int:
-    """Convert milliseconds to ticks using the score's actual tempo map."""
-    tpq = score.tpq
-    target_sec = ms / 1000.0
-    elapsed_sec = 0.0
-    elapsed_ticks = 0
-    prev_tick = 0
-    prev_qps = None  # quarters per second = 1_000_000 / mpqn
-
-    for tempo in sorted(score.tempos, key=lambda t: t.time):
-        qps = 1_000_000 / tempo.mspq
-        if prev_qps is not None:
-            segment_ticks = tempo.time - prev_tick
-            segment_sec = segment_ticks / (tpq * prev_qps)
-            if elapsed_sec + segment_sec >= target_sec:
-                remaining_sec = target_sec - elapsed_sec
-                return elapsed_ticks + int(remaining_sec * tpq * prev_qps)
-            elapsed_sec += segment_sec
-            elapsed_ticks += segment_ticks
-        prev_tick = tempo.time
-        prev_qps = qps
-
-    # Past all tempo changes — use last tempo
-    if prev_qps is not None:
-        remaining_sec = target_sec - elapsed_sec
-        return elapsed_ticks + int(remaining_sec * tpq * prev_qps)
-    return 0
-
-
 def slice_midi(src_path: Path, out_path: Path, end_ms: int) -> None:
-    """Trim MIDI to [0, end_ms] preserving the exact tempo map (tick-level, no round-trip)."""
-    import copy
+    """Trim MIDI to [0, end_ms] using the system-wide 120 BPM tick convention.
+    
+    IMPORTANT: This system interprets all tick values at 120 BPM (500ms/quarter),
+    regardless of the MIDI file's actual tempo metadata. All markers and note
+    positions are stored in this 120 BPM coordinate space.
+    tick_to_ms = 500.0 / tpq
+    """
     score = Score(str(src_path))
-    end_tick = ms_to_ticks(score, end_ms)
-    print(f"  end_ms={end_ms} → end_tick={end_tick}  (tpq={score.tpq})")
+    tpq = score.ticks_per_quarter
+    tick_to_ms_120 = 500.0 / tpq           # system convention, not real tempo
+    end_tick = int(end_ms / tick_to_ms_120)
+    print(f"  end_ms={end_ms} → end_tick={end_tick}  (tpq={tpq}, 120 BPM convention)")
 
     for track in score.tracks:
         keep = []
         for note in track.notes:
-            if note.time >= end_tick:
+            if note.start >= end_tick:
                 continue
-            if note.time + note.duration > end_tick:
-                note.duration = end_tick - note.time
+            if note.start + note.duration > end_tick:
+                note.duration = end_tick - note.start
             keep.append(note)
         track.notes = keep
 
@@ -74,9 +52,15 @@ def slice_midi(src_path: Path, out_path: Path, end_ms: int) -> None:
 
     score.dump_midi(str(out_path))
 
-    # Verify actual end time
-    verify = Score(str(out_path)).to('second')
-    print(f"  MIDI saved → {out_path}  (verified end: {verify.end():.2f}s)")
+    # Verify via 120 BPM convention
+    verify = Score(str(out_path))
+    tpq_v = verify.ticks_per_quarter
+    all_notes = [n for t in verify.tracks for n in t.notes]
+    max_tick_v = max((n.start + n.duration for n in all_notes), default=0)
+    max_ms_120 = max_tick_v * (500.0 / tpq_v)
+    print(f"  MIDI saved → {out_path}  ({len(all_notes)} notes, verified end: {max_ms_120:.0f}ms at 120 BPM)")
+
+
 
 
 def slice_markers(src_path: Path, out_path: Path, end_ms: int, out_name: str) -> None:
