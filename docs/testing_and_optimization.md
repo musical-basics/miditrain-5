@@ -192,30 +192,86 @@ Cross-validated JSONs appear in the dropdown labeled
 
 ---
 
-## Current Benchmark Results (16s Chunk)
+## Benchmark Results
 
-Best configuration found (2026-04-01):
+Run date: **2026-04-01**  
+Full-grid results saved in `optimizer_runs/`:
+- `pathetique_16s_chunk_20260401_1840.csv` — 12,960 trials on 16s chunk
+- `pathetique_64s_chunk_20260401_1843.csv` — 12,960 trials on 64s chunk
+
+---
+
+### 16s Chunk — Summary
 
 | Metric | Value |
 |---|---|
-| **Errors (FP + FN)** | **11** |
-| **TP** | 34 / 38 |
-| **FP** | 7 |
-| **FN** | 4 |
-| **Precision** | 82.9% |
-| **Recall** | 89.5% |
-| **F1** | 86.1% |
+| Ground truth markers | 38 (28 Tier1, 10 Tier2) |
+| Keyframes extracted | 129 |
+| **Best errors (FP+FN)** | **11** |
+| Best TP | 34 / 38 |
+| Best FP | 7 |
+| Best FN | 4 |
+| Best Precision | 82.9% |
+| Best Recall | 89.5% |
+| Best F1 | **86.1%** |
+| Configs passing recall floor (≥50%) | 12,960 / 12,960 |
 
-**Winning parameters:**
-```
-break_method:    hybrid  (or hybrid_split — identical results)
-angle_map:       dissonance
-break_angle:     25°
-merge_angle:     20°
-min_break_mass:  0.75
-debounce_ms:     10ms  (or 25ms, 50ms — no change)
-jaccard:         0.125
-```
+**Top 5 configs (all tied at errors=11):**
+
+| # | break_method | BA | MA | MBM | D | J | Errors | P | R | F1 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | hybrid | 25° | 20° | 0.75 | 10ms | 0.125 | 11 | 82.9% | 89.5% | 86.1% |
+| 2 | hybrid_split | 25° | 20° | 0.75 | 10ms | 0.125 | 11 | 82.9% | 89.5% | 86.1% |
+| 3 | hybrid | 25° | 20° | 0.75 | 25ms | 0.125 | 11 | 82.9% | 89.5% | 86.1% |
+| 4 | hybrid_split | 25° | 20° | 0.75 | 25ms | 0.125 | 11 | 82.9% | 89.5% | 86.1% |
+| 5 | hybrid | 25° | 20° | 0.75 | 50ms | 0.125 | 11 | 82.9% | 89.5% | 86.1% |
+
+---
+
+### 64s Chunk — Summary
+
+| Metric | Value |
+|---|---|
+| Ground truth markers | 116 (96 Tier1, 20 Tier2) |
+| Keyframes extracted | 617 |
+| **Best errors (FP+FN)** | **54** |
+| Best TP | 91 / 116 |
+| Best FP | 29 |
+| Best FN | 25 |
+| Best Precision | 75.8% |
+| Best Recall | 78.4% |
+| Best F1 | **77.1%** |
+| Configs passing recall floor (≥50%) | 10,116 / 12,960 |
+
+**Top 5 configs:**
+
+| # | break_method | BA | MA | MBM | D | J | Errors | P | R | F1 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | hybrid | 25° | 20° | 0.75 | 100ms | 0.250 | 54 | 75.8% | 78.4% | 77.1% |
+| 2 | hybrid | 35° | 20° | 0.75 | 100ms | 0.375 | 55 | 75.6% | 77.6% | 76.6% |
+| 3 | hybrid | 35° | 20° | 0.75 | 100ms | 0.250 | 56 | 75.9% | 75.9% | 75.9% |
+| 4 | hybrid | 25° | 20° | 0.75 | 100ms | 0.375 | 57 | 73.6% | 79.3% | 76.3% |
+| 5 | hybrid | 25° | 20° | 0.75 | 100ms | 0.125 | 58 | 75.9% | 73.3% | 74.6% |
+
+---
+
+### Side-by-Side Comparison
+
+| Metric | 16s chunk | 64s chunk |
+|---|---|---|
+| Errors (FP+FN) | **11** | **54** (46.6% error rate vs 29% on 16s) |
+| Precision | 82.9% | 75.8% |
+| Recall | 89.5% | 78.4% |
+| F1 | 86.1% | 77.1% |
+| Optimal debounce | 10–50ms | **100ms** |
+| Optimal Jaccard | 0.125 | **0.25–0.375** |
+
+**Key insight — parameter divergence between chunks:**  
+The 64s chunk prefers a higher Jaccard threshold (0.25 vs 0.125) and longer debounce (100ms vs 10ms). This is consistent with the detector needing to suppress rapid re-triggering across longer musical phrases. The `break_angle` and `min_break_mass` converge on the same values (25°, 0.75), suggesting those control the fundamental detection sensitivity while debounce/jaccard control temporal spacing.
+
+The visual dropdown in the visualizer shows all results under:
+- `🏆 Opt #1–5` — chunk-specific optimizer winners
+- `✅ 16s-Opt #1–5` — 16s winners applied to the 64s piece (cross-validation)
 
 ---
 
