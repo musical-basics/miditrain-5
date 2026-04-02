@@ -72,59 +72,39 @@ def ms_to_ticks(score, ms):
 
 ---
 
-## Bug 3: ETME export uses hardcoded 120 BPM for tick→ms conversion
+## Bug 3: `create_chunk.py` sliced to wrong tick boundary (MIDI shows only 15s of 64s)
 
 **Date:** 2026-04-01  
-**Files:** `export_etme_data.py` — `midi_to_particles()`, `extract_keyframes()`
+**Files:** `create_chunk.py`
 
 ### Symptom
-After correctly slicing the 64s MIDI (Bug 2 fixed), loading the 64s chunk in the visualizer still only showed notes up to ~15 seconds. The piano roll canvas appeared as if the piece was only 15s long despite the MIDI being 64s. Markers (stored in true milliseconds) appeared to fall at completely wrong positions relative to the notes.
+After applying the Bug 2 fix (tick-level clip using real tempo), the 64s chunk MIDI only contained ~15 seconds of notes when loaded in the visualizer. The initial `.to('second')` verification reported the correct 64s, masking the issue.
 
 ### Root Cause
-Both `midi_to_particles()` and `extract_keyframes()` used a hardcoded tick→ms conversion:
-```python
-tick_to_ms = 500.0 / tpq  # assumes 120 BPM = 500ms per quarter
-```
-The Pathetique is at 28 BPM (2143ms per quarter). The correct ratio is `2142.857 / tpq`, approximately **4.3× larger** than the hardcoded value.
+The system uses a **system-wide 120 BPM convention**: `tick_to_ms = 500.0 / tpq`. All markers are stored in this coordinate space (i.e., "ticks × 0.521ms per tick"). The Pathetique MIDI's actual tempo is 28 BPM (~2143ms/quarter), but the system ignores this and treats every tick as if the tempo were 120 BPM.
 
-Result: a note at tick 28,672 (= 64,000ms at 28 BPM) was reported as:
+The Bug 2 "fix" computed the end tick using the **real** tempo (28 BPM), resulting in:
 ```
-28672 * (500 / 960) = 14,933ms ≈ 15s
+64,000ms at 28 BPM = 28,672 ticks
 ```
-instead of 64,000ms. The entire 64-second piece appeared compressed into ~15 seconds.
+But the system renders 28,672 ticks as:
+```
+28,672 × (500 / 960) = 14,933ms ≈ 15s
+```
+So the chunk contained only 15 seconds of content in the system's coordinate space.
 
-### Why This Wasn't Caught Earlier
-- The 16s chunk has the same 28 BPM tempo, so the _relative_ spacing of notes within the chunk was still consistent. The UI appeared correct because markers and notes compressed proportionally together.
-- The bug only became visible when using a known-64s piece alongside markers stored in true ms from the full chunk.
-
-### Failed Fixes
-- **Attempt 1:** Assumed the issue was the MIDI file corruption from Bug 2 and regenerated the MIDI. The ETME JSON was still wrong after the MIDI was fixed.
-- **Attempt 2:** Verified note timings in the raw MIDI via symusic (which correctly reports 64s) — the MIDI was clean. Narrowed the issue to the export script.
+### Failed Fix
+Attempted to "fix" `export_etme_data.py` to use the real tempo map — this caused the opposite problem: note durations bloated to 4× their expected width in the UI, misaligning with all user-placed markers.
 
 ### Final Solution
-Replaced the hardcoded constant with a proper **tempo-map-aware tick→ms conversion**:
-
-1. `build_tempo_map(score)` — builds a list of `(start_tick, start_ms, ms_per_tick)` segments by walking the score's `tempos` list in order.
-2. `ticks_to_ms(tick, segments)` — binary-searches the segment list and interpolates the exact millisecond value for any tick position.
-
-Both `midi_to_particles()` and `extract_keyframes()` were updated to call these helpers instead of the hardcoded ratio.
-
+Reverted both `create_chunk.py` and `export_etme_data.py` to use the 120 BPM convention consistently:
 ```python
-def build_tempo_map(score):
-    segments = []
-    for tempo in sorted(score.tempos, key=lambda t: t.time):
-        ms_per_tick = tempo.mspq / 1000.0 / score.ticks_per_quarter
-        ...
-    return segments
-
-def ticks_to_ms(tick, segments):
-    # binary search + interpolate
-    ...
+tick_to_ms_120 = 500.0 / tpq        # system convention, not real tempo
+end_tick = int(end_ms / tick_to_ms_120)
 ```
+At 120 BPM: `64,000ms → 122,879 ticks`, yielding 1,406 notes spanning the full 63.9s window.
 
-**Why it works:** The tempo map correctly handles mid-piece tempo changes. The Pathetique has 3 tempo events; the conversion now accounts for all of them. Any MIDI with any tempo or tempo-change pattern will now export correctly.
-
-**After fix:** The 64s ETME JSON contains 253 notes with `max_onset = 63,749ms` (63.7s) — covering the full piece as expected.
+**Key lesson:** The `tick_to_ms = 500.0 / tpq` constant in `export_etme_data.py` is **intentional and must not be changed**. The entire system's time axis (notes, markers, regime boundaries) is built on the 120 BPM tick interpretation. Any MIDI slicing or export must respect this convention, regardless of the actual MIDI tempo metadata.
 
 ---
 
