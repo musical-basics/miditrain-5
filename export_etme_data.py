@@ -135,10 +135,12 @@ def extract_keyframes(midi_path, group_window_ms=50):
     return keyframes
 
 
-def export_analysis(midi_path, output_json="etme_analysis.json", angle_map='dissonance', break_method='centroid', jaccard_threshold=0.5, min_break_mass=0.75, break_angle=15.0, merge_angle=20.0, debounce_ms=100, trim_ms=None):
+def export_analysis(midi_path, output_json="etme_analysis.json", angle_map='dissonance', break_method='centroid', jaccard_threshold=0.5, min_break_mass=0.75, break_angle=15.0, merge_angle=20.0, debounce_ms=100, trim_ms=None, **extra_params):
     print(f"Loading MIDI: {midi_path}")
     print(f"  Angle map: {angle_map}, Break method: {break_method}, Jaccard: {jaccard_threshold}, Min Break Mass: {min_break_mass}")
     print(f"  Break angle: {break_angle}°, Merge angle: {merge_angle}°, Debounce: {debounce_ms}ms")
+    if extra_params:
+        print(f"  V3 params: {extra_params}")
     particles = midi_to_particles(midi_path)
     keyframes = extract_keyframes(midi_path)
     print(f"  Loaded {len(particles)} particles, {len(keyframes)} keyframes")
@@ -149,7 +151,7 @@ def export_analysis(midi_path, output_json="etme_analysis.json", angle_map='diss
     detector = HarmonicRegimeDetector(
         break_angle=break_angle, min_break_mass=min_break_mass, merge_angle=merge_angle,
         angle_map=angle_map, break_method=break_method, jaccard_threshold=jaccard_threshold,
-        debounce_ms=debounce_ms
+        debounce_ms=debounce_ms, **extra_params
     )
     regime_frames = detector.process(keyframes)
 

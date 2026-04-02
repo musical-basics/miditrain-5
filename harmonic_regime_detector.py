@@ -48,7 +48,9 @@ class HarmonicRegimeDetector:
     """
 
     def __init__(self, break_angle=40.0, min_break_mass=0.8, merge_angle=20.0,
-                 angle_map='dissonance', break_method='centroid', debounce_ms=100, jaccard_threshold=0.5):
+                 angle_map='dissonance', break_method='centroid', debounce_ms=100, jaccard_threshold=0.5,
+                 min_resolution_ratio=0.0, max_anchor_size=12, maturity_grace_ms=0,
+                 bass_multiplier=1.0):
         self.break_angle = break_angle
         self.min_break_mass = min_break_mass
         self.merge_angle = merge_angle
@@ -56,6 +58,14 @@ class HarmonicRegimeDetector:
         self.break_method = break_method
         self.debounce_ms = debounce_ms
         self.jaccard_threshold = jaccard_threshold
+        # Method 1: Mass-weighted resolution — minimum mass ratio to swallow a spike
+        self.min_resolution_ratio = min_resolution_ratio
+        # Method 2: Anchor diversity cap — max pitch classes retained in anchor
+        self.max_anchor_size = max_anchor_size
+        # Method 2: Maturity grace period — suppress breaks for N ms after regime birth
+        self.maturity_grace_ms = maturity_grace_ms
+        # Method 3: Bass authority — extra multiplier for the lowest note in each keyframe
+        self.bass_multiplier = bass_multiplier
 
     # ------------------------------------------------------------------
     # Vector math helpers
@@ -103,11 +113,15 @@ class HarmonicRegimeDetector:
         return dot / (mag1 * mag2)
 
     def _get_dominant_pcs(self, particles):
-        """Extract set of pitch classes from particles, ignoring trace elements < 20% of max mass."""
+        """Extract set of pitch classes from particles, ignoring trace elements < 15% of max mass.
+
+        The threshold is hard-capped at 0.25 absolute mass to prevent an amplified
+        bass note (from bass_multiplier) from wiping out inner voices.
+        """
         if not particles:
             return set()
         max_m = max(p['mass'] for p in particles)
-        threshold = max_m * 0.15
+        threshold = min(0.25, max_m * 0.15)
         return {SEMITONE_MAP.get(p['interval'], 0) for p in particles if p['mass'] >= threshold}
 
     def _jaccard_similarity(self, set_a, set_b):
@@ -137,15 +151,21 @@ class HarmonicRegimeDetector:
     def _build_particles(self, notes, time_ms):
         """Build particle dicts from raw note tuples."""
         particles = []
+        # Find lowest octave for bass authority (Method 3)
+        lowest_octave = min(n[1] for n in notes) if notes else 4
         for n in notes:
             interval, octave, velocity = n[0], n[1], n[2]
             angle = self.interval_angles.get(interval, 0)
             base_mass = velocity / 127.0
             dur_boost = max(0.5, min(n[3] / 1000.0, 2.0)) if len(n) >= 4 else 1.0
             register_boost = 1.0 + (abs(octave - 4) * 0.15)
+            mass = base_mass * dur_boost * register_boost
+            # Method 3: Bass authority — amplify the lowest note(s) ONLY in bass register
+            if octave == lowest_octave and octave <= 3 and self.bass_multiplier > 1.0:
+                mass *= self.bass_multiplier
             particles.append({
                 'interval': interval, 'octave': octave, 'angle': angle,
-                'mass': base_mass * dur_boost * register_boost, 'time': time_ms
+                'mass': mass, 'time': time_ms
             })
         return particles
 
@@ -221,9 +241,10 @@ class HarmonicRegimeDetector:
         frame_assignments = {}
         regimes = []
         current_regime_id = 0
+        regime_start_ms = 0        # Method 2: track when current regime started
 
         def confirm_pending_spike():
-            nonlocal current_regime_id, regime_all_particles, anchor_profile
+            nonlocal current_regime_id, regime_all_particles, anchor_profile, regime_start_ms
             first_spike_time = pending_spike_frames[0][0]
             # 1. Flush limbo frames into OLD regime
             for lf_time, lf_parts in limbo_frames:
@@ -237,6 +258,7 @@ class HarmonicRegimeDetector:
             current_regime_id += 1
 
             # 3. New regime starts cleanly from the FIRST pending spike
+            regime_start_ms = first_spike_time
             first_parts = pending_spike_frames[0][1]
             anchor_profile = {}
             for p in first_parts:
@@ -279,6 +301,7 @@ class HarmonicRegimeDetector:
 
             # --- Bootstrap: first frame seeds the anchor ---
             if not anchor_profile:
+                regime_start_ms = time_ms
                 for p in particles:
                     anchor_profile[p['interval']] = anchor_profile.get(p['interval'], 0) + p['mass']
                 regime_all_particles = particles.copy()
@@ -346,6 +369,13 @@ class HarmonicRegimeDetector:
             # Ambiguity Resolution: An isolated note (e.g. B) may belong to both the I chord AND the V7 chord.
             # If it belongs to the pending modulation, it continues the tension rather than prematurely resolving it.
             is_resolution = is_subset_anchor and not is_subset_spike
+
+            # Method 1: Mass-weighted resolution — a whisper shouldn't swallow a shout.
+            # If the resolving frame's mass is too small relative to the spike, reject resolution.
+            if is_resolution and pending_spike_frames and self.min_resolution_ratio > 0.0:
+                spike_mass = sum(p['mass'] for _, ps_parts, _ in pending_spike_frames for p in ps_parts)
+                if spike_mass > 0 and (pmass / spike_mass) < self.min_resolution_ratio:
+                    is_resolution = False
             
             # If the notes clearly belong to the active modulation, do not allow them to merge into the old regime
             # even if their angle difference happens to be < 25.0
@@ -370,6 +400,13 @@ class HarmonicRegimeDetector:
                     should_break = False
                     can_merge = True
 
+            # ─── METHOD 2: MATURITY GRACE PERIOD ──────────────
+            # Suppress breaks during the first N ms of a new regime
+            if should_break and self.maturity_grace_ms > 0:
+                if time_ms - regime_start_ms < self.maturity_grace_ms:
+                    should_break = False
+                    can_merge = True
+
             # ─── CASE 1: REGIME BREAK (OR PENDING SPIKE) ────────
             # Note: _should_break uses is_subset_anchor to suppress initial breaks
             if should_break or (pending_spike_frames and not can_merge):
@@ -387,6 +424,18 @@ class HarmonicRegimeDetector:
                     if intra_jaccard < self.jaccard_threshold:
                         # Divergent frame — force-confirm existing spike first
                         confirm_pending_spike()
+
+                # EMERGENT FIX: Rescue stranded limbo frames into the spike.
+                # When a break triggers via combined_pending (limbo + current), the limbo
+                # notes contributed to the mass that crossed the threshold. Without this,
+                # they get flushed into the OLD regime and the new anchor is born without
+                # its bass note — causing narrow-anchor cascades.
+                # Gated: only rescue when bass_multiplier is active (bass-driven breaks
+                # are the main case where limbo rescue helps).
+                if not pending_spike_frames and limbo_frames and self.bass_multiplier > 1.0:
+                    for lf_time, lf_parts in limbo_frames:
+                        pending_spike_frames.append((lf_time, lf_parts, {'state': 'Rescued Limbo'}))
+                    limbo_frames.clear()
 
                 # Tension is initiated or continuing
                 pending_spike_frames.append((time_ms, particles, frame_debug))
@@ -440,6 +489,11 @@ class HarmonicRegimeDetector:
                         anchor_profile[i] *= 0.95
                         if anchor_profile[i] < 0.05:
                             del anchor_profile[i]
+
+                # Method 2: Anchor diversity cap — prune to top N by mass
+                if self.max_anchor_size < 12 and len(anchor_profile) > self.max_anchor_size:
+                    sorted_pcs = sorted(anchor_profile.items(), key=lambda x: -x[1])
+                    anchor_profile = dict(sorted_pcs[:self.max_anchor_size])
 
                 frame_assignments[time_ms] = {
                     'regime_id': current_regime_id, 'state': 'Stable',

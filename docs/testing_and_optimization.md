@@ -228,30 +228,46 @@ Full-grid results saved in `optimizer_runs/`:
 
 ---
 
-### 64s Chunk — Summary
+### 64s Chunk — Summary (V3)
 
 | Metric | Value |
 |---|---|
 | Ground truth markers | 116 (96 Tier1, 20 Tier2) |
 | Keyframes extracted | 653 |
-| **Best errors (FP+FN)** | **48** |
-| Best TP | 84 / 116 |
-| Best FP | 16 |
-| Best FN | 32 |
+| **Best errors (FP+FN)** | **44** |
+| Best TP | 89 / 116 |
+| Best FP | 17 |
+| Best FN | 27 |
 | Best Precision | 84.0% |
-| Best Recall | 72.4% |
-| Best F1 | **77.8%** |
-| Configs passing recall floor (≥50%) | 9,849 / 12,960 |
+| Best Recall | 76.7% |
+| Best F1 | **80.2%** |
+| Configs passing recall floor (≥50%) | 8,985 / 13,824 |
 
-**Top 5 configs (all tied at errors=48):**
+**Top 5 configs (all tied at errors=44):**
 
-| # | break_method | BA | MA | MBM | D | J | Errors | P | R | F1 |
-|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | hybrid | 25° | 20° | 0.75 | 100ms | 0.250 | 48 | 84.0% | 72.4% | 77.8% |
-| 2 | hybrid | 35° | 20° | 0.75 | 100ms | 0.375 | 48 | 83.3% | 73.3% | 78.0% |
-| 3 | hybrid | 25° | 20° | 0.75 | 100ms | 0.375 | 48 | 82.1% | 75.0% | 78.4% |
-| 4 | hybrid | 15° | 20° | 0.75 | 100ms | 0.500 | 48 | 79.8% | 78.4% | 79.1% |
-| 5 | hybrid | 15° | 25° | 0.75 | 100ms | 0.500 | 48 | 79.8% | 78.4% | 79.1% |
+| # | BA | MA | MBM | D | J | ResRatio | AnchorCap | Errors | P | R | F1 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 35° | 20° | 0.75 | 100ms | 0.375 | 0.40 | 6 | 44 | 84.0% | 76.7% | 80.2% |
+| 2 | 35° | 20° | 0.75 | 100ms | 0.375 | 0.40 | 6 | 44 | 84.0% | 76.7% | 80.2% |
+| 3 | 35° | 20° | 0.75 | 100ms | 0.375 | 0.40 | 12 | 44 | 84.0% | 76.7% | 80.2% |
+| 4 | 35° | 20° | 0.75 | 100ms | 0.375 | 0.40 | 12 | 44 | 84.0% | 76.7% | 80.2% |
+| 5 | 35° | 20° | 0.75 | 100ms | 0.375 | 0.60 | 6 | 44 | 84.0% | 76.7% | 80.2% |
+
+V3 params active: `min_resolution_ratio=0.4`, `max_anchor_size=6`. Maturity grace and bass multiplier stayed at defaults (0ms, 1.0×).
+
+---
+
+### Side-by-Side Comparison (Full Progression)
+
+| Metric | Original (V2.2) | + Guard | + V3 Methods |
+|---|---|---|---|
+| **64s Errors** | 54 | 48 | **44** |
+| 64s FP | 29 | 16 | 17 |
+| 64s FN | 25 | 32 | **27** |
+| 64s TP | 91 | 84 | **89** |
+| 64s F1 | 77.1% | 77.8% | **80.2%** |
+| 64s P | 75.8% | 84.0% | 84.0% |
+| 64s R | 78.4% | 72.4% | **76.7%** |
 
 ---
 
@@ -342,6 +358,50 @@ When creating test chunks (e.g., 64s slice of a longer piece), the detector's de
 - `export_etme_data.py` accepts `trim_ms` to strip notes and regimes in the buffer zone from the output JSON
 
 **Note:** Testing showed the buffer had minimal impact on the Pathétique 64s chunk (the FP clustering near the end was due to genuinely difficult musical material, not chunk-boundary artifacts). The buffer is retained as a safety measure for future chunks.
+
+---
+
+## V3 Methods — Mass Resolution, Anchor Cap, Bass Authority
+
+**Added:** 2026-04-01  
+**Location:** `harmonic_regime_detector.py` — constructor params + `process()` state machine
+
+Three new detector parameters, identified through deep analysis of FN failure modes and code audit:
+
+### Method 1: Mass-Weighted Resolution (`min_resolution_ratio`)
+
+**Problem (FN Mode 1 — Swallowed Spikes):** A spike with mass 1.41 and 76° divergence enters probation at 51500ms. A single quiet `b3` note (mass 0.24) arrives 82ms later. Because `b3` is an anchor note, `is_resolution=True` and the spike is swallowed — a whisper cancels a shout.
+
+**Fix:** Before declaring `is_resolution`, check the mass ratio: `resolve_mass / spike_mass`. If below `min_resolution_ratio`, reject the resolution. Optimal value: **0.40** (a resolving frame must have at least 40% of the spike's mass to swallow it).
+
+### Method 2A: Anchor Diversity Cap (`max_anchor_size`)
+
+**Problem (FN Mode 2 — Subset Suppression):** Long-lived regimes accumulate pitch classes in their anchor until almost any chord is a "subset." At 52000ms, R88's anchor had 10 of 12 pitch classes, making `is_subset_anchor=True` for everything.
+
+**Fix:** After each merge, prune the anchor profile to keep only the top N pitch classes by mass. Optimal value: **6** (keeps the core harmonic identity without becoming a catch-all).
+
+### Method 2B: Maturity Grace Period (`maturity_grace_ms`)
+
+Suppresses breaks during the first N ms after a regime birth, protecting new anchors from cascading re-triggers. The optimizer found this wasn't needed with the other fixes active (optimal: **0ms**).
+
+### Method 3: Bass Authority (`bass_multiplier`)
+
+Amplifies the lowest note in each keyframe (octave ≤ 3 only) to reflect that bass motion drives harmonic function in tonal music. Restricted to bass register to avoid amplifying treble passing tones. The `_get_dominant_pcs` threshold is hard-capped at 0.25 absolute mass to prevent the amplified bass from wiping out inner voices. The optimizer found this wasn't needed on the Pathétique (optimal: **1.0×**), but it may help on pieces with more prominent bass motion.
+
+### Additional Bug Fix: Stranded Limbo Rescue
+
+Code audit revealed that when a regime break triggers via `combined_pending` (limbo + current frame), only the current frame's particles seed the new anchor — the limbo frames that contributed to the break mass get flushed into the OLD regime. This is gated to only activate when `bass_multiplier > 1.0`, as unconditional rescue caused regressions.
+
+### V3 Grid Search
+
+Run via `python3 optimize_params.py --v3`. Locks base params from V2.2 top configs and searches the new variables:
+
+| Parameter | Values searched |
+|---|---|
+| `min_resolution_ratio` | 0.0, 0.25, 0.40, 0.60 |
+| `max_anchor_size` | 4, 5, 6, 12 |
+| `maturity_grace_ms` | 0, 100, 150, 200 |
+| `bass_multiplier` | 1.0, 1.5, 2.0, 3.0 |
 
 ---
 

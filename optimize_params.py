@@ -124,6 +124,10 @@ def score_params(params, markers, keyframes, tolerance_ms=100, beta=None,
         break_method=params["break_method"],
         debounce_ms=params["debounce_ms"],
         jaccard_threshold=params["jaccard_threshold"],
+        min_resolution_ratio=params.get("min_resolution_ratio", 0.0),
+        max_anchor_size=params.get("max_anchor_size", 12),
+        maturity_grace_ms=params.get("maturity_grace_ms", 0),
+        bass_multiplier=params.get("bass_multiplier", 1.0),
     )
     regime_frames = detector.process(keyframes)
     model_bounds = get_model_boundaries(regime_frames)
@@ -194,6 +198,22 @@ QUICK_GRID = {
     "angle_map":        ["dissonance"],
 }
 
+# V3 grid: lock base params from top 5, search new Method 1/2/3 variables
+# + expanded debounce range as suggested by deep think analysis
+V3_GRID = {
+    "break_angle":           [15, 25, 35],
+    "min_break_mass":        [0.75],
+    "merge_angle":           [20, 25],
+    "debounce_ms":           [100, 150, 200],
+    "jaccard_threshold":     [0.25, 0.375, 0.5],
+    "break_method":          ["hybrid"],
+    "angle_map":             ["dissonance"],
+    "min_resolution_ratio":  [0.0, 0.25, 0.40, 0.60],
+    "max_anchor_size":       [4, 5, 6, 12],
+    "maturity_grace_ms":     [0, 100, 150, 200],
+    "bass_multiplier":       [1.0, 1.5, 2.0, 3.0],
+}
+
 
 def build_trials(grid):
     keys = list(grid.keys())
@@ -214,6 +234,7 @@ def main():
     parser.add_argument("--min_precision", type=float, default=0.0,  help="Optional hard floor on precision %% (0 = disabled)")
     parser.add_argument("--min_recall",    type=float, default=50.0, help="Hard floor on recall %% — prevents degenerate low-detection configs (default: 50.0)")
     parser.add_argument("--quick",         action="store_true",      help="Use quick (smaller) grid for fast testing")
+    parser.add_argument("--v3",            action="store_true",      help="V3 grid: search new Method 1/2/3 params with locked base config")
     args = parser.parse_args()
 
     midi_path    = REPO_ROOT / "midis"   / f"{args.chunk}.mid"
@@ -221,7 +242,7 @@ def main():
     assert midi_path.exists(),    f"MIDI not found: {midi_path}"
     assert markers_path.exists(), f"Markers not found: {markers_path}"
 
-    grid = QUICK_GRID if args.quick else FULL_GRID
+    grid = V3_GRID if args.v3 else (QUICK_GRID if args.quick else FULL_GRID)
     trials = list(build_trials(grid))
     total = len(trials)
 
@@ -334,6 +355,9 @@ def main():
               f"BA={r['break_angle']} MBM={r['min_break_mass']} "
               f"D={r['debounce_ms']}ms)  "
               f"errors={r['total_errors']} FP={r['fp']} FN={r['fn']}")
+        # Collect V3 params if present
+        v3_keys = ["min_resolution_ratio", "max_anchor_size", "maturity_grace_ms", "bass_multiplier"]
+        v3_params = {k: r[k] for k in v3_keys if k in r}
         export_analysis(
             midi_path=str(midi_path),
             output_json=str(out_path),
@@ -345,10 +369,21 @@ def main():
             merge_angle=r["merge_angle"],
             debounce_ms=r["debounce_ms"],
             trim_ms=score_end_ms,
+            **v3_params,
         )
         # Patch the JSON to embed the full param config as metadata
         with open(out_path) as jf:
             jdata = json.load(jf)
+        base_params = {
+            "break_method":     r["break_method"],
+            "angle_map":        r["angle_map"],
+            "break_angle":      r["break_angle"],
+            "merge_angle":      r["merge_angle"],
+            "min_break_mass":   r["min_break_mass"],
+            "debounce_ms":      r["debounce_ms"],
+            "jaccard_threshold":r["jaccard_threshold"],
+        }
+        base_params.update(v3_params)
         jdata["optimizer_meta"] = {
             "rank": rank,
             "total_errors": r["total_errors"],
@@ -356,15 +391,7 @@ def main():
             "precision": r["precision"],
             "recall": r["recall"],
             "tp": r["tp"], "fp": r["fp"], "fn": r["fn"],
-            "params": {
-                "break_method":     r["break_method"],
-                "angle_map":        r["angle_map"],
-                "break_angle":      r["break_angle"],
-                "merge_angle":      r["merge_angle"],
-                "min_break_mass":   r["min_break_mass"],
-                "debounce_ms":      r["debounce_ms"],
-                "jaccard_threshold":r["jaccard_threshold"],
-            }
+            "params": base_params
         }
         with open(out_path, "w") as jf:
             json.dump(jdata, jf, indent=2)
