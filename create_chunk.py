@@ -19,38 +19,76 @@ MIDIS_DIR   = REPO_ROOT / "midis"
 MARKERS_DIR = REPO_ROOT / "markers"
 
 
+def ms_to_ticks(score, ms: float) -> int:
+    """Convert milliseconds to ticks using the score's actual tempo map."""
+    tpq = score.tpq
+    target_sec = ms / 1000.0
+    elapsed_sec = 0.0
+    elapsed_ticks = 0
+    prev_tick = 0
+    prev_qps = None  # quarters per second = 1_000_000 / mpqn
+
+    for tempo in sorted(score.tempos, key=lambda t: t.time):
+        qps = 1_000_000 / tempo.mspq
+        if prev_qps is not None:
+            segment_ticks = tempo.time - prev_tick
+            segment_sec = segment_ticks / (tpq * prev_qps)
+            if elapsed_sec + segment_sec >= target_sec:
+                remaining_sec = target_sec - elapsed_sec
+                return elapsed_ticks + int(remaining_sec * tpq * prev_qps)
+            elapsed_sec += segment_sec
+            elapsed_ticks += segment_ticks
+        prev_tick = tempo.time
+        prev_qps = qps
+
+    # Past all tempo changes — use last tempo
+    if prev_qps is not None:
+        remaining_sec = target_sec - elapsed_sec
+        return elapsed_ticks + int(remaining_sec * tpq * prev_qps)
+    return 0
+
+
 def slice_midi(src_path: Path, out_path: Path, end_ms: int) -> None:
-    """Trim MIDI to [0, end_ms] using symusic's tempo-aware second conversion."""
+    """Trim MIDI to [0, end_ms] preserving the exact tempo map (tick-level, no round-trip)."""
+    import copy
     score = Score(str(src_path))
-    end_sec = end_ms / 1000.0
+    end_tick = ms_to_ticks(score, end_ms)
+    print(f"  end_ms={end_ms} → end_tick={end_tick}  (tpq={score.tpq})")
 
-    # Convert to second-based time, clip, convert back to tick for saving
-    clipped = score.to('second').clip(0, end_sec).to('tick')
+    for track in score.tracks:
+        keep = []
+        for note in track.notes:
+            if note.time >= end_tick:
+                continue
+            if note.time + note.duration > end_tick:
+                note.duration = end_tick - note.time
+            keep.append(note)
+        track.notes = keep
 
-    clipped.dump_midi(str(out_path))
-    print(f"  MIDI saved → {out_path}  (ends at {clipped.to('second').end():.2f}s)")
+        for attr in ("controls", "pitch_bends", "pedals"):
+            events = getattr(track, attr, [])
+            setattr(track, attr, [e for e in events if e.time < end_tick])
+
+    score.tempos = [t for t in score.tempos if t.time <= end_tick]
+    score.time_signatures = [ts for ts in score.time_signatures if ts.time <= end_tick]
+
+    score.dump_midi(str(out_path))
+
+    # Verify actual end time
+    verify = Score(str(out_path)).to('second')
+    print(f"  MIDI saved → {out_path}  (verified end: {verify.end():.2f}s)")
 
 
-def slice_markers(src_path: Path, out_path: Path, end_ms: int) -> None:
-    """Keep only markers whose time_ms <= end_ms, preserve structure."""
+def slice_markers(src_path: Path, out_path: Path, end_ms: int, out_name: str) -> None:
+    """Keep only markers whose time_ms <= end_ms. Updates the midiFile key to out_name."""
     with open(src_path) as f:
         raw = json.load(f)
 
-    if isinstance(raw, list):
-        markers = raw
-        wrapper = None
-    else:
-        markers = raw.get("markers", [])
-        wrapper = raw
-
+    markers = raw.get("markers", raw) if isinstance(raw, dict) else raw
     kept = [m for m in markers if m.get("time_ms", 0) <= end_ms]
     print(f"  Markers: {len(markers)} total → {len(kept)} within {end_ms}ms")
 
-    if wrapper is None:
-        out_data = kept
-    else:
-        out_data = {**wrapper, "markers": kept}
-
+    out_data = {"midiFile": out_name, "markers": kept, "savedAt": raw.get("savedAt", "") if isinstance(raw, dict) else ""}
     with open(out_path, "w") as f:
         json.dump(out_data, f, indent=2)
     print(f"  Markers saved → {out_path}")
@@ -78,7 +116,7 @@ def main():
     print(f"Output name: {args.out_name}\n")
 
     slice_midi(src_midi, out_midi, args.duration_ms)
-    slice_markers(src_markers, out_markers, args.duration_ms)
+    slice_markers(src_markers, out_markers, args.duration_ms, args.out_name)
 
     print(f"\nDone! Now run export_etme_data.py on:")
     print(f"  {out_midi}")
