@@ -7,6 +7,11 @@ Usage:
         --markers markers/pathetique_full_chunk_markers.json \
         --duration_ms 64000 \
         --out_name  pathetique_64s_chunk
+
+    # With buffer: MIDI extends 3s beyond markers so the detector has
+    # lookahead context at the chunk boundary (avoids false-positive
+    # spikes from auto-confirmed probation at end-of-file).
+    python3 create_chunk.py --duration_ms 64000 --buffer_ms 3000
 """
 import argparse
 import json
@@ -63,8 +68,14 @@ def slice_midi(src_path: Path, out_path: Path, end_ms: int) -> None:
 
 
 
-def slice_markers(src_path: Path, out_path: Path, end_ms: int, out_name: str) -> None:
-    """Keep only markers whose time_ms <= end_ms. Updates the midiFile key to out_name."""
+def slice_markers(src_path: Path, out_path: Path, end_ms: int, out_name: str,
+                  score_end_ms: int | None = None) -> None:
+    """Keep only markers whose time_ms <= end_ms. Updates the midiFile key to out_name.
+
+    If score_end_ms is set, it is stored in the output JSON so downstream tools
+    (optimizer, export) know to only score/display boundaries within this window,
+    even though the MIDI file may extend further (buffer zone).
+    """
     with open(src_path) as f:
         raw = json.load(f)
 
@@ -72,7 +83,15 @@ def slice_markers(src_path: Path, out_path: Path, end_ms: int, out_name: str) ->
     kept = [m for m in markers if m.get("time_ms", 0) <= end_ms]
     print(f"  Markers: {len(markers)} total → {len(kept)} within {end_ms}ms")
 
-    out_data = {"midiFile": out_name, "markers": kept, "savedAt": raw.get("savedAt", "") if isinstance(raw, dict) else ""}
+    out_data = {
+        "midiFile": out_name,
+        "markers": kept,
+        "savedAt": raw.get("savedAt", "") if isinstance(raw, dict) else "",
+    }
+    if score_end_ms is not None:
+        out_data["score_end_ms"] = score_end_ms
+        print(f"  score_end_ms={score_end_ms}ms embedded (MIDI buffer extends beyond this)")
+
     with open(out_path, "w") as f:
         json.dump(out_data, f, indent=2)
     print(f"  Markers saved → {out_path}")
@@ -84,6 +103,8 @@ def main():
     parser.add_argument("--markers",     default="markers/pathetique_full_chunk_markers.json")
     parser.add_argument("--duration_ms", type=int, default=64000,
                         help="Target end time in ms (default: 64000 = 1m04s)")
+    parser.add_argument("--buffer_ms",   type=int, default=3000,
+                        help="Extra MIDI beyond duration_ms for detector lookahead (default: 3000)")
     parser.add_argument("--out_name",    default="pathetique_64s_chunk",
                         help="Base name for output files (no extension)")
     args = parser.parse_args()
@@ -96,11 +117,14 @@ def main():
     assert src_midi.exists(),    f"MIDI not found: {src_midi}"
     assert src_markers.exists(), f"Markers not found: {src_markers}"
 
-    print(f"\nSlicing '{src_midi.name}' to {args.duration_ms}ms ({args.duration_ms/1000:.1f}s)")
+    midi_end_ms = args.duration_ms + args.buffer_ms
+    print(f"\nSlicing '{src_midi.name}' to {midi_end_ms}ms "
+          f"({args.duration_ms}ms scoring + {args.buffer_ms}ms buffer)")
     print(f"Output name: {args.out_name}\n")
 
-    slice_midi(src_midi, out_midi, args.duration_ms)
-    slice_markers(src_markers, out_markers, args.duration_ms, args.out_name)
+    slice_midi(src_midi, out_midi, midi_end_ms)
+    slice_markers(src_markers, out_markers, args.duration_ms, args.out_name,
+                  score_end_ms=args.duration_ms if args.buffer_ms > 0 else None)
 
     print(f"\nDone! Now run export_etme_data.py on:")
     print(f"  {out_midi}")

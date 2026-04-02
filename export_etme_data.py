@@ -135,7 +135,7 @@ def extract_keyframes(midi_path, group_window_ms=50):
     return keyframes
 
 
-def export_analysis(midi_path, output_json="etme_analysis.json", angle_map='dissonance', break_method='centroid', jaccard_threshold=0.5, min_break_mass=0.75, break_angle=15.0, merge_angle=20.0, debounce_ms=100):
+def export_analysis(midi_path, output_json="etme_analysis.json", angle_map='dissonance', break_method='centroid', jaccard_threshold=0.5, min_break_mass=0.75, break_angle=15.0, merge_angle=20.0, debounce_ms=100, trim_ms=None):
     print(f"Loading MIDI: {midi_path}")
     print(f"  Angle map: {angle_map}, Break method: {break_method}, Jaccard: {jaccard_threshold}, Min Break Mass: {min_break_mass}")
     print(f"  Break angle: {break_angle}°, Merge angle: {merge_angle}°, Debounce: {debounce_ms}ms")
@@ -245,6 +245,15 @@ def export_analysis(midi_path, output_json="etme_analysis.json", angle_map='diss
             "saturation": r["saturation"],
             "v_vec": r["v_vec"]
         })
+
+    # ─── Trim to scoring window (strip buffer zone) ─────────────────────
+    if trim_ms is not None:
+        notes_json = [n for n in notes_json if n["onset"] <= trim_ms]
+        regimes_json = [r for r in regimes_json if r["start_time"] <= trim_ms]
+        # Clamp the last regime's end_time to trim_ms
+        if regimes_json and regimes_json[-1]["end_time"] > trim_ms:
+            regimes_json[-1]["end_time"] = trim_ms
+        print(f"  Trimmed to {trim_ms}ms: {len(notes_json)} notes, {len(regimes_json)} regimes")
 
     data = {
         "notes": notes_json,

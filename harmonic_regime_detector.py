@@ -118,6 +118,37 @@ class HarmonicRegimeDetector:
         union = len(set_a | set_b)
         return intersection / union if union > 0 else 0.0
 
+    def _has_divergence(self, diff, is_subset, jaccard):
+        """Check if harmonic divergence criteria are met, ignoring the mass gate.
+
+        Used by the lookahead: when a frame has clear divergence but
+        insufficient mass on its own, peek at the next frame to see if
+        combined mass would cross the threshold.
+        """
+        if is_subset:
+            return False
+        if self.break_method in ('hybrid', 'hybrid_split'):
+            return diff > self.break_angle or jaccard < self.jaccard_threshold
+        if self.break_method == 'centroid':
+            return diff > self.break_angle
+        # jaccard_only / hybrid_v2 don't have a mass gate, so lookahead is N/A
+        return False
+
+    def _build_particles(self, notes, time_ms):
+        """Build particle dicts from raw note tuples."""
+        particles = []
+        for n in notes:
+            interval, octave, velocity = n[0], n[1], n[2]
+            angle = self.interval_angles.get(interval, 0)
+            base_mass = velocity / 127.0
+            dur_boost = max(0.5, min(n[3] / 1000.0, 2.0)) if len(n) >= 4 else 1.0
+            register_boost = 1.0 + (abs(octave - 4) * 0.15)
+            particles.append({
+                'interval': interval, 'octave': octave, 'angle': angle,
+                'mass': base_mass * dur_boost * register_boost, 'time': time_ms
+            })
+        return particles
+
     def _should_break(self, anchor_particles, combined_pending, diff, pmass, is_subset=False, jaccard=1.0):
         """Determine if a regime break should occur based on the chosen method."""
 
@@ -239,29 +270,8 @@ class HarmonicRegimeDetector:
 
         last_time_ms = -1
 
-        for time_ms, notes in keyframes:
-            particles = []
-            for n in notes:
-                interval, octave, velocity = n[0], n[1], n[2]
-                angle = self.interval_angles.get(interval, 0)
-                base_mass = velocity / 127.0
-
-                # 1. Linear Duration Boost (no squaring — prevents crushing fast chords)
-                if len(n) >= 4:
-                    dur_boost = max(0.5, min(n[3] / 1000.0, 2.0))
-                else:
-                    dur_boost = 1.0
-
-                # 2. Tamed Register Boost (0.15 per octave, not 0.5)
-                distance_from_center = abs(octave - 4)
-                register_boost = 1.0 + (distance_from_center * 0.15)
-
-                mass = base_mass * dur_boost * register_boost
-
-                particles.append({
-                    'interval': interval, 'octave': octave, 'angle': angle,
-                    'mass': mass, 'time': time_ms
-                })
+        for idx, (time_ms, notes) in enumerate(keyframes):
+            particles = self._build_particles(notes, time_ms)
 
             # Evaluate if there was a long silence (buffer drained)
             is_fresh_attack = (last_time_ms != -1) and (time_ms - last_time_ms >= 300)
@@ -344,10 +354,25 @@ class HarmonicRegimeDetector:
             else:
                 can_merge = (diff <= self.merge_angle) or is_resolution
 
+            # ─── LIMBO CONTAMINATION GUARD ─────────────────────
+            # If accumulated limbo notes are dragging a compatible frame
+            # into a false break, let the current frame merge on its own
+            # and leave the limbo notes in limbo.
+            should_break = self._should_break(
+                anchor_particles, combined_pending, diff, pmass,
+                is_subset_anchor, jaccard)
+
+            if should_break and limbo_frames and not pending_spike_frames:
+                cur_pcs = self._get_dominant_pcs(particles)
+                anchor_pcs = self._get_dominant_pcs(anchor_particles)
+                if cur_pcs and cur_pcs.issubset(anchor_pcs):
+                    # Current frame's notes are all regime notes — limbo caused the false break
+                    should_break = False
+                    can_merge = True
+
             # ─── CASE 1: REGIME BREAK (OR PENDING SPIKE) ────────
             # Note: _should_break uses is_subset_anchor to suppress initial breaks
-            if self._should_break(anchor_particles, combined_pending, diff, pmass, is_subset_anchor, jaccard) or \
-               (pending_spike_frames and not can_merge):
+            if should_break or (pending_spike_frames and not can_merge):
                 
                 # hybrid_split: if there are already pending spike frames,
                 # check whether this new frame's pitch content diverges from

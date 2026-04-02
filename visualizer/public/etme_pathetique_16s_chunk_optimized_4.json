@@ -667,11 +667,11 @@
       "velocity": 59,
       "onset": 1875,
       "duration": 125,
-      "hue": 270.0,
-      "sat": 100.0,
-      "lightness": 50.0,
-      "tonal_distance": 0.0,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 249.6,
+      "sat": 31.5,
+      "lightness": 49.2,
+      "tonal_distance": 9.6,
+      "regime_state": "Stable",
       "debug": {
         "diff": 61.7,
         "pmass": 0.77,
@@ -691,15 +691,15 @@
       "velocity": 64,
       "onset": 2000,
       "duration": 250,
-      "hue": 317.1,
-      "sat": 88.8,
-      "lightness": 48.8,
-      "tonal_distance": 12.9,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 313.6,
+      "sat": 50.3,
+      "lightness": 48.9,
+      "tonal_distance": 13.6,
+      "regime_state": "Stable",
       "debug": {
-        "diff": 47.9,
+        "diff": 31.6,
         "pmass": 0.92,
-        "rmass": 0.23,
+        "rmass": 1.88,
         "threshold": 0.75,
         "particles": [
           {
@@ -725,15 +725,15 @@
       "velocity": 67,
       "onset": 2000,
       "duration": 125,
-      "hue": 317.1,
-      "sat": 88.8,
-      "lightness": 48.8,
-      "tonal_distance": 12.9,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 313.6,
+      "sat": 50.3,
+      "lightness": 48.9,
+      "tonal_distance": 13.6,
+      "regime_state": "Stable",
       "debug": {
-        "diff": 47.9,
+        "diff": 31.6,
         "pmass": 0.92,
-        "rmass": 0.23,
+        "rmass": 1.88,
         "threshold": 0.75,
         "particles": [
           {
@@ -759,15 +759,15 @@
       "velocity": 81,
       "onset": 2000,
       "duration": 250,
-      "hue": 317.1,
-      "sat": 88.8,
-      "lightness": 48.8,
-      "tonal_distance": 12.9,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 313.6,
+      "sat": 50.3,
+      "lightness": 48.9,
+      "tonal_distance": 13.6,
+      "regime_state": "Stable",
       "debug": {
-        "diff": 47.9,
+        "diff": 31.6,
         "pmass": 0.92,
-        "rmass": 0.23,
+        "rmass": 1.88,
         "threshold": 0.75,
         "particles": [
           {
@@ -799,9 +799,9 @@
       "tonal_distance": 6.4,
       "regime_state": "Stable",
       "debug": {
-        "diff": 47.9,
+        "diff": 27.4,
         "pmass": 0.23,
-        "rmass": 0.92,
+        "rmass": 2.74,
         "threshold": 0.75,
         "particles": [
           {
@@ -817,15 +817,15 @@
       "velocity": 62,
       "onset": 2250,
       "duration": 250,
-      "hue": 292.5,
-      "sat": 42.8,
-      "lightness": 49.0,
-      "tonal_distance": 7.5,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 303.3,
+      "sat": 61.6,
+      "lightness": 48.9,
+      "tonal_distance": 3.3,
+      "regime_state": "Stable",
       "debug": {
-        "diff": 31.1,
-        "pmass": 1.11,
-        "rmass": 0.92,
+        "diff": 3.0,
+        "pmass": 0.88,
+        "rmass": 2.89,
         "threshold": 0.75,
         "particles": [
           {
@@ -851,15 +851,15 @@
       "velocity": 65,
       "onset": 2250,
       "duration": 125,
-      "hue": 292.5,
-      "sat": 42.8,
-      "lightness": 49.0,
-      "tonal_distance": 7.5,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 303.3,
+      "sat": 61.6,
+      "lightness": 48.9,
+      "tonal_distance": 3.3,
+      "regime_state": "Stable",
       "debug": {
-        "diff": 31.1,
-        "pmass": 1.11,
-        "rmass": 0.92,
+        "diff": 3.0,
+        "pmass": 0.88,
+        "rmass": 2.89,
         "threshold": 0.75,
         "particles": [
           {
@@ -885,15 +885,15 @@
       "velocity": 76,
       "onset": 2250,
       "duration": 250,
-      "hue": 292.5,
-      "sat": 42.8,
-      "lightness": 49.0,
-      "tonal_distance": 7.5,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 303.3,
+      "sat": 61.6,
+      "lightness": 48.9,
+      "tonal_distance": 3.3,
+      "regime_state": "Stable",
       "debug": {
-        "diff": 31.1,
-        "pmass": 1.11,
-        "rmass": 0.92,
+        "diff": 3.0,
+        "pmass": 0.88,
+        "rmass": 2.89,
         "threshold": 0.75,
         "particles": [
           {
@@ -925,9 +925,9 @@
       "tonal_distance": 13.5,
       "regime_state": "Stable",
       "debug": {
-        "diff": 27.2,
+        "diff": 24.1,
         "pmass": 0.23,
-        "rmass": 0.88,
+        "rmass": 3.7,
         "threshold": 0.75,
         "particles": [
           {
@@ -949,9 +949,9 @@
       "tonal_distance": 0.6,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 44.4,
+        "diff": 39.0,
         "pmass": 0.92,
-        "rmass": 1.08,
+        "rmass": 3.82,
         "threshold": 0.75,
         "particles": [
           {
@@ -983,9 +983,9 @@
       "tonal_distance": 0.6,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 44.4,
+        "diff": 39.0,
         "pmass": 0.92,
-        "rmass": 1.08,
+        "rmass": 3.82,
         "threshold": 0.75,
         "particles": [
           {
@@ -1017,9 +1017,9 @@
       "tonal_distance": 0.6,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 44.4,
+        "diff": 39.0,
         "pmass": 0.92,
-        "rmass": 1.08,
+        "rmass": 3.82,
         "threshold": 0.75,
         "particles": [
           {
@@ -3435,11 +3435,11 @@
       "velocity": 68,
       "onset": 8250,
       "duration": 250,
-      "hue": 327.5,
-      "sat": 86.7,
-      "lightness": 56.9,
-      "tonal_distance": 2.5,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 316.6,
+      "sat": 78.6,
+      "lightness": 58.2,
+      "tonal_distance": 13.4,
+      "regime_state": "Stable",
       "debug": {
         "diff": 32.3,
         "pmass": 1.23,
@@ -3464,11 +3464,11 @@
       "velocity": 79,
       "onset": 8250,
       "duration": 125,
-      "hue": 327.5,
-      "sat": 86.7,
-      "lightness": 56.9,
-      "tonal_distance": 2.5,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 316.6,
+      "sat": 78.6,
+      "lightness": 58.2,
+      "tonal_distance": 13.4,
+      "regime_state": "Stable",
       "debug": {
         "diff": 32.3,
         "pmass": 1.23,
@@ -3493,15 +3493,15 @@
       "velocity": 72,
       "onset": 8375,
       "duration": 125,
-      "hue": 296.6,
-      "sat": 81.9,
-      "lightness": 57.2,
-      "tonal_distance": 3.4,
+      "hue": 316.5,
+      "sat": 78.6,
+      "lightness": 58.2,
+      "tonal_distance": 13.5,
       "regime_state": "Stable",
       "debug": {
-        "diff": 59.8,
+        "diff": 60.0,
         "pmass": 0.62,
-        "rmass": 0.62,
+        "rmass": 3.17,
         "threshold": 0.75,
         "particles": [
           {
@@ -3522,15 +3522,15 @@
       "velocity": 74,
       "onset": 8375,
       "duration": 125,
-      "hue": 296.6,
-      "sat": 81.9,
-      "lightness": 57.2,
-      "tonal_distance": 3.4,
+      "hue": 316.5,
+      "sat": 78.6,
+      "lightness": 58.2,
+      "tonal_distance": 13.5,
       "regime_state": "Stable",
       "debug": {
-        "diff": 59.8,
+        "diff": 60.0,
         "pmass": 0.62,
-        "rmass": 0.62,
+        "rmass": 3.17,
         "threshold": 0.75,
         "particles": [
           {
@@ -3557,9 +3557,9 @@
       "tonal_distance": 13.4,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 78.6,
+        "diff": 78.7,
         "pmass": 1.82,
-        "rmass": 0.62,
+        "rmass": 3.17,
         "threshold": 0.75,
         "particles": [
           {
@@ -3596,9 +3596,9 @@
       "tonal_distance": 13.4,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 78.6,
+        "diff": 78.7,
         "pmass": 1.82,
-        "rmass": 0.62,
+        "rmass": 3.17,
         "threshold": 0.75,
         "particles": [
           {
@@ -3635,9 +3635,9 @@
       "tonal_distance": 13.4,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 78.6,
+        "diff": 78.7,
         "pmass": 1.82,
-        "rmass": 0.62,
+        "rmass": 3.17,
         "threshold": 0.75,
         "particles": [
           {
@@ -3674,9 +3674,9 @@
       "tonal_distance": 13.4,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 78.6,
+        "diff": 78.7,
         "pmass": 1.82,
-        "rmass": 0.62,
+        "rmass": 3.17,
         "threshold": 0.75,
         "particles": [
           {
@@ -3765,11 +3765,11 @@
       "velocity": 68,
       "onset": 8750,
       "duration": 250,
-      "hue": 330.6,
-      "sat": 26.9,
-      "lightness": 50.0,
-      "tonal_distance": 0.6,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 248.7,
+      "sat": 60.6,
+      "lightness": 54.2,
+      "tonal_distance": 8.7,
+      "regime_state": "Stable",
       "debug": {
         "diff": 53.3,
         "pmass": 1.2,
@@ -3794,11 +3794,11 @@
       "velocity": 79,
       "onset": 8750,
       "duration": 125,
-      "hue": 330.6,
-      "sat": 26.9,
-      "lightness": 50.0,
-      "tonal_distance": 0.6,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 248.7,
+      "sat": 60.6,
+      "lightness": 54.2,
+      "tonal_distance": 8.7,
+      "regime_state": "Stable",
       "debug": {
         "diff": 53.3,
         "pmass": 1.2,
@@ -3823,15 +3823,15 @@
       "velocity": 73,
       "onset": 8875,
       "duration": 125,
-      "hue": 281.7,
-      "sat": 57.8,
-      "lightness": 53.7,
-      "tonal_distance": 11.7,
+      "hue": 248.7,
+      "sat": 60.6,
+      "lightness": 54.2,
+      "tonal_distance": 8.7,
       "regime_state": "Stable",
       "debug": {
-        "diff": 60.6,
+        "diff": 22.5,
         "pmass": 0.62,
-        "rmass": 0.58,
+        "rmass": 1.77,
         "threshold": 0.75,
         "particles": [
           {
@@ -3852,15 +3852,15 @@
       "velocity": 74,
       "onset": 8875,
       "duration": 125,
-      "hue": 281.7,
-      "sat": 57.8,
-      "lightness": 53.7,
-      "tonal_distance": 11.7,
+      "hue": 248.7,
+      "sat": 60.6,
+      "lightness": 54.2,
+      "tonal_distance": 8.7,
       "regime_state": "Stable",
       "debug": {
-        "diff": 60.6,
+        "diff": 22.5,
         "pmass": 0.62,
-        "rmass": 0.58,
+        "rmass": 1.77,
         "threshold": 0.75,
         "particles": [
           {
@@ -3887,9 +3887,9 @@
       "tonal_distance": 1.3,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 45.8,
+        "diff": 37.2,
         "pmass": 2.2,
-        "rmass": 0.58,
+        "rmass": 1.77,
         "threshold": 0.75,
         "particles": [
           {
@@ -3926,9 +3926,9 @@
       "tonal_distance": 1.3,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 45.8,
+        "diff": 37.2,
         "pmass": 2.2,
-        "rmass": 0.58,
+        "rmass": 1.77,
         "threshold": 0.75,
         "particles": [
           {
@@ -3965,9 +3965,9 @@
       "tonal_distance": 1.3,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 45.8,
+        "diff": 37.2,
         "pmass": 2.2,
-        "rmass": 0.58,
+        "rmass": 1.77,
         "threshold": 0.75,
         "particles": [
           {
@@ -4004,9 +4004,9 @@
       "tonal_distance": 1.3,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 45.8,
+        "diff": 37.2,
         "pmass": 2.2,
-        "rmass": 0.58,
+        "rmass": 1.77,
         "threshold": 0.75,
         "particles": [
           {
@@ -6215,11 +6215,11 @@
       "velocity": 71,
       "onset": 12500,
       "duration": 375,
-      "hue": 8.8,
-      "sat": 43.8,
-      "lightness": 59.4,
-      "tonal_distance": 8.8,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 249.0,
+      "sat": 13.7,
+      "lightness": 58.5,
+      "tonal_distance": 9.0,
+      "regime_state": "Stable",
       "debug": {
         "diff": 51.7,
         "pmass": 1.61,
@@ -6249,11 +6249,11 @@
       "velocity": 69,
       "onset": 12500,
       "duration": 125,
-      "hue": 8.8,
-      "sat": 43.8,
-      "lightness": 59.4,
-      "tonal_distance": 8.8,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 249.0,
+      "sat": 13.7,
+      "lightness": 58.5,
+      "tonal_distance": 9.0,
+      "regime_state": "Stable",
       "debug": {
         "diff": 51.7,
         "pmass": 1.61,
@@ -6283,11 +6283,11 @@
       "velocity": 84,
       "onset": 12500,
       "duration": 125,
-      "hue": 8.8,
-      "sat": 43.8,
-      "lightness": 59.4,
-      "tonal_distance": 8.8,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 249.0,
+      "sat": 13.7,
+      "lightness": 58.5,
+      "tonal_distance": 9.0,
+      "regime_state": "Stable",
       "debug": {
         "diff": 51.7,
         "pmass": 1.61,
@@ -6323,9 +6323,9 @@
       "tonal_distance": 5.9,
       "regime_state": "Stable",
       "debug": {
-        "diff": 111.8,
+        "diff": 93.8,
         "pmass": 0.63,
-        "rmass": 0.96,
+        "rmass": 1.63,
         "threshold": 0.75,
         "particles": [
           {
@@ -6352,9 +6352,9 @@
       "tonal_distance": 5.9,
       "regime_state": "Stable",
       "debug": {
-        "diff": 111.8,
+        "diff": 93.8,
         "pmass": 0.63,
-        "rmass": 0.96,
+        "rmass": 1.63,
         "threshold": 0.75,
         "particles": [
           {
@@ -6375,15 +6375,15 @@
       "velocity": 72,
       "onset": 12750,
       "duration": 125,
-      "hue": 30.0,
-      "sat": 100.0,
-      "lightness": 57.3,
-      "tonal_distance": 0.0,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 292.0,
+      "sat": 36.9,
+      "lightness": 58.5,
+      "tonal_distance": 8.0,
+      "regime_state": "Stable",
       "debug": {
-        "diff": 42.1,
+        "diff": 24.1,
         "pmass": 1.26,
-        "rmass": 0.96,
+        "rmass": 1.63,
         "threshold": 0.75,
         "particles": [
           {
@@ -6404,15 +6404,15 @@
       "velocity": 76,
       "onset": 12750,
       "duration": 125,
-      "hue": 30.0,
-      "sat": 100.0,
-      "lightness": 57.3,
-      "tonal_distance": 0.0,
-      "regime_state": "TRANSITION SPIKE!",
+      "hue": 292.0,
+      "sat": 36.9,
+      "lightness": 58.5,
+      "tonal_distance": 8.0,
+      "regime_state": "Stable",
       "debug": {
-        "diff": 42.1,
+        "diff": 24.1,
         "pmass": 1.26,
-        "rmass": 0.96,
+        "rmass": 1.63,
         "threshold": 0.75,
         "particles": [
           {
@@ -6439,9 +6439,9 @@
       "tonal_distance": 0.8,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 105.4,
-        "pmass": 0.95,
-        "rmass": 0.63,
+        "diff": 40.0,
+        "pmass": 2.21,
+        "rmass": 1.63,
         "threshold": 0.75,
         "particles": [
           {
@@ -6473,9 +6473,9 @@
       "tonal_distance": 0.8,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 105.4,
-        "pmass": 0.95,
-        "rmass": 0.63,
+        "diff": 40.0,
+        "pmass": 2.21,
+        "rmass": 1.63,
         "threshold": 0.75,
         "particles": [
           {
@@ -6507,9 +6507,9 @@
       "tonal_distance": 0.8,
       "regime_state": "TRANSITION SPIKE!",
       "debug": {
-        "diff": 105.4,
-        "pmass": 0.95,
-        "rmass": 0.63,
+        "diff": 40.0,
+        "pmass": 2.21,
+        "rmass": 1.63,
         "threshold": 0.75,
         "particles": [
           {
@@ -8360,56 +8360,16 @@
       "start_time": 1000,
       "end_time": 1125,
       "state": "TRANSITION SPIKE!",
-      "hue": 281.5,
-      "saturation": 58.8,
-      "v_vec": 31.3
+      "hue": 288.9,
+      "saturation": 63.5,
+      "v_vec": 37.5
     },
     {
       "start_time": 1125,
-      "end_time": 1875,
-      "state": "Stable",
-      "hue": 281.5,
-      "saturation": 58.8,
-      "v_vec": 0.0
-    },
-    {
-      "start_time": 1875,
-      "end_time": 2000,
-      "state": "TRANSITION SPIKE!",
-      "hue": 270.0,
-      "saturation": 100.0,
-      "v_vec": 44.0
-    },
-    {
-      "start_time": 2000,
-      "end_time": 2125,
-      "state": "TRANSITION SPIKE!",
-      "hue": 307.9,
-      "saturation": 85.5,
-      "v_vec": 61.7
-    },
-    {
-      "start_time": 2125,
-      "end_time": 2250,
-      "state": "Stable",
-      "hue": 307.9,
-      "saturation": 85.5,
-      "v_vec": 0.0
-    },
-    {
-      "start_time": 2250,
-      "end_time": 2375,
-      "state": "TRANSITION SPIKE!",
-      "hue": 286.9,
-      "saturation": 52.7,
-      "v_vec": 40.9
-    },
-    {
-      "start_time": 2375,
       "end_time": 2500,
       "state": "Stable",
-      "hue": 286.9,
-      "saturation": 52.7,
+      "hue": 288.9,
+      "saturation": 63.5,
       "v_vec": 0.0
     },
     {
@@ -8418,7 +8378,7 @@
       "state": "TRANSITION SPIKE!",
       "hue": 324.0,
       "saturation": 91.1,
-      "v_vec": 58.4
+      "v_vec": 53.5
     },
     {
       "start_time": 2625,
@@ -8624,64 +8584,32 @@
       "start_time": 7500,
       "end_time": 7582,
       "state": "TRANSITION SPIKE!",
-      "hue": 308.4,
-      "saturation": 82.5,
-      "v_vec": 52.7
+      "hue": 306.0,
+      "saturation": 81.9,
+      "v_vec": 50.0
     },
     {
       "start_time": 7582,
-      "end_time": 8250,
-      "state": "Stable",
-      "hue": 308.4,
-      "saturation": 82.5,
-      "v_vec": 0.0
-    },
-    {
-      "start_time": 8250,
-      "end_time": 8375,
-      "state": "TRANSITION SPIKE!",
-      "hue": 297.6,
-      "saturation": 80.9,
-      "v_vec": 15.5
-    },
-    {
-      "start_time": 8375,
       "end_time": 8500,
       "state": "Stable",
-      "hue": 297.6,
-      "saturation": 80.9,
+      "hue": 306.0,
+      "saturation": 81.9,
       "v_vec": 0.0
     },
     {
       "start_time": 8500,
       "end_time": 8625,
       "state": "TRANSITION SPIKE!",
-      "hue": 251.3,
-      "saturation": 57.0,
-      "v_vec": 58.5
+      "hue": 263.3,
+      "saturation": 56.0,
+      "v_vec": 55.8
     },
     {
       "start_time": 8625,
-      "end_time": 8750,
-      "state": "Stable",
-      "hue": 251.3,
-      "saturation": 57.0,
-      "v_vec": 0.0
-    },
-    {
-      "start_time": 8750,
-      "end_time": 8875,
-      "state": "TRANSITION SPIKE!",
-      "hue": 281.0,
-      "saturation": 59.2,
-      "v_vec": 29.9
-    },
-    {
-      "start_time": 8875,
       "end_time": 9000,
       "state": "Stable",
-      "hue": 281.0,
-      "saturation": 59.2,
+      "hue": 263.3,
+      "saturation": 56.0,
       "v_vec": 0.0
     },
     {
@@ -8690,7 +8618,7 @@
       "state": "TRANSITION SPIKE!",
       "hue": 288.2,
       "saturation": 90.2,
-      "v_vec": 32.3
+      "v_vec": 46.0
     },
     {
       "start_time": 9125,
@@ -8848,41 +8776,17 @@
       "start_time": 12250,
       "end_time": 12375,
       "state": "TRANSITION SPIKE!",
-      "hue": 228.7,
-      "saturation": 44.2,
-      "v_vec": 58.7
+      "hue": 300.8,
+      "saturation": 21.9,
+      "v_vec": 16.6
     },
     {
       "start_time": 12375,
-      "end_time": 12500,
-      "state": "Stable",
-      "hue": 228.7,
-      "saturation": 44.2,
-      "v_vec": 0.0
-    },
-    {
-      "start_time": 12500,
-      "end_time": 12625,
-      "state": "TRANSITION SPIKE!",
-      "hue": 293.2,
-      "saturation": 37.1,
-      "v_vec": 43.8
-    },
-    {
-      "start_time": 12625,
-      "end_time": 12750,
-      "state": "Stable",
-      "hue": 293.2,
-      "saturation": 37.1,
-      "v_vec": 0.0
-    },
-    {
-      "start_time": 12750,
       "end_time": 12875,
-      "state": "TRANSITION SPIKE!",
-      "hue": 30.0,
-      "saturation": 100.0,
-      "v_vec": 110.7
+      "state": "Stable",
+      "hue": 300.8,
+      "saturation": 21.9,
+      "v_vec": 0.0
     },
     {
       "start_time": 12875,
@@ -8890,7 +8794,7 @@
       "state": "TRANSITION SPIKE!",
       "hue": 226.9,
       "saturation": 31.9,
-      "v_vec": 130.8
+      "v_vec": 33.3
     },
     {
       "start_time": 12937,
@@ -8975,17 +8879,17 @@
   ],
   "stats": {
     "total_notes": 265,
-    "total_regimes": 80
+    "total_regimes": 68
   },
   "optimizer_meta": {
     "rank": 4,
-    "total_errors": 11,
-    "f1": 86.08,
-    "precision": 82.9,
-    "recall": 89.5,
-    "tp": 34,
-    "fp": 7,
-    "fn": 4,
+    "total_errors": 8,
+    "f1": 88.89,
+    "precision": 94.1,
+    "recall": 84.2,
+    "tp": 32,
+    "fp": 2,
+    "fn": 6,
     "params": {
       "break_method": "hybrid_split",
       "angle_map": "dissonance",

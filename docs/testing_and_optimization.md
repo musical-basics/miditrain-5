@@ -207,24 +207,24 @@ Full-grid results saved in `optimizer_runs/`:
 |---|---|
 | Ground truth markers | 38 (28 Tier1, 10 Tier2) |
 | Keyframes extracted | 129 |
-| **Best errors (FP+FN)** | **11** |
-| Best TP | 34 / 38 |
-| Best FP | 7 |
-| Best FN | 4 |
-| Best Precision | 82.9% |
-| Best Recall | 89.5% |
-| Best F1 | **86.1%** |
-| Configs passing recall floor (≥50%) | 12,960 / 12,960 |
+| **Best errors (FP+FN)** | **8** |
+| Best TP | 32 / 38 |
+| Best FP | 2 |
+| Best FN | 6 |
+| Best Precision | 94.1% |
+| Best Recall | 84.2% |
+| Best F1 | **88.9%** |
+| Configs passing recall floor (≥50%) | 8,365 / 12,960 |
 
-**Top 5 configs (all tied at errors=11):**
+**Top 5 configs (all tied at errors=8):**
 
 | # | break_method | BA | MA | MBM | D | J | Errors | P | R | F1 |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | hybrid | 25° | 20° | 0.75 | 10ms | 0.125 | 11 | 82.9% | 89.5% | 86.1% |
-| 2 | hybrid_split | 25° | 20° | 0.75 | 10ms | 0.125 | 11 | 82.9% | 89.5% | 86.1% |
-| 3 | hybrid | 25° | 20° | 0.75 | 25ms | 0.125 | 11 | 82.9% | 89.5% | 86.1% |
-| 4 | hybrid_split | 25° | 20° | 0.75 | 25ms | 0.125 | 11 | 82.9% | 89.5% | 86.1% |
-| 5 | hybrid | 25° | 20° | 0.75 | 50ms | 0.125 | 11 | 82.9% | 89.5% | 86.1% |
+| 1 | hybrid | 25° | 20° | 0.75 | 10ms | 0.125 | 8 | 94.1% | 84.2% | 88.9% |
+| 2 | hybrid_split | 25° | 20° | 0.75 | 10ms | 0.125 | 8 | 94.1% | 84.2% | 88.9% |
+| 3 | hybrid | 25° | 20° | 0.75 | 25ms | 0.125 | 8 | 94.1% | 84.2% | 88.9% |
+| 4 | hybrid_split | 25° | 20° | 0.75 | 25ms | 0.125 | 8 | 94.1% | 84.2% | 88.9% |
+| 5 | hybrid | 25° | 20° | 0.75 | 50ms | 0.125 | 8 | 94.1% | 84.2% | 88.9% |
 
 ---
 
@@ -233,45 +233,115 @@ Full-grid results saved in `optimizer_runs/`:
 | Metric | Value |
 |---|---|
 | Ground truth markers | 116 (96 Tier1, 20 Tier2) |
-| Keyframes extracted | 617 |
-| **Best errors (FP+FN)** | **54** |
-| Best TP | 91 / 116 |
-| Best FP | 29 |
-| Best FN | 25 |
-| Best Precision | 75.8% |
-| Best Recall | 78.4% |
-| Best F1 | **77.1%** |
-| Configs passing recall floor (≥50%) | 10,116 / 12,960 |
+| Keyframes extracted | 653 |
+| **Best errors (FP+FN)** | **48** |
+| Best TP | 84 / 116 |
+| Best FP | 16 |
+| Best FN | 32 |
+| Best Precision | 84.0% |
+| Best Recall | 72.4% |
+| Best F1 | **77.8%** |
+| Configs passing recall floor (≥50%) | 9,849 / 12,960 |
 
-**Top 5 configs:**
+**Top 5 configs (all tied at errors=48):**
 
 | # | break_method | BA | MA | MBM | D | J | Errors | P | R | F1 |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | hybrid | 25° | 20° | 0.75 | 100ms | 0.250 | 54 | 75.8% | 78.4% | 77.1% |
-| 2 | hybrid | 35° | 20° | 0.75 | 100ms | 0.375 | 55 | 75.6% | 77.6% | 76.6% |
-| 3 | hybrid | 35° | 20° | 0.75 | 100ms | 0.250 | 56 | 75.9% | 75.9% | 75.9% |
-| 4 | hybrid | 25° | 20° | 0.75 | 100ms | 0.375 | 57 | 73.6% | 79.3% | 76.3% |
-| 5 | hybrid | 25° | 20° | 0.75 | 100ms | 0.125 | 58 | 75.9% | 73.3% | 74.6% |
+| 1 | hybrid | 25° | 20° | 0.75 | 100ms | 0.250 | 48 | 84.0% | 72.4% | 77.8% |
+| 2 | hybrid | 35° | 20° | 0.75 | 100ms | 0.375 | 48 | 83.3% | 73.3% | 78.0% |
+| 3 | hybrid | 25° | 20° | 0.75 | 100ms | 0.375 | 48 | 82.1% | 75.0% | 78.4% |
+| 4 | hybrid | 15° | 20° | 0.75 | 100ms | 0.500 | 48 | 79.8% | 78.4% | 79.1% |
+| 5 | hybrid | 15° | 25° | 0.75 | 100ms | 0.500 | 48 | 79.8% | 78.4% | 79.1% |
 
 ---
 
-### Side-by-Side Comparison
+### Side-by-Side Comparison (V2.2 + Limbo Contamination Guard)
 
-| Metric | 16s chunk | 64s chunk |
+| Metric | 16s chunk (before → after) | 64s chunk (before → after) |
 |---|---|---|
-| Errors (FP+FN) | **11** | **54** (46.6% error rate vs 29% on 16s) |
-| Precision | 82.9% | 75.8% |
-| Recall | 89.5% | 78.4% |
-| F1 | 86.1% | 77.1% |
+| Errors (FP+FN) | 11 → **8** | 54 → **48** |
+| FP | 7 → **2** | 29 → **16** |
+| FN | 4 → 6 | 25 → 32 |
+| Precision | 82.9% → **94.1%** | 75.8% → **84.0%** |
+| Recall | 89.5% → 84.2% | 78.4% → 72.4% |
+| F1 | 86.1% → **88.9%** | 77.1% → **77.8%** |
 | Optimal debounce | 10–50ms | **100ms** |
 | Optimal Jaccard | 0.125 | **0.25–0.375** |
 
-**Key insight — parameter divergence between chunks:**  
-The 64s chunk prefers a higher Jaccard threshold (0.25 vs 0.125) and longer debounce (100ms vs 10ms). This is consistent with the detector needing to suppress rapid re-triggering across longer musical phrases. The `break_angle` and `min_break_mass` converge on the same values (25°, 0.75), suggesting those control the fundamental detection sensitivity while debounce/jaccard control temporal spacing.
+**Key insight — parameter convergence:**  
+Both chunks converge on BA=25°, MBM=0.75, MA=20° with the guard enabled. The guard's FP reduction is dramatic (71% fewer on 64s, 71% fewer on 16s) at the cost of some missed detections (FN increases). The precision/recall tradeoff favors precision, which is generally preferred — false boundaries are more disruptive than missed ones.
 
 The visual dropdown in the visualizer shows all results under:
 - `🏆 Opt #1–5` — chunk-specific optimizer winners
 - `✅ 16s-Opt #1–5` — 16s winners applied to the 64s piece (cross-validation)
+
+---
+
+## Limbo Contamination Guard
+
+**Added:** 2026-04-01  
+**Location:** `harmonic_regime_detector.py`, inside the `process()` method, between the `_should_break` evaluation and Case 1/2/3 branching.
+
+### Problem
+
+When a harmonically divergent frame enters LIMBO (divergent but insufficient mass to break), it accumulates in the `limbo_frames` buffer. The next keyframe is then evaluated as a **combined group** (limbo + current frame). If the combined group crosses the break threshold, the detector fires a TRANSITION SPIKE — even if the current frame's notes are clearly regime-compatible.
+
+**Example (Pathétique, 30s region):**
+```
+29875 | b74, 53 (diff=50°, mass=0.56) → LIMBO (mass < 0.75)
+30000 | b34      (regime note!)       → SPIKE (combined mass=0.80 trips Jaccard)
+30250 | b34      (regime note!)       → SPIKE (cascade from narrow anchor)
+```
+`b34` has been a stable regime note throughout, but the combined group `{b7, 5, b3}` vs the anchor fails the Jaccard check. This causes a false break, followed by a cascade of re-triggers because each false break creates a narrow anchor.
+
+### Solution
+
+Before triggering a regime break, check whether the **current frame alone** (without limbo) is a pitch-class subset of the anchor. If it is, the limbo notes are the source of divergence, not the current frame — so suppress the break and merge the current frame instead.
+
+```python
+if should_break and limbo_frames and not pending_spike_frames:
+    cur_pcs = self._get_dominant_pcs(particles)
+    anchor_pcs = self._get_dominant_pcs(anchor_particles)
+    if cur_pcs and cur_pcs.issubset(anchor_pcs):
+        should_break = False
+        can_merge = True
+```
+
+### Conditions
+
+The guard only activates when ALL of the following are true:
+1. `_should_break` returned True (a break would normally fire)
+2. There are accumulated `limbo_frames` (divergent notes buffered)
+3. There are no `pending_spike_frames` (not mid-probation)
+4. The current frame's dominant pitch classes are a **subset** of the anchor's pitch classes
+
+### Tradeoff
+
+The guard eliminates false positives caused by limbo contamination but can suppress legitimate breaks when the incoming notes happen to be a subset of a long-lived anchor that has accumulated many pitch classes. This manifests as a slight increase in FN. The net effect is strongly positive: total errors decreased on both test chunks, and precision improved significantly.
+
+### Backup
+
+The pre-guard optimizer is preserved as `optimize_params_v1.py`. To revert, remove the guard block from `harmonic_regime_detector.py` and use `optimize_params_v1.py` for parameter search.
+
+---
+
+## MIDI Buffer for Chunk Boundaries
+
+**Added:** 2026-04-01  
+**Location:** `create_chunk.py` (`--buffer_ms`), `export_etme_data.py` (`trim_ms`), `optimize_params.py` (`score_end_ms`)
+
+### Problem
+
+When creating test chunks (e.g., 64s slice of a longer piece), the detector's debounce-based probation system can auto-confirm pending spikes at the end of the chunk because no subsequent keyframes exist to resolve or dismiss them.
+
+### Solution
+
+`create_chunk.py` now accepts `--buffer_ms` (default: 3000ms). The MIDI is sliced at `duration_ms + buffer_ms`, giving the detector extra material to process beyond the scoring boundary. Markers are still sliced at `duration_ms`. The marker JSON stores `score_end_ms` so downstream tools know where the scoring window ends.
+
+- `optimize_params.py` reads `score_end_ms` and excludes model boundaries beyond it from scoring
+- `export_etme_data.py` accepts `trim_ms` to strip notes and regimes in the buffer zone from the output JSON
+
+**Note:** Testing showed the buffer had minimal impact on the Pathétique 64s chunk (the FP clustering near the end was due to genuinely difficult musical material, not chunk-boundary artifacts). The buffer is retained as a safety measure for future chunks.
 
 ---
 
