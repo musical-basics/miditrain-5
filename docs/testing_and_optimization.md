@@ -259,15 +259,15 @@ V3 params active: `min_resolution_ratio=0.4`, `max_anchor_size=6`. Maturity grac
 
 ### Side-by-Side Comparison (Full Progression)
 
-| Metric | Original (V2.2) | + Guard | + V3 Methods |
-|---|---|---|---|
-| **64s Errors** | 54 | 48 | **44** |
-| 64s FP | 29 | 16 | 17 |
-| 64s FN | 25 | 32 | **27** |
-| 64s TP | 91 | 84 | **89** |
-| 64s F1 | 77.1% | 77.8% | **80.2%** |
-| 64s P | 75.8% | 84.0% | 84.0% |
-| 64s R | 78.4% | 72.4% | **76.7%** |
+| Metric | Original (V2.2) | + Guard | + V3 Methods | + V3.1 Fixes |
+|---|---|---|---|---|
+| **64s Errors** | 54 | 48 | 44 | **27** |
+| 64s FP | 29 | 16 | 17 | **10** |
+| 64s FN | 25 | 32 | 27 | **17** |
+| 64s TP | 91 | 84 | 89 | **99** |
+| 64s F1 | 77.1% | 77.8% | 80.2% | **88.0%** |
+| 64s P | 75.8% | 84.0% | 84.0% | **90.8%** |
+| 64s R | 78.4% | 72.4% | 76.7% | **85.3%** |
 
 ---
 
@@ -391,6 +391,14 @@ Amplifies the lowest note in each keyframe (octave ≤ 3 only) to reflect that b
 ### Additional Bug Fix: Stranded Limbo Rescue
 
 Code audit revealed that when a regime break triggers via `combined_pending` (limbo + current frame), only the current frame's particles seed the new anchor — the limbo frames that contributed to the break mass get flushed into the OLD regime. This is gated to only activate when `bass_multiplier > 1.0`, as unconditional rescue caused regressions.
+
+### V3.1 Fixes — Limbo Garbage Disposal & Merge Loophole Patch
+
+**Limbo Garbage Disposal:** Limbo frames older than 80ms from the current frame are flushed into the regime as Stable. Limbo is meant for chord rolls staggered by <50ms, not for accumulating passing tones across rhythmic attacks. Without this, stale limbo mass combines with new attacks to produce false breaks (the 125ms Alberti pattern FP).
+
+**Merge Loophole Patch:** The V3 mass-ratio guard (`min_resolution_ratio`) only protected the `is_resolution` path. A whisper could still swallow a spike by merging via `diff <= merge_angle`. The patch applies the mass-ratio check to ALL merge attempts when pending spikes exist.
+
+These two fixes together cut errors from 44→27 on the 64s chunk, achieving **90.8% precision** and **88.0% F1**.
 
 ### V3 Grid Search
 

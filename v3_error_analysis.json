@@ -1,0 +1,6488 @@
+{
+  "config": {
+    "break_angle": 35,
+    "merge_angle": 20,
+    "min_break_mass": 0.75,
+    "debounce_ms": 100,
+    "jaccard_threshold": 0.375,
+    "min_resolution_ratio": 0.4,
+    "max_anchor_size": 6,
+    "maturity_grace_ms": 0,
+    "bass_multiplier": 1.0,
+    "break_method": "hybrid",
+    "angle_map": "dissonance"
+  },
+  "summary": {
+    "total_markers": 116,
+    "total_boundaries": 106,
+    "tp": 89,
+    "fp": 17,
+    "fn": 27,
+    "precision": 84.0,
+    "recall": 76.7
+  },
+  "false_positives": [
+    {
+      "false_positive_time_ms": 6750,
+      "nearest_marker_ms": 6504,
+      "gap_ms": 246,
+      "context": [
+        {
+          "time_ms": 6375,
+          "state": "Stable",
+          "regime_id": 12,
+          "diff": 66.0,
+          "pmass": 0.24,
+          "rmass": 1.38,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 6500,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 13,
+          "diff": 49.3,
+          "pmass": 0.86,
+          "rmass": 1.57,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "b3",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 6625,
+          "state": "Stable",
+          "regime_id": 13,
+          "diff": 66.9,
+          "pmass": 0.48,
+          "rmass": 0.86,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 6750,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 14,
+          "diff": 56.6,
+          "pmass": 0.95,
+          "rmass": 0.86,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.23
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 6875,
+          "state": "Stable",
+          "regime_id": 14,
+          "diff": 129.8,
+          "pmass": 0.47,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.23
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 7000,
+          "state": "Stable",
+          "regime_id": 14,
+          "diff": 32.9,
+          "pmass": 1.66,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b6",
+              "octave": 2,
+              "mass": 0.41
+            }
+          ]
+        },
+        {
+          "time_ms": 7125,
+          "state": "Stable",
+          "regime_id": 14,
+          "diff": 32.4,
+          "pmass": 1.91,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 9750,
+      "nearest_marker_ms": 9499,
+      "gap_ms": 251,
+      "context": [
+        {
+          "time_ms": 9375,
+          "state": "Stable",
+          "regime_id": 17,
+          "diff": 2.0,
+          "pmass": 0.63,
+          "rmass": 2.8,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.29
+            }
+          ]
+        },
+        {
+          "time_ms": 9500,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 18,
+          "diff": 74.4,
+          "pmass": 0.96,
+          "rmass": 3.41,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.31
+            },
+            {
+              "interval": "5",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 9625,
+          "state": "Stable",
+          "regime_id": 18,
+          "diff": 108.1,
+          "pmass": 0.64,
+          "rmass": 0.96,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.29
+            }
+          ]
+        },
+        {
+          "time_ms": 9750,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 19,
+          "diff": 111.6,
+          "pmass": 1.61,
+          "rmass": 0.96,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 6,
+              "mass": 0.36
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.3
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 9875,
+          "state": "Stable",
+          "regime_id": 19,
+          "diff": 16.3,
+          "pmass": 0.63,
+          "rmass": 0.98,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.29
+            }
+          ]
+        },
+        {
+          "time_ms": 10000,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 20,
+          "diff": 57.1,
+          "pmass": 1.42,
+          "rmass": 1.57,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "1",
+              "octave": 6,
+              "mass": 0.38
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.33
+            },
+            {
+              "interval": "b6",
+              "octave": 3,
+              "mass": 0.37
+            }
+          ]
+        },
+        {
+          "time_ms": 10125,
+          "state": "Stable",
+          "regime_id": 20,
+          "diff": 22.1,
+          "pmass": 0.61,
+          "rmass": 1.42,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 11250,
+      "nearest_marker_ms": 10999,
+      "gap_ms": 251,
+      "context": [
+        {
+          "time_ms": 10875,
+          "state": "Stable",
+          "regime_id": 23,
+          "diff": 163.5,
+          "pmass": 0.7,
+          "rmass": 1.35,
+          "notes": [
+            {
+              "interval": "2",
+              "octave": 6,
+              "mass": 0.37
+            },
+            {
+              "interval": "b6",
+              "octave": 3,
+              "mass": 0.33
+            }
+          ]
+        },
+        {
+          "time_ms": 11000,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 24,
+          "diff": 6.4,
+          "pmass": 1.93,
+          "rmass": 1.35,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 6,
+              "mass": 0.56
+            },
+            {
+              "interval": "5",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 3,
+              "mass": 0.35
+            }
+          ]
+        },
+        {
+          "time_ms": 11125,
+          "state": "Stable",
+          "regime_id": 24,
+          "diff": 31.8,
+          "pmass": 0.67,
+          "rmass": 1.23,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "5",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 11250,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 25,
+          "diff": 21.7,
+          "pmass": 1.33,
+          "rmass": 1.23,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "b7",
+              "octave": 3,
+              "mass": 0.35
+            }
+          ]
+        },
+        {
+          "time_ms": 11375,
+          "state": "Stable",
+          "regime_id": 25,
+          "diff": 47.3,
+          "pmass": 0.65,
+          "rmass": 0.67,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 5,
+              "mass": 0.33
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 11500,
+          "state": "Stable",
+          "regime_id": 25,
+          "diff": 21.2,
+          "pmass": 1.29,
+          "rmass": 0.67,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.33
+            }
+          ]
+        },
+        {
+          "time_ms": 11625,
+          "state": "Stable",
+          "regime_id": 25,
+          "diff": 28.0,
+          "pmass": 1.95,
+          "rmass": 0.67,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 5,
+              "mass": 0.33
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 12250,
+      "nearest_marker_ms": 11998,
+      "gap_ms": 252,
+      "context": [
+        {
+          "time_ms": 11875,
+          "state": "Stable",
+          "regime_id": 26,
+          "diff": 161.1,
+          "pmass": 0.64,
+          "rmass": 0.97,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 5,
+              "mass": 0.33
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 12000,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 27,
+          "diff": 134.4,
+          "pmass": 1.71,
+          "rmass": 0.97,
+          "notes": [
+            {
+              "interval": "4",
+              "octave": 6,
+              "mass": 0.39
+            },
+            {
+              "interval": "5",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "b2",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 12125,
+          "state": "Stable",
+          "regime_id": 27,
+          "diff": 36.8,
+          "pmass": 0.67,
+          "rmass": 1.06,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 5,
+              "mass": 0.33
+            },
+            {
+              "interval": "5",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 12250,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 28,
+          "diff": 44.0,
+          "pmass": 1.33,
+          "rmass": 1.06,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "b7",
+              "octave": 3,
+              "mass": 0.35
+            }
+          ]
+        },
+        {
+          "time_ms": 12375,
+          "state": "Stable",
+          "regime_id": 28,
+          "diff": 92.4,
+          "pmass": 0.64,
+          "rmass": 0.66,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 5,
+              "mass": 0.33
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 12500,
+          "state": "Stable",
+          "regime_id": 28,
+          "diff": 51.7,
+          "pmass": 1.61,
+          "rmass": 0.66,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "5",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.33
+            }
+          ]
+        },
+        {
+          "time_ms": 12625,
+          "state": "Stable",
+          "regime_id": 28,
+          "diff": 93.8,
+          "pmass": 0.63,
+          "rmass": 1.63,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.3
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 14875,
+      "nearest_marker_ms": 14999,
+      "gap_ms": 124,
+      "context": [
+        {
+          "time_ms": 14500,
+          "state": "Stable",
+          "regime_id": 31,
+          "diff": 23.8,
+          "pmass": 1.35,
+          "rmass": 3.24,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 6,
+              "mass": 0.36
+            },
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b7",
+              "octave": 3,
+              "mass": 0.33
+            },
+            {
+              "interval": "b3",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 14625,
+          "state": "Stable",
+          "regime_id": 31,
+          "diff": 8.2,
+          "pmass": 2.3,
+          "rmass": 3.24,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 14750,
+          "state": "Stable",
+          "regime_id": 31,
+          "diff": 7.8,
+          "pmass": 0.97,
+          "rmass": 4.12,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b7",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 14875,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 32,
+          "diff": 19.9,
+          "pmass": 0.94,
+          "rmass": 5.01,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 15000,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 33,
+          "diff": 5.5,
+          "pmass": 1.33,
+          "rmass": 0.94,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 5,
+              "mass": 0.35
+            },
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "b6",
+              "octave": 3,
+              "mass": 0.64
+            }
+          ]
+        },
+        {
+          "time_ms": 15125,
+          "state": "Stable",
+          "regime_id": 33,
+          "diff": 12.7,
+          "pmass": 0.63,
+          "rmass": 1.33,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.33
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.3
+            }
+          ]
+        },
+        {
+          "time_ms": 15250,
+          "state": "Stable",
+          "regime_id": 33,
+          "diff": 155.8,
+          "pmass": 0.63,
+          "rmass": 1.9,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 17000,
+      "nearest_marker_ms": 17125,
+      "gap_ms": 125,
+      "context": [
+        {
+          "time_ms": 16625,
+          "state": "Stable",
+          "regime_id": 34,
+          "diff": 11.8,
+          "pmass": 0.32,
+          "rmass": 2.42,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 16750,
+          "state": "Stable",
+          "regime_id": 34,
+          "diff": 24.9,
+          "pmass": 0.75,
+          "rmass": 2.71,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 6,
+              "mass": 0.43
+            },
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 16875,
+          "state": "Stable",
+          "regime_id": 34,
+          "diff": 32.0,
+          "pmass": 0.75,
+          "rmass": 3.46,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 6,
+              "mass": 0.42
+            },
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 17000,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 35,
+          "diff": 15.0,
+          "pmass": 1.49,
+          "rmass": 3.46,
+          "notes": [
+            {
+              "interval": "4",
+              "octave": 6,
+              "mass": 0.42
+            },
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 17125,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 36,
+          "diff": 32.9,
+          "pmass": 1.61,
+          "rmass": 0.74,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 7,
+              "mass": 0.68
+            },
+            {
+              "interval": "3",
+              "octave": 4,
+              "mass": 0.3
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.3
+            },
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 17250,
+          "state": "Stable",
+          "regime_id": 36,
+          "diff": 12.7,
+          "pmass": 0.88,
+          "rmass": 1.61,
+          "notes": [
+            {
+              "interval": "3",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 17375,
+          "state": "Stable",
+          "regime_id": 36,
+          "diff": 8.2,
+          "pmass": 0.88,
+          "rmass": 2.49,
+          "notes": [
+            {
+              "interval": "3",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 19750,
+      "nearest_marker_ms": 19622,
+      "gap_ms": 128,
+      "context": [
+        {
+          "time_ms": 19375,
+          "state": "Stable",
+          "regime_id": 40,
+          "diff": 3.1,
+          "pmass": 1.36,
+          "rmass": 2.38,
+          "notes": [
+            {
+              "interval": "2",
+              "octave": 6,
+              "mass": 0.42
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "4",
+              "octave": 5,
+              "mass": 0.33
+            },
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.33
+            }
+          ]
+        },
+        {
+          "time_ms": 19500,
+          "state": "Stable",
+          "regime_id": 40,
+          "diff": 5.2,
+          "pmass": 0.92,
+          "rmass": 3.72,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "4",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 19625,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 41,
+          "diff": 13.3,
+          "pmass": 0.92,
+          "rmass": 4.6,
+          "notes": [
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "4",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 19750,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 42,
+          "diff": 36.2,
+          "pmass": 1.78,
+          "rmass": 0.92,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 6,
+              "mass": 0.43
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "4",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "2",
+              "octave": 6,
+              "mass": 0.43
+            }
+          ]
+        },
+        {
+          "time_ms": 19812,
+          "state": "Stable",
+          "regime_id": 42,
+          "diff": 116.6,
+          "pmass": 0.86,
+          "rmass": 0.92,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 6,
+              "mass": 0.43
+            },
+            {
+              "interval": "2",
+              "octave": 6,
+              "mass": 0.43
+            }
+          ]
+        },
+        {
+          "time_ms": 19875,
+          "state": "Stable",
+          "regime_id": 42,
+          "diff": 26.6,
+          "pmass": 1.36,
+          "rmass": 0.92,
+          "notes": [
+            {
+              "interval": "4",
+              "octave": 6,
+              "mass": 0.44
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 20000,
+          "state": "Stable",
+          "regime_id": 42,
+          "diff": 151.5,
+          "pmass": 0.92,
+          "rmass": 3.9,
+          "notes": [
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 23500,
+      "nearest_marker_ms": 23248,
+      "gap_ms": 252,
+      "context": [
+        {
+          "time_ms": 23125,
+          "state": "Stable",
+          "regime_id": 47,
+          "diff": 77.7,
+          "pmass": 0.26,
+          "rmass": 1.42,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.26
+            }
+          ]
+        },
+        {
+          "time_ms": 23250,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 48,
+          "diff": 55.8,
+          "pmass": 1.69,
+          "rmass": 1.64,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.31
+            },
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.31
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.31
+            },
+            {
+              "interval": "b7",
+              "octave": 2,
+              "mass": 0.77
+            }
+          ]
+        },
+        {
+          "time_ms": 23375,
+          "state": "Stable",
+          "regime_id": 48,
+          "diff": 151.5,
+          "pmass": 0.28,
+          "rmass": 1.69,
+          "notes": [
+            {
+              "interval": "2",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 23500,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 49,
+          "diff": 132.0,
+          "pmass": 1.13,
+          "rmass": 1.69,
+          "notes": [
+            {
+              "interval": "2",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 23625,
+          "state": "Stable",
+          "regime_id": 49,
+          "diff": 30.0,
+          "pmass": 0.28,
+          "rmass": 0.85,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 23750,
+          "state": "Stable",
+          "regime_id": 49,
+          "diff": 7.9,
+          "pmass": 1.12,
+          "rmass": 0.85,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 23875,
+          "state": "Stable",
+          "regime_id": 49,
+          "diff": 179.6,
+          "pmass": 0.32,
+          "rmass": 1.67,
+          "notes": [
+            {
+              "interval": "7",
+              "octave": 3,
+              "mass": 0.32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 24000,
+      "nearest_marker_ms": 24247,
+      "gap_ms": 247,
+      "context": [
+        {
+          "time_ms": 23625,
+          "state": "Stable",
+          "regime_id": 49,
+          "diff": 30.0,
+          "pmass": 0.28,
+          "rmass": 0.85,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 23750,
+          "state": "Stable",
+          "regime_id": 49,
+          "diff": 7.9,
+          "pmass": 1.12,
+          "rmass": 0.85,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 23875,
+          "state": "Stable",
+          "regime_id": 49,
+          "diff": 179.6,
+          "pmass": 0.32,
+          "rmass": 1.67,
+          "notes": [
+            {
+              "interval": "7",
+              "octave": 3,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 24000,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 50,
+          "diff": 179.6,
+          "pmass": 1.48,
+          "rmass": 1.67,
+          "notes": [
+            {
+              "interval": "7",
+              "octave": 3,
+              "mass": 0.32
+            },
+            {
+              "interval": "2",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 24125,
+          "state": "Stable",
+          "regime_id": 50,
+          "diff": 90.0,
+          "pmass": 0.32,
+          "rmass": 1.16,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 3,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 24250,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 51,
+          "diff": 116.0,
+          "pmass": 1.59,
+          "rmass": 1.16,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 3,
+              "mass": 0.34
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.3
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.3
+            },
+            {
+              "interval": "b3",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 24750,
+          "state": "Stable",
+          "regime_id": 51,
+          "diff": 36.3,
+          "pmass": 0.32,
+          "rmass": 1.27,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 3,
+              "mass": 0.32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 25750,
+      "nearest_marker_ms": 25376,
+      "gap_ms": 374,
+      "context": [
+        {
+          "time_ms": 25375,
+          "state": "Stable",
+          "regime_id": 51,
+          "diff": 9.8,
+          "pmass": 1.71,
+          "rmass": 2.84,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.35
+            },
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.3
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.3
+            },
+            {
+              "interval": "b7",
+              "octave": 2,
+              "mass": 0.77
+            }
+          ]
+        },
+        {
+          "time_ms": 25500,
+          "state": "Stable",
+          "regime_id": 51,
+          "diff": 155.2,
+          "pmass": 0.32,
+          "rmass": 4.52,
+          "notes": [
+            {
+              "interval": "2",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 25625,
+          "state": "Stable",
+          "regime_id": 51,
+          "diff": 155.2,
+          "pmass": 0.64,
+          "rmass": 4.52,
+          "notes": [
+            {
+              "interval": "2",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 25750,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 52,
+          "diff": 175.8,
+          "pmass": 0.96,
+          "rmass": 4.52,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 25875,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 53,
+          "diff": 50.8,
+          "pmass": 1.2,
+          "rmass": 0.31,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b7",
+              "octave": 3,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 26000,
+          "state": "Stable",
+          "regime_id": 53,
+          "diff": 159.2,
+          "pmass": 0.28,
+          "rmass": 1.2,
+          "notes": [
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 26125,
+          "state": "Stable",
+          "regime_id": 53,
+          "diff": 159.2,
+          "pmass": 0.56,
+          "rmass": 1.2,
+          "notes": [
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 25875,
+      "nearest_marker_ms": 26373,
+      "gap_ms": 498,
+      "context": [
+        {
+          "time_ms": 25500,
+          "state": "Stable",
+          "regime_id": 51,
+          "diff": 155.2,
+          "pmass": 0.32,
+          "rmass": 4.52,
+          "notes": [
+            {
+              "interval": "2",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 25625,
+          "state": "Stable",
+          "regime_id": 51,
+          "diff": 155.2,
+          "pmass": 0.64,
+          "rmass": 4.52,
+          "notes": [
+            {
+              "interval": "2",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 25750,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 52,
+          "diff": 175.8,
+          "pmass": 0.96,
+          "rmass": 4.52,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 25875,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 53,
+          "diff": 50.8,
+          "pmass": 1.2,
+          "rmass": 0.31,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b7",
+              "octave": 3,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 26000,
+          "state": "Stable",
+          "regime_id": 53,
+          "diff": 159.2,
+          "pmass": 0.28,
+          "rmass": 1.2,
+          "notes": [
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 26125,
+          "state": "Stable",
+          "regime_id": 53,
+          "diff": 159.2,
+          "pmass": 0.56,
+          "rmass": 1.2,
+          "notes": [
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 26250,
+          "state": "Stable",
+          "regime_id": 53,
+          "diff": 132.8,
+          "pmass": 0.83,
+          "rmass": 1.2,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 28250,
+      "nearest_marker_ms": 28376,
+      "gap_ms": 126,
+      "context": [
+        {
+          "time_ms": 27875,
+          "state": "Stable",
+          "regime_id": 54,
+          "diff": 9.4,
+          "pmass": 0.28,
+          "rmass": 4.83,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 28000,
+          "state": "Stable",
+          "regime_id": 54,
+          "diff": 158.4,
+          "pmass": 0.28,
+          "rmass": 4.95,
+          "notes": [
+            {
+              "interval": "2",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 28125,
+          "state": "Stable",
+          "regime_id": 54,
+          "diff": 158.4,
+          "pmass": 0.56,
+          "rmass": 4.95,
+          "notes": [
+            {
+              "interval": "2",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 28250,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 55,
+          "diff": 139.3,
+          "pmass": 0.84,
+          "rmass": 4.95,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 28375,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 56,
+          "diff": 140.9,
+          "pmass": 1.55,
+          "rmass": 0.28,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.29
+            },
+            {
+              "interval": "1",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b6",
+              "octave": 2,
+              "mass": 0.38
+            },
+            {
+              "interval": "b6",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 28500,
+          "state": "Stable",
+          "regime_id": 56,
+          "diff": 50.9,
+          "pmass": 0.24,
+          "rmass": 1.55,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 28625,
+          "state": "Stable",
+          "regime_id": 56,
+          "diff": 35.5,
+          "pmass": 0.48,
+          "rmass": 1.55,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 35125,
+      "nearest_marker_ms": 35373,
+      "gap_ms": 248,
+      "context": [
+        {
+          "time_ms": 34750,
+          "state": "Stable",
+          "regime_id": 68,
+          "diff": 66.3,
+          "pmass": 0.24,
+          "rmass": 1.35,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 34875,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 69,
+          "diff": 50.3,
+          "pmass": 0.83,
+          "rmass": 1.55,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "b3",
+              "octave": 3,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 35000,
+          "state": "Stable",
+          "regime_id": 69,
+          "diff": 67.4,
+          "pmass": 0.48,
+          "rmass": 0.83,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 35125,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 70,
+          "diff": 57.0,
+          "pmass": 0.95,
+          "rmass": 0.83,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.23
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 35250,
+          "state": "Stable",
+          "regime_id": 70,
+          "diff": 129.8,
+          "pmass": 0.47,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.23
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 35375,
+          "state": "Stable",
+          "regime_id": 70,
+          "diff": 30.2,
+          "pmass": 1.63,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b6",
+              "octave": 2,
+              "mass": 0.38
+            }
+          ]
+        },
+        {
+          "time_ms": 35500,
+          "state": "Stable",
+          "regime_id": 70,
+          "diff": 30.8,
+          "pmass": 1.88,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 38332,
+      "nearest_marker_ms": 38495,
+      "gap_ms": 163,
+      "context": [
+        {
+          "time_ms": 38082,
+          "state": "Stable",
+          "regime_id": 73,
+          "diff": 7.6,
+          "pmass": 0.93,
+          "rmass": 5.53,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 38166,
+          "state": "Stable",
+          "regime_id": 73,
+          "diff": 27.2,
+          "pmass": 0.91,
+          "rmass": 6.45,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.27
+            }
+          ]
+        },
+        {
+          "time_ms": 38250,
+          "state": "Stable",
+          "regime_id": 73,
+          "diff": 25.3,
+          "pmass": 1.83,
+          "rmass": 6.45,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.27
+            }
+          ]
+        },
+        {
+          "time_ms": 38332,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 74,
+          "diff": 28.3,
+          "pmass": 2.73,
+          "rmass": 6.45,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.26
+            }
+          ]
+        },
+        {
+          "time_ms": 38416,
+          "state": "Stable",
+          "regime_id": 74,
+          "diff": 21.3,
+          "pmass": 2.72,
+          "rmass": 6.45,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.26
+            }
+          ]
+        },
+        {
+          "time_ms": 38500,
+          "state": "Stable",
+          "regime_id": 74,
+          "diff": 44.0,
+          "pmass": 3.42,
+          "rmass": 6.45,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.3
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.62
+            }
+          ]
+        },
+        {
+          "time_ms": 38582,
+          "state": "Stable",
+          "regime_id": 74,
+          "diff": 48.0,
+          "pmass": 0.6,
+          "rmass": 3.34,
+          "notes": [
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 39750,
+      "nearest_marker_ms": 39505,
+      "gap_ms": 245,
+      "context": [
+        {
+          "time_ms": 39500,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 75,
+          "diff": 46.0,
+          "pmass": 1.27,
+          "rmass": 7.59,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.3
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.3
+            }
+          ]
+        },
+        {
+          "time_ms": 39582,
+          "state": "Stable",
+          "regime_id": 75,
+          "diff": 31.0,
+          "pmass": 0.6,
+          "rmass": 7.59,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 39666,
+          "state": "Stable",
+          "regime_id": 75,
+          "diff": 31.0,
+          "pmass": 0.6,
+          "rmass": 7.59,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 39750,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 76,
+          "diff": 47.6,
+          "pmass": 1.08,
+          "rmass": 2.44,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 5,
+              "mass": 0.48
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 39832,
+          "state": "Stable",
+          "regime_id": 76,
+          "diff": 2.6,
+          "pmass": 0.88,
+          "rmass": 2.44,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 39916,
+          "state": "Stable",
+          "regime_id": 76,
+          "diff": 34.2,
+          "pmass": 0.88,
+          "rmass": 2.44,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "2",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 40000,
+          "state": "Stable",
+          "regime_id": 76,
+          "diff": 15.1,
+          "pmass": 1.16,
+          "rmass": 2.8,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 45000,
+      "nearest_marker_ms": 45502,
+      "gap_ms": 502,
+      "context": [
+        {
+          "time_ms": 44750,
+          "state": "Stable",
+          "regime_id": 83,
+          "diff": 158.3,
+          "pmass": 0.91,
+          "rmass": 8.71,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.35
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 44832,
+          "state": "Stable",
+          "regime_id": 83,
+          "diff": 144.4,
+          "pmass": 0.56,
+          "rmass": 8.57,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 44916,
+          "state": "Stable",
+          "regime_id": 83,
+          "diff": 141.9,
+          "pmass": 0.56,
+          "rmass": 8.44,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 45000,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 84,
+          "diff": 128.6,
+          "pmass": 0.88,
+          "rmass": 8.32,
+          "notes": [
+            {
+              "interval": "#4",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 45082,
+          "state": "Stable",
+          "regime_id": 84,
+          "diff": 138.9,
+          "pmass": 0.56,
+          "rmass": 8.32,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 45166,
+          "state": "Stable",
+          "regime_id": 84,
+          "diff": 138.9,
+          "pmass": 0.56,
+          "rmass": 8.32,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 45250,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 85,
+          "diff": 147.1,
+          "pmass": 0.88,
+          "rmass": 1.97,
+          "notes": [
+            {
+              "interval": "3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "false_positive_time_ms": 45250,
+      "nearest_marker_ms": 45502,
+      "gap_ms": 252,
+      "context": [
+        {
+          "time_ms": 45000,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 84,
+          "diff": 128.6,
+          "pmass": 0.88,
+          "rmass": 8.32,
+          "notes": [
+            {
+              "interval": "#4",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 45082,
+          "state": "Stable",
+          "regime_id": 84,
+          "diff": 138.9,
+          "pmass": 0.56,
+          "rmass": 8.32,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 45166,
+          "state": "Stable",
+          "regime_id": 84,
+          "diff": 138.9,
+          "pmass": 0.56,
+          "rmass": 8.32,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 45250,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 85,
+          "diff": 147.1,
+          "pmass": 0.88,
+          "rmass": 1.97,
+          "notes": [
+            {
+              "interval": "3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 45332,
+          "state": "Stable",
+          "regime_id": 85,
+          "diff": 6.0,
+          "pmass": 0.56,
+          "rmass": 1.97,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 45416,
+          "state": "Stable",
+          "regime_id": 85,
+          "diff": 6.0,
+          "pmass": 0.56,
+          "rmass": 1.97,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 45500,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 86,
+          "diff": 12.5,
+          "pmass": 1.28,
+          "rmass": 1.96,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "6",
+              "octave": 4,
+              "mass": 0.3
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.3
+            },
+            {
+              "interval": "#4",
+              "octave": 4,
+              "mass": 0.35
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "false_negatives": [
+    {
+      "missed_marker_time_ms": 1500,
+      "tier": "tier1",
+      "nearest_boundary_ms": 1000,
+      "gap_ms": 500,
+      "context": [
+        {
+          "time_ms": 1125,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 40.7,
+          "pmass": 0.23,
+          "rmass": 0.88,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 1250,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 0.1,
+          "pmass": 0.25,
+          "rmass": 1.08,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        },
+        {
+          "time_ms": 1375,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 30.0,
+          "pmass": 0.23,
+          "rmass": 1.29,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 1500,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 54.5,
+          "pmass": 0.58,
+          "rmass": 1.48,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "5",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 1625,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 9.1,
+          "pmass": 0.82,
+          "rmass": 1.48,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 1750,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 81.2,
+          "pmass": 0.54,
+          "rmass": 1.68,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.26
+            }
+          ]
+        },
+        {
+          "time_ms": 1875,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 61.7,
+          "pmass": 0.77,
+          "rmass": 1.68,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 1750,
+      "tier": "tier2",
+      "nearest_boundary_ms": 2250,
+      "gap_ms": 500,
+      "context": [
+        {
+          "time_ms": 1375,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 30.0,
+          "pmass": 0.23,
+          "rmass": 1.29,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 1500,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 54.5,
+          "pmass": 0.58,
+          "rmass": 1.48,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "5",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 1625,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 9.1,
+          "pmass": 0.82,
+          "rmass": 1.48,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 1750,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 81.2,
+          "pmass": 0.54,
+          "rmass": 1.68,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.26
+            }
+          ]
+        },
+        {
+          "time_ms": 1875,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 61.7,
+          "pmass": 0.77,
+          "rmass": 1.68,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 2000,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 31.6,
+          "pmass": 0.92,
+          "rmass": 1.88,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.29
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b6",
+              "octave": 3,
+              "mass": 0.37
+            }
+          ]
+        },
+        {
+          "time_ms": 2125,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 27.4,
+          "pmass": 0.23,
+          "rmass": 2.74,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 2002,
+      "tier": "tier1",
+      "nearest_boundary_ms": 2250,
+      "gap_ms": 248,
+      "context": [
+        {
+          "time_ms": 1625,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 9.1,
+          "pmass": 0.82,
+          "rmass": 1.48,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 1750,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 81.2,
+          "pmass": 0.54,
+          "rmass": 1.68,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.26
+            }
+          ]
+        },
+        {
+          "time_ms": 1875,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 61.7,
+          "pmass": 0.77,
+          "rmass": 1.68,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 2000,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 31.6,
+          "pmass": 0.92,
+          "rmass": 1.88,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.29
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b6",
+              "octave": 3,
+              "mass": 0.37
+            }
+          ]
+        },
+        {
+          "time_ms": 2125,
+          "state": "Stable",
+          "regime_id": 2,
+          "diff": 27.4,
+          "pmass": 0.23,
+          "rmass": 2.74,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 2250,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 3,
+          "diff": 3.0,
+          "pmass": 0.88,
+          "rmass": 2.89,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "5",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 2375,
+          "state": "Stable",
+          "regime_id": 3,
+          "diff": 27.2,
+          "pmass": 0.23,
+          "rmass": 0.88,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 5002,
+      "tier": "tier1",
+      "nearest_boundary_ms": 4875,
+      "gap_ms": 127,
+      "context": [
+        {
+          "time_ms": 4750,
+          "state": "Stable",
+          "regime_id": 9,
+          "diff": 130.8,
+          "pmass": 0.47,
+          "rmass": 0.78,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 4875,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 10,
+          "diff": 122.8,
+          "pmass": 0.98,
+          "rmass": 0.78,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 4937,
+          "state": "Stable",
+          "regime_id": 10,
+          "diff": 34.4,
+          "pmass": 0.75,
+          "rmass": 0.78,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 5000,
+          "state": "Stable",
+          "regime_id": 10,
+          "diff": 113.6,
+          "pmass": 1.36,
+          "rmass": 0.78,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.3
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "1",
+              "octave": 4,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 5125,
+          "state": "Stable",
+          "regime_id": 10,
+          "diff": 30.7,
+          "pmass": 0.23,
+          "rmass": 1.64,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 5250,
+          "state": "Stable",
+          "regime_id": 10,
+          "diff": 6.5,
+          "pmass": 0.25,
+          "rmass": 1.81,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        },
+        {
+          "time_ms": 5375,
+          "state": "Stable",
+          "regime_id": 10,
+          "diff": 24.9,
+          "pmass": 0.23,
+          "rmass": 1.98,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 7006,
+      "tier": "tier1",
+      "nearest_boundary_ms": 6750,
+      "gap_ms": 256,
+      "context": [
+        {
+          "time_ms": 6625,
+          "state": "Stable",
+          "regime_id": 13,
+          "diff": 66.9,
+          "pmass": 0.48,
+          "rmass": 0.86,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 6750,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 14,
+          "diff": 56.6,
+          "pmass": 0.95,
+          "rmass": 0.86,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.23
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 6875,
+          "state": "Stable",
+          "regime_id": 14,
+          "diff": 129.8,
+          "pmass": 0.47,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.23
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 7000,
+          "state": "Stable",
+          "regime_id": 14,
+          "diff": 32.9,
+          "pmass": 1.66,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b6",
+              "octave": 2,
+              "mass": 0.41
+            }
+          ]
+        },
+        {
+          "time_ms": 7125,
+          "state": "Stable",
+          "regime_id": 14,
+          "diff": 32.4,
+          "pmass": 1.91,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 7250,
+          "state": "Stable",
+          "regime_id": 14,
+          "diff": 28.3,
+          "pmass": 2.5,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "b6",
+              "octave": 3,
+              "mass": 0.35
+            }
+          ]
+        },
+        {
+          "time_ms": 7375,
+          "state": "Stable",
+          "regime_id": 14,
+          "diff": 29.0,
+          "pmass": 2.74,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 7998,
+      "tier": "tier1",
+      "nearest_boundary_ms": 7500,
+      "gap_ms": 498,
+      "context": [
+        {
+          "time_ms": 7750,
+          "state": "Stable",
+          "regime_id": 15,
+          "diff": 56.6,
+          "pmass": 0.31,
+          "rmass": 1.3,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 7832,
+          "state": "Stable",
+          "regime_id": 15,
+          "diff": 45.1,
+          "pmass": 0.31,
+          "rmass": 1.55,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 7916,
+          "state": "Stable",
+          "regime_id": 15,
+          "diff": 6.3,
+          "pmass": 0.31,
+          "rmass": 1.8,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 8000,
+          "state": "Stable",
+          "regime_id": 15,
+          "diff": 26.1,
+          "pmass": 1.42,
+          "rmass": 2.06,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "1",
+              "octave": 6,
+              "mass": 0.39
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.32
+            },
+            {
+              "interval": "b6",
+              "octave": 3,
+              "mass": 0.37
+            }
+          ]
+        },
+        {
+          "time_ms": 8125,
+          "state": "Stable",
+          "regime_id": 15,
+          "diff": 46.1,
+          "pmass": 0.61,
+          "rmass": 3.45,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.29
+            }
+          ]
+        },
+        {
+          "time_ms": 8250,
+          "state": "Stable",
+          "regime_id": 15,
+          "diff": 21.9,
+          "pmass": 0.62,
+          "rmass": 3.92,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 8375,
+          "state": "Stable",
+          "regime_id": 15,
+          "diff": 41.5,
+          "pmass": 0.62,
+          "rmass": 4.48,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.33
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 12999,
+      "tier": "tier1",
+      "nearest_boundary_ms": 12875,
+      "gap_ms": 124,
+      "context": [
+        {
+          "time_ms": 12750,
+          "state": "Stable",
+          "regime_id": 28,
+          "diff": 24.1,
+          "pmass": 1.26,
+          "rmass": 1.63,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 5,
+              "mass": 0.33
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.3
+            }
+          ]
+        },
+        {
+          "time_ms": 12875,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 29,
+          "diff": 40.0,
+          "pmass": 2.21,
+          "rmass": 1.63,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 6,
+              "mass": 0.36
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 12937,
+          "state": "Stable",
+          "regime_id": 29,
+          "diff": 76.2,
+          "pmass": 1.62,
+          "rmass": 1.63,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 6,
+              "mass": 0.37
+            }
+          ]
+        },
+        {
+          "time_ms": 13000,
+          "state": "Stable",
+          "regime_id": 29,
+          "diff": 36.9,
+          "pmass": 2.32,
+          "rmass": 1.63,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 6,
+              "mass": 0.4
+            },
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.36
+            },
+            {
+              "interval": "1",
+              "octave": 4,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 13125,
+          "state": "Stable",
+          "regime_id": 29,
+          "diff": 11.9,
+          "pmass": 0.61,
+          "rmass": 2.32,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.3
+            }
+          ]
+        },
+        {
+          "time_ms": 13250,
+          "state": "Stable",
+          "regime_id": 29,
+          "diff": 50.7,
+          "pmass": 0.63,
+          "rmass": 2.85,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "1",
+              "octave": 4,
+              "mass": 0.3
+            }
+          ]
+        },
+        {
+          "time_ms": 13375,
+          "state": "Stable",
+          "regime_id": 29,
+          "diff": 20.8,
+          "pmass": 0.61,
+          "rmass": 3.39,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 14502,
+      "tier": "tier1",
+      "nearest_boundary_ms": 14875,
+      "gap_ms": 373,
+      "context": [
+        {
+          "time_ms": 14125,
+          "state": "Stable",
+          "regime_id": 31,
+          "diff": 33.7,
+          "pmass": 0.62,
+          "rmass": 1.42,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 14250,
+          "state": "Stable",
+          "regime_id": 31,
+          "diff": 43.3,
+          "pmass": 0.63,
+          "rmass": 2.03,
+          "notes": [
+            {
+              "interval": "4",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.29
+            }
+          ]
+        },
+        {
+          "time_ms": 14375,
+          "state": "Stable",
+          "regime_id": 31,
+          "diff": 20.4,
+          "pmass": 0.62,
+          "rmass": 2.64,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 14500,
+          "state": "Stable",
+          "regime_id": 31,
+          "diff": 23.8,
+          "pmass": 1.35,
+          "rmass": 3.24,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 6,
+              "mass": 0.36
+            },
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b7",
+              "octave": 3,
+              "mass": 0.33
+            },
+            {
+              "interval": "b3",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 14625,
+          "state": "Stable",
+          "regime_id": 31,
+          "diff": 8.2,
+          "pmass": 2.3,
+          "rmass": 3.24,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 14750,
+          "state": "Stable",
+          "regime_id": 31,
+          "diff": 7.8,
+          "pmass": 0.97,
+          "rmass": 4.12,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b7",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 14875,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 32,
+          "diff": 19.9,
+          "pmass": 0.94,
+          "rmass": 5.01,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 25376,
+      "tier": "tier1",
+      "nearest_boundary_ms": 25750,
+      "gap_ms": 374,
+      "context": [
+        {
+          "time_ms": 25125,
+          "state": "Stable",
+          "regime_id": 51,
+          "diff": 46.2,
+          "pmass": 0.6,
+          "rmass": 1.8,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "5",
+              "octave": 3,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 25250,
+          "state": "Stable",
+          "regime_id": 51,
+          "diff": 19.3,
+          "pmass": 0.31,
+          "rmass": 2.37,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 3,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 25312,
+          "state": "Stable",
+          "regime_id": 51,
+          "diff": 14.0,
+          "pmass": 0.34,
+          "rmass": 2.59,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 25375,
+          "state": "Stable",
+          "regime_id": 51,
+          "diff": 9.8,
+          "pmass": 1.71,
+          "rmass": 2.84,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.35
+            },
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.3
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.3
+            },
+            {
+              "interval": "b7",
+              "octave": 2,
+              "mass": 0.77
+            }
+          ]
+        },
+        {
+          "time_ms": 25500,
+          "state": "Stable",
+          "regime_id": 51,
+          "diff": 155.2,
+          "pmass": 0.32,
+          "rmass": 4.52,
+          "notes": [
+            {
+              "interval": "2",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 25625,
+          "state": "Stable",
+          "regime_id": 51,
+          "diff": 155.2,
+          "pmass": 0.64,
+          "rmass": 4.52,
+          "notes": [
+            {
+              "interval": "2",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 25750,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 52,
+          "diff": 175.8,
+          "pmass": 0.96,
+          "rmass": 4.52,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 29883,
+      "tier": "tier1",
+      "nearest_boundary_ms": 29375,
+      "gap_ms": 508,
+      "context": [
+        {
+          "time_ms": 29500,
+          "state": "Stable",
+          "regime_id": 58,
+          "diff": 39.2,
+          "pmass": 0.23,
+          "rmass": 0.86,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 29625,
+          "state": "Stable",
+          "regime_id": 58,
+          "diff": 1.4,
+          "pmass": 0.25,
+          "rmass": 1.06,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        },
+        {
+          "time_ms": 29750,
+          "state": "Stable",
+          "regime_id": 58,
+          "diff": 29.0,
+          "pmass": 0.23,
+          "rmass": 1.27,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 29875,
+          "state": "Stable",
+          "regime_id": 58,
+          "diff": 50.2,
+          "pmass": 0.56,
+          "rmass": 1.46,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "5",
+              "octave": 3,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 30000,
+          "state": "Stable",
+          "regime_id": 58,
+          "diff": 6.0,
+          "pmass": 0.8,
+          "rmass": 1.46,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 30125,
+          "state": "Stable",
+          "regime_id": 58,
+          "diff": 80.5,
+          "pmass": 0.54,
+          "rmass": 1.66,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.26
+            }
+          ]
+        },
+        {
+          "time_ms": 30250,
+          "state": "Stable",
+          "regime_id": 58,
+          "diff": 60.9,
+          "pmass": 0.77,
+          "rmass": 1.66,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 30375,
+      "tier": "tier1",
+      "nearest_boundary_ms": 30625,
+      "gap_ms": 250,
+      "context": [
+        {
+          "time_ms": 30000,
+          "state": "Stable",
+          "regime_id": 58,
+          "diff": 6.0,
+          "pmass": 0.8,
+          "rmass": 1.46,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 30125,
+          "state": "Stable",
+          "regime_id": 58,
+          "diff": 80.5,
+          "pmass": 0.54,
+          "rmass": 1.66,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.26
+            }
+          ]
+        },
+        {
+          "time_ms": 30250,
+          "state": "Stable",
+          "regime_id": 58,
+          "diff": 60.9,
+          "pmass": 0.77,
+          "rmass": 1.66,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 30375,
+          "state": "Stable",
+          "regime_id": 58,
+          "diff": 32.8,
+          "pmass": 0.89,
+          "rmass": 1.86,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.29
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b6",
+              "octave": 3,
+              "mass": 0.34
+            }
+          ]
+        },
+        {
+          "time_ms": 30500,
+          "state": "Stable",
+          "regime_id": 58,
+          "diff": 26.9,
+          "pmass": 0.23,
+          "rmass": 2.69,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 30625,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 59,
+          "diff": 0.1,
+          "pmass": 0.86,
+          "rmass": 2.85,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "5",
+              "octave": 3,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 30750,
+          "state": "Stable",
+          "regime_id": 59,
+          "diff": 23.8,
+          "pmass": 0.23,
+          "rmass": 0.86,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 33381,
+      "tier": "tier1",
+      "nearest_boundary_ms": 33250,
+      "gap_ms": 131,
+      "context": [
+        {
+          "time_ms": 33125,
+          "state": "Stable",
+          "regime_id": 65,
+          "diff": 128.9,
+          "pmass": 0.47,
+          "rmass": 0.76,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 33250,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 66,
+          "diff": 120.8,
+          "pmass": 0.98,
+          "rmass": 0.76,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 33312,
+          "state": "Stable",
+          "regime_id": 66,
+          "diff": 32.5,
+          "pmass": 0.75,
+          "rmass": 0.76,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 33375,
+          "state": "Stable",
+          "regime_id": 66,
+          "diff": 110.6,
+          "pmass": 1.33,
+          "rmass": 0.76,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.3
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "1",
+              "octave": 4,
+              "mass": 0.3
+            }
+          ]
+        },
+        {
+          "time_ms": 33500,
+          "state": "Stable",
+          "regime_id": 66,
+          "diff": 29.3,
+          "pmass": 0.23,
+          "rmass": 1.61,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 33625,
+          "state": "Stable",
+          "regime_id": 66,
+          "diff": 7.6,
+          "pmass": 0.25,
+          "rmass": 1.79,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        },
+        {
+          "time_ms": 33750,
+          "state": "Stable",
+          "regime_id": 66,
+          "diff": 24.0,
+          "pmass": 0.23,
+          "rmass": 1.96,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 35373,
+      "tier": "tier1",
+      "nearest_boundary_ms": 35125,
+      "gap_ms": 248,
+      "context": [
+        {
+          "time_ms": 35000,
+          "state": "Stable",
+          "regime_id": 69,
+          "diff": 67.4,
+          "pmass": 0.48,
+          "rmass": 0.83,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 35125,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 70,
+          "diff": 57.0,
+          "pmass": 0.95,
+          "rmass": 0.83,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.23
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 35250,
+          "state": "Stable",
+          "regime_id": 70,
+          "diff": 129.8,
+          "pmass": 0.47,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.23
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 35375,
+          "state": "Stable",
+          "regime_id": 70,
+          "diff": 30.2,
+          "pmass": 1.63,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b6",
+              "octave": 2,
+              "mass": 0.38
+            }
+          ]
+        },
+        {
+          "time_ms": 35500,
+          "state": "Stable",
+          "regime_id": 70,
+          "diff": 30.8,
+          "pmass": 1.88,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 35625,
+          "state": "Stable",
+          "regime_id": 70,
+          "diff": 26.3,
+          "pmass": 2.44,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "b6",
+              "octave": 3,
+              "mass": 0.33
+            }
+          ]
+        },
+        {
+          "time_ms": 35750,
+          "state": "Stable",
+          "regime_id": 70,
+          "diff": 27.5,
+          "pmass": 2.69,
+          "rmass": 0.47,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 38495,
+      "tier": "tier1",
+      "nearest_boundary_ms": 38332,
+      "gap_ms": 163,
+      "context": [
+        {
+          "time_ms": 38250,
+          "state": "Stable",
+          "regime_id": 73,
+          "diff": 25.3,
+          "pmass": 1.83,
+          "rmass": 6.45,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.27
+            }
+          ]
+        },
+        {
+          "time_ms": 38332,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 74,
+          "diff": 28.3,
+          "pmass": 2.73,
+          "rmass": 6.45,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.26
+            }
+          ]
+        },
+        {
+          "time_ms": 38416,
+          "state": "Stable",
+          "regime_id": 74,
+          "diff": 21.3,
+          "pmass": 2.72,
+          "rmass": 6.45,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.26
+            }
+          ]
+        },
+        {
+          "time_ms": 38500,
+          "state": "Stable",
+          "regime_id": 74,
+          "diff": 44.0,
+          "pmass": 3.42,
+          "rmass": 6.45,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.3
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.62
+            }
+          ]
+        },
+        {
+          "time_ms": 38582,
+          "state": "Stable",
+          "regime_id": 74,
+          "diff": 48.0,
+          "pmass": 0.6,
+          "rmass": 3.34,
+          "notes": [
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 38666,
+          "state": "Stable",
+          "regime_id": 74,
+          "diff": 42.0,
+          "pmass": 0.6,
+          "rmass": 3.85,
+          "notes": [
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 38750,
+          "state": "Stable",
+          "regime_id": 74,
+          "diff": 71.7,
+          "pmass": 0.93,
+          "rmass": 4.37,
+          "notes": [
+            {
+              "interval": "7",
+              "octave": 5,
+              "mass": 0.33
+            },
+            {
+              "interval": "7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 53004,
+      "tier": "tier1",
+      "nearest_boundary_ms": 52500,
+      "gap_ms": 504,
+      "context": [
+        {
+          "time_ms": 52750,
+          "state": "Stable",
+          "regime_id": 93,
+          "diff": 5.7,
+          "pmass": 0.26,
+          "rmass": 1.32,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.26
+            }
+          ]
+        },
+        {
+          "time_ms": 52832,
+          "state": "Stable",
+          "regime_id": 93,
+          "diff": 25.5,
+          "pmass": 0.23,
+          "rmass": 1.53,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 52916,
+          "state": "Stable",
+          "regime_id": 93,
+          "diff": 21.1,
+          "pmass": 0.23,
+          "rmass": 1.72,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 53000,
+          "state": "Stable",
+          "regime_id": 93,
+          "diff": 67.5,
+          "pmass": 0.62,
+          "rmass": 1.91,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "5",
+              "octave": 3,
+              "mass": 0.38
+            }
+          ]
+        },
+        {
+          "time_ms": 53082,
+          "state": "Stable",
+          "regime_id": 93,
+          "diff": 21.9,
+          "pmass": 0.86,
+          "rmass": 1.91,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 53166,
+          "state": "Stable",
+          "regime_id": 93,
+          "diff": 14.8,
+          "pmass": 0.24,
+          "rmass": 2.11,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 53250,
+          "state": "Stable",
+          "regime_id": 93,
+          "diff": 73.4,
+          "pmass": 0.55,
+          "rmass": 2.32,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 53507,
+      "tier": "tier1",
+      "nearest_boundary_ms": 53750,
+      "gap_ms": 243,
+      "context": [
+        {
+          "time_ms": 53250,
+          "state": "Stable",
+          "regime_id": 93,
+          "diff": 73.4,
+          "pmass": 0.55,
+          "rmass": 2.32,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.27
+            }
+          ]
+        },
+        {
+          "time_ms": 53332,
+          "state": "Stable",
+          "regime_id": 93,
+          "diff": 54.6,
+          "pmass": 0.78,
+          "rmass": 2.32,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 53416,
+          "state": "Stable",
+          "regime_id": 93,
+          "diff": 10.9,
+          "pmass": 0.23,
+          "rmass": 2.51,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 53500,
+          "state": "Swallowed Spike",
+          "regime_id": 93,
+          "diff": 37.5,
+          "pmass": 0.96,
+          "rmass": 2.71,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.29
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.27
+            },
+            {
+              "interval": "b6",
+              "octave": 3,
+              "mass": 0.4
+            }
+          ]
+        },
+        {
+          "time_ms": 53582,
+          "state": "Stable",
+          "regime_id": 93,
+          "diff": 9.5,
+          "pmass": 0.23,
+          "rmass": 2.71,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 53666,
+          "state": "Stable",
+          "regime_id": 93,
+          "diff": 8.3,
+          "pmass": 0.23,
+          "rmass": 2.91,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 53750,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 94,
+          "diff": 23.9,
+          "pmass": 0.93,
+          "rmass": 3.12,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.27
+            },
+            {
+              "interval": "5",
+              "octave": 3,
+              "mass": 0.38
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 54263,
+      "tier": "tier2",
+      "nearest_boundary_ms": 54500,
+      "gap_ms": 237,
+      "context": [
+        {
+          "time_ms": 54000,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 95,
+          "diff": 48.3,
+          "pmass": 0.97,
+          "rmass": 1.33,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "4",
+              "octave": 3,
+              "mass": 0.38
+            }
+          ]
+        },
+        {
+          "time_ms": 54082,
+          "state": "Stable",
+          "regime_id": 95,
+          "diff": 17.2,
+          "pmass": 0.24,
+          "rmass": 1.33,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 54166,
+          "state": "Stable",
+          "regime_id": 95,
+          "diff": 17.2,
+          "pmass": 0.24,
+          "rmass": 1.33,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 54250,
+          "state": "Swallowed Spike",
+          "regime_id": 95,
+          "diff": 46.8,
+          "pmass": 0.94,
+          "rmass": 1.39,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "2",
+              "octave": 5,
+              "mass": 0.31
+            },
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.35
+            }
+          ]
+        },
+        {
+          "time_ms": 54332,
+          "state": "Stable",
+          "regime_id": 95,
+          "diff": 19.0,
+          "pmass": 0.23,
+          "rmass": 1.39,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 54416,
+          "state": "Stable",
+          "regime_id": 95,
+          "diff": 15.6,
+          "pmass": 0.23,
+          "rmass": 1.59,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 54500,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 96,
+          "diff": 25.1,
+          "pmass": 1.02,
+          "rmass": 1.79,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.43
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 54999,
+      "tier": "tier1",
+      "nearest_boundary_ms": 54500,
+      "gap_ms": 499,
+      "context": [
+        {
+          "time_ms": 54750,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 123.1,
+          "pmass": 0.23,
+          "rmass": 1.41,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 54832,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 40.3,
+          "pmass": 0.25,
+          "rmass": 1.58,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        },
+        {
+          "time_ms": 54916,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 30.6,
+          "pmass": 0.24,
+          "rmass": 1.78,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 55000,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 43.1,
+          "pmass": 0.6,
+          "rmass": 1.97,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.23
+            },
+            {
+              "interval": "b3",
+              "octave": 3,
+              "mass": 0.38
+            }
+          ]
+        },
+        {
+          "time_ms": 55082,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 33.7,
+          "pmass": 0.25,
+          "rmass": 2.52,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        },
+        {
+          "time_ms": 55166,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 27.9,
+          "pmass": 0.24,
+          "rmass": 2.69,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 55250,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 143.0,
+          "pmass": 0.5,
+          "rmass": 2.86,
+          "notes": [
+            {
+              "interval": "3",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 55332,
+      "tier": "tier2",
+      "nearest_boundary_ms": 54500,
+      "gap_ms": 832,
+      "context": [
+        {
+          "time_ms": 55082,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 33.7,
+          "pmass": 0.25,
+          "rmass": 2.52,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        },
+        {
+          "time_ms": 55166,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 27.9,
+          "pmass": 0.24,
+          "rmass": 2.69,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 55250,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 143.0,
+          "pmass": 0.5,
+          "rmass": 2.86,
+          "notes": [
+            {
+              "interval": "3",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 55332,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 129.7,
+          "pmass": 0.75,
+          "rmass": 2.86,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        },
+        {
+          "time_ms": 55416,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 19.9,
+          "pmass": 0.24,
+          "rmass": 3.03,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 55500,
+          "state": "Swallowed Spike",
+          "regime_id": 96,
+          "diff": 78.6,
+          "pmass": 0.94,
+          "rmass": 3.21,
+          "notes": [
+            {
+              "interval": "4",
+              "octave": 5,
+              "mass": 0.29
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "b2",
+              "octave": 3,
+              "mass": 0.4
+            }
+          ]
+        },
+        {
+          "time_ms": 55582,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 17.1,
+          "pmass": 0.25,
+          "rmass": 3.21,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 55500,
+      "tier": "tier1",
+      "nearest_boundary_ms": 56416,
+      "gap_ms": 916,
+      "context": [
+        {
+          "time_ms": 55250,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 143.0,
+          "pmass": 0.5,
+          "rmass": 2.86,
+          "notes": [
+            {
+              "interval": "3",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 55332,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 129.7,
+          "pmass": 0.75,
+          "rmass": 2.86,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        },
+        {
+          "time_ms": 55416,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 19.9,
+          "pmass": 0.24,
+          "rmass": 3.03,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 55500,
+          "state": "Swallowed Spike",
+          "regime_id": 96,
+          "diff": 78.6,
+          "pmass": 0.94,
+          "rmass": 3.21,
+          "notes": [
+            {
+              "interval": "4",
+              "octave": 5,
+              "mass": 0.29
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "b2",
+              "octave": 3,
+              "mass": 0.4
+            }
+          ]
+        },
+        {
+          "time_ms": 55582,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 17.1,
+          "pmass": 0.25,
+          "rmass": 3.21,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        },
+        {
+          "time_ms": 55666,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 14.7,
+          "pmass": 0.24,
+          "rmass": 3.39,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 55750,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 137.2,
+          "pmass": 0.23,
+          "rmass": 3.57,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 55998,
+      "tier": "tier1",
+      "nearest_boundary_ms": 56416,
+      "gap_ms": 418,
+      "context": [
+        {
+          "time_ms": 55750,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 137.2,
+          "pmass": 0.23,
+          "rmass": 3.57,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 55832,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 16.9,
+          "pmass": 0.25,
+          "rmass": 3.65,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        },
+        {
+          "time_ms": 55916,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 14.6,
+          "pmass": 0.24,
+          "rmass": 3.82,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 56000,
+          "state": "Swallowed Spike",
+          "regime_id": 96,
+          "diff": 52.4,
+          "pmass": 0.8,
+          "rmass": 4.0,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.23
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.33
+            }
+          ]
+        },
+        {
+          "time_ms": 56082,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 17.3,
+          "pmass": 0.22,
+          "rmass": 4.0,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.22
+            }
+          ]
+        },
+        {
+          "time_ms": 56166,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 15.8,
+          "pmass": 0.22,
+          "rmass": 4.05,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.22
+            }
+          ]
+        },
+        {
+          "time_ms": 56250,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 134.5,
+          "pmass": 0.25,
+          "rmass": 4.11,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 56502,
+      "tier": "tier1",
+      "nearest_boundary_ms": 56416,
+      "gap_ms": 86,
+      "context": [
+        {
+          "time_ms": 56250,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 134.5,
+          "pmass": 0.25,
+          "rmass": 4.11,
+          "notes": [
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.25
+            }
+          ]
+        },
+        {
+          "time_ms": 56332,
+          "state": "Stable",
+          "regime_id": 96,
+          "diff": 60.7,
+          "pmass": 0.5,
+          "rmass": 4.18,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            },
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 56416,
+          "state": "TRANSITION SPIKE!",
+          "regime_id": 97,
+          "diff": 9.7,
+          "pmass": 1.02,
+          "rmass": 4.18,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            },
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.28
+            }
+          ]
+        },
+        {
+          "time_ms": 56500,
+          "state": "Stable",
+          "regime_id": 97,
+          "diff": 55.0,
+          "pmass": 1.43,
+          "rmass": 4.18,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.3
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "1",
+              "octave": 4,
+              "mass": 0.35
+            }
+          ]
+        },
+        {
+          "time_ms": 56582,
+          "state": "Stable",
+          "regime_id": 97,
+          "diff": 41.2,
+          "pmass": 0.74,
+          "rmass": 4.18,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 56666,
+          "state": "Stable",
+          "regime_id": 97,
+          "diff": 11.9,
+          "pmass": 0.23,
+          "rmass": 1.62,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 56750,
+          "state": "Stable",
+          "regime_id": 97,
+          "diff": 20.7,
+          "pmass": 0.26,
+          "rmass": 1.81,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.26
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 58004,
+      "tier": "tier1",
+      "nearest_boundary_ms": 58416,
+      "gap_ms": 412,
+      "context": [
+        {
+          "time_ms": 57750,
+          "state": "Stable",
+          "regime_id": 99,
+          "diff": 117.6,
+          "pmass": 0.26,
+          "rmass": 1.43,
+          "notes": [
+            {
+              "interval": "4",
+              "octave": 4,
+              "mass": 0.26
+            }
+          ]
+        },
+        {
+          "time_ms": 57832,
+          "state": "Stable",
+          "regime_id": 99,
+          "diff": 50.5,
+          "pmass": 0.23,
+          "rmass": 1.62,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 57916,
+          "state": "Stable",
+          "regime_id": 99,
+          "diff": 37.5,
+          "pmass": 0.24,
+          "rmass": 1.81,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 58000,
+          "state": "Swallowed Spike",
+          "regime_id": 99,
+          "diff": 50.6,
+          "pmass": 0.92,
+          "rmass": 2.0,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "b3",
+              "octave": 3,
+              "mass": 0.38
+            }
+          ]
+        },
+        {
+          "time_ms": 58082,
+          "state": "Swallowed Spike",
+          "regime_id": 99,
+          "diff": 151.4,
+          "pmass": 0.51,
+          "rmass": 2.0,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.28
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 58166,
+          "state": "Stable",
+          "regime_id": 99,
+          "diff": 1.4,
+          "pmass": 0.46,
+          "rmass": 2.0,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.23
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.23
+            }
+          ]
+        },
+        {
+          "time_ms": 58250,
+          "state": "Stable",
+          "regime_id": 99,
+          "diff": 1.8,
+          "pmass": 0.47,
+          "rmass": 2.45,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 58997,
+      "tier": "tier1",
+      "nearest_boundary_ms": 58416,
+      "gap_ms": 581,
+      "context": [
+        {
+          "time_ms": 58750,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 8.8,
+          "pmass": 0.63,
+          "rmass": 2.02,
+          "notes": [
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "b6",
+              "octave": 3,
+              "mass": 0.39
+            }
+          ]
+        },
+        {
+          "time_ms": 58832,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 1.5,
+          "pmass": 0.24,
+          "rmass": 2.59,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 58916,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 1.2,
+          "pmass": 0.24,
+          "rmass": 2.73,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 59000,
+          "state": "Swallowed Spike",
+          "regime_id": 100,
+          "diff": 45.5,
+          "pmass": 0.89,
+          "rmass": 2.87,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.24
+            },
+            {
+              "interval": "1",
+              "octave": 4,
+              "mass": 0.23
+            },
+            {
+              "interval": "b6",
+              "octave": 2,
+              "mass": 0.42
+            }
+          ]
+        },
+        {
+          "time_ms": 59082,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 1.0,
+          "pmass": 0.24,
+          "rmass": 2.87,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.24
+            }
+          ]
+        },
+        {
+          "time_ms": 59166,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 30.8,
+          "pmass": 0.27,
+          "rmass": 3.02,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.27
+            }
+          ]
+        },
+        {
+          "time_ms": 59250,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 86.3,
+          "pmass": 0.31,
+          "rmass": 3.17,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 59499,
+      "tier": "tier1",
+      "nearest_boundary_ms": 58416,
+      "gap_ms": 1083,
+      "context": [
+        {
+          "time_ms": 59250,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 86.3,
+          "pmass": 0.31,
+          "rmass": 3.17,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 59332,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 41.3,
+          "pmass": 0.62,
+          "rmass": 3.17,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.31
+            }
+          ]
+        },
+        {
+          "time_ms": 59416,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 35.0,
+          "pmass": 0.94,
+          "rmass": 3.17,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 59500,
+          "state": "Swallowed Spike",
+          "regime_id": 100,
+          "diff": 51.5,
+          "pmass": 1.49,
+          "rmass": 3.38,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "1",
+              "octave": 6,
+              "mass": 0.39
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.35
+            },
+            {
+              "interval": "b6",
+              "octave": 3,
+              "mass": 0.4
+            }
+          ]
+        },
+        {
+          "time_ms": 59582,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 8.0,
+          "pmass": 0.64,
+          "rmass": 3.38,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 59666,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 6.0,
+          "pmass": 0.64,
+          "rmass": 3.91,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 59750,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 53.0,
+          "pmass": 0.65,
+          "rmass": 4.44,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.3
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 60001,
+      "tier": "tier1",
+      "nearest_boundary_ms": 61000,
+      "gap_ms": 999,
+      "context": [
+        {
+          "time_ms": 59750,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 53.0,
+          "pmass": 0.65,
+          "rmass": 4.44,
+          "notes": [
+            {
+              "interval": "1",
+              "octave": 5,
+              "mass": 0.3
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.35
+            }
+          ]
+        },
+        {
+          "time_ms": 59832,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 22.1,
+          "pmass": 1.3,
+          "rmass": 4.44,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.33
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 59916,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 12.1,
+          "pmass": 1.94,
+          "rmass": 4.44,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.33
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 60000,
+          "state": "Swallowed Spike",
+          "regime_id": 100,
+          "diff": 47.3,
+          "pmass": 1.28,
+          "rmass": 4.97,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.28
+            },
+            {
+              "interval": "b7",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.35
+            },
+            {
+              "interval": "b2",
+              "octave": 4,
+              "mass": 0.33
+            }
+          ]
+        },
+        {
+          "time_ms": 60082,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 3.8,
+          "pmass": 0.64,
+          "rmass": 4.97,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.33
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 60166,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 3.6,
+          "pmass": 0.64,
+          "rmass": 4.87,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.32
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 60250,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 71.7,
+          "pmass": 0.61,
+          "rmass": 4.77,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "missed_marker_time_ms": 60501,
+      "tier": "tier1",
+      "nearest_boundary_ms": 61000,
+      "gap_ms": 499,
+      "context": [
+        {
+          "time_ms": 60250,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 71.7,
+          "pmass": 0.61,
+          "rmass": 4.77,
+          "notes": [
+            {
+              "interval": "b7",
+              "octave": 4,
+              "mass": 0.26
+            },
+            {
+              "interval": "5",
+              "octave": 4,
+              "mass": 0.35
+            }
+          ]
+        },
+        {
+          "time_ms": 60332,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 10.6,
+          "pmass": 1.26,
+          "rmass": 4.77,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 60416,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 3.4,
+          "pmass": 0.65,
+          "rmass": 4.69,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.33
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 60500,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 20.1,
+          "pmass": 1.66,
+          "rmass": 4.6,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "b3",
+              "octave": 6,
+              "mass": 0.58
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.38
+            },
+            {
+              "interval": "1",
+              "octave": 4,
+              "mass": 0.35
+            }
+          ]
+        },
+        {
+          "time_ms": 60582,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 17.6,
+          "pmass": 2.33,
+          "rmass": 4.6,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.35
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 60666,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 9.8,
+          "pmass": 0.66,
+          "rmass": 4.91,
+          "notes": [
+            {
+              "interval": "b6",
+              "octave": 5,
+              "mass": 0.34
+            },
+            {
+              "interval": "b3",
+              "octave": 4,
+              "mass": 0.32
+            }
+          ]
+        },
+        {
+          "time_ms": 60750,
+          "state": "Stable",
+          "regime_id": 100,
+          "diff": 8.7,
+          "pmass": 0.66,
+          "rmass": 5.22,
+          "notes": [
+            {
+              "interval": "b3",
+              "octave": 5,
+              "mass": 0.3
+            },
+            {
+              "interval": "b6",
+              "octave": 4,
+              "mass": 0.36
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

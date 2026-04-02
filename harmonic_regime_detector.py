@@ -299,6 +299,16 @@ class HarmonicRegimeDetector:
             is_fresh_attack = (last_time_ms != -1) and (time_ms - last_time_ms >= 300)
             last_time_ms = time_ms
 
+            # Limbo Garbage Disposal: Limbo is for simultaneous chord rolls
+            # staggered by <50ms. If the gap is >=80ms, it's a new rhythmic
+            # attack — flush stale passing tones so they don't accumulate mass.
+            if limbo_frames and (time_ms - limbo_frames[-1][0] >= 80):
+                for lf_time, lf_parts in limbo_frames:
+                    regime_all_particles.extend(lf_parts)
+                    if lf_time in frame_assignments:
+                        frame_assignments[lf_time]['state'] = 'Stable'
+                limbo_frames.clear()
+
             # --- Bootstrap: first frame seeds the anchor ---
             if not anchor_profile:
                 regime_start_ms = time_ms
@@ -383,6 +393,14 @@ class HarmonicRegimeDetector:
                 can_merge = False
             else:
                 can_merge = (diff <= self.merge_angle) or is_resolution
+
+            # Merge Loophole Patch: guard ALL merges against the whisper effect.
+            # A whisper can bypass the resolution mass-ratio check by slipping through
+            # the angle-based merge path (diff <= merge_angle). Block it here too.
+            if can_merge and pending_spike_frames and self.min_resolution_ratio > 0.0:
+                spike_mass = sum(p['mass'] for _, ps_parts, _ in pending_spike_frames for p in ps_parts)
+                if spike_mass > 0 and (pmass / spike_mass) < self.min_resolution_ratio:
+                    can_merge = False
 
             # ─── LIMBO CONTAMINATION GUARD ─────────────────────
             # If accumulated limbo notes are dragging a compatible frame
