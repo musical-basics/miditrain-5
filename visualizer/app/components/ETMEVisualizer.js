@@ -6,7 +6,9 @@ import { Sun, Moon } from 'lucide-react';
 // ===== CONSTANTS =====
 const PITCH_MIN = 21;
 const PITCH_MAX = 108;
-const MAX_CANVAS_PX = 16000;
+// Browser canvas hard limit is ~32767px. We use 32000 as a safe ceiling.
+// There is NO artificial time-based cap — the canvas always reflects the full piece.
+const MAX_CANVAS_PX = 32000;
 const RULER_HEIGHT = 40; // Taller ruler for marker click zone
 const NOTE_NAMES = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 const BLACK_KEYS = [1,3,6,8,10];
@@ -335,7 +337,25 @@ export default function ETMEVisualizer() {
 
     fetch(`/${etmeFile}?t=${Date.now()}_${refreshTrigger}`)
       .then(r => { if (!r.ok) return null; return r.json(); })
-      .then(setData)
+      .then(d => {
+        setData(d);
+        if (!d || !d.notes || d.notes.length === 0) return;
+        // Auto-fit H-Zoom so full piece is visible without hitting browser canvas limit.
+        const maxTime = Math.max(...d.notes.map(n => n.onset + n.duration)) + 500;
+        // msPxInput = 0.005 * hZoom  →  hZoom = msPxInput / 0.005
+        // We want: maxTime * msPxInput <= MAX_CANVAS_PX
+        // So:       msPxInput <= MAX_CANVAS_PX / maxTime
+        const maxSafeMsPx = (MAX_CANVAS_PX - 50) / maxTime;  // small buffer
+        const maxSafeZoom = maxSafeMsPx / 0.005;
+        setHZoom(prev => {
+          const needed = prev;
+          if (needed > maxSafeZoom) {
+            console.info(`[ETME] Auto-fitting H-Zoom: ${needed} → ${maxSafeZoom.toFixed(1)} to show full ${(maxTime/1000).toFixed(1)}s piece`);
+            return Math.floor(maxSafeZoom);
+          }
+          return prev;
+        });
+      })
       .catch(() => setData(null));
   }, [midiFile, angleMap, breakModel, jaccardThreshold, refreshTrigger, getBaseKey]);
 
@@ -373,7 +393,13 @@ export default function ETMEVisualizer() {
     const maxTime = Math.max(...notes.map(n => n.onset + n.duration)) + 500;
     const effectiveScale = msPxInput;
     effectiveScaleRef.current = effectiveScale;
+    // Canvas width = full content, capped only by browser pixel limit.
+    // No artificial time cap — the full piece is always accessible by zooming out.
     const canvasW = Math.min(Math.max(maxTime * effectiveScale, 1200), MAX_CANVAS_PX);
+    if (maxTime * effectiveScale > MAX_CANVAS_PX) {
+      console.warn(`[ETME] Canvas clipped at browser limit. Zoom out to see full piece. ` +
+        `Need ${(maxTime * effectiveScale).toFixed(0)}px, max=${MAX_CANVAS_PX}px.`);
+    }
     const rollH = pitchRange * noteHeight;
     const canvasH = rollH + RULER_HEIGHT;
 

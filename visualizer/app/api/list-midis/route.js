@@ -35,7 +35,8 @@ export async function GET() {
         const parsed = JSON.parse(raw);
         const meta = parsed?.optimizer_meta;
         if (meta) {
-          label = `🏆 Opt #${rank} — F-beta=${meta.f_beta?.toFixed(1)}% P=${meta.precision?.toFixed(0)}% R=${meta.recall?.toFixed(0)}% FP=${meta.fp}`;
+          const errors = (meta.total_errors ?? (meta.fp + meta.fn));
+          label = `🏆 Opt #${rank} — errors=${errors} (FP=${meta.fp} FN=${meta.fn}) P=${meta.precision?.toFixed(0)}% R=${meta.recall?.toFixed(0)}%`;
         }
       } catch (_) {}
       // The value is a special key: __optimized__:<filename>

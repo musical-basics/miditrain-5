@@ -103,12 +103,15 @@ def get_model_boundaries(regime_frames):
     return boundaries
 
 
-def score_params(params, markers, keyframes, tolerance_ms=100, beta=0.5):
+def score_params(params, markers, keyframes, tolerance_ms=100, beta=None):
     """
     Run the detector with `params`, score against ground-truth `markers`.
 
+    Primary objective: minimize (FP + FN) — fewest total errors wins.
+    Tiebreaker: FP (if equal total errors, prefer the one with fewer FPs).
+
     Returns a dict with:
-        tp, fp, fn_raw, fn_weighted, precision, recall, f1, f_beta, score
+        tp, fp, fn, total_errors, precision, recall, f1
     """
     detector = HarmonicRegimeDetector(
         break_angle=params["break_angle"],
@@ -141,41 +144,21 @@ def score_params(params, markers, keyframes, tolerance_ms=100, beta=0.5):
 
     tp = len(matched_model)
     fp = len(model_bounds) - tp
+    fn = len(markers) - len(matched_user)
+    total_errors = fp + fn
 
-    # False negatives — weighted by tier
-    fn_raw = 0
-    fn_weighted = 0.0
-    for ui, m in enumerate(markers):
-        if ui not in matched_user:
-            fn_raw += 1
-            fn_weighted += TIER_WEIGHTS.get(m.get("tier", "tier2"), 1.0)
-
-    # Standard P/R/F1 (matches JS panel, unweighted)
+    # Standard P/R/F1 for reporting only
     precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
-    recall_raw = tp / (tp + fn_raw) if (tp + fn_raw) > 0 else 0.0
-
-    # Tier-weighted recall for optimisation (Tier 1 FN penalised 2×)
-    # Effective denominator = total weighted marker count
-    total_weight = sum(TIER_WEIGHTS.get(m.get("tier", "tier2"), 1.0) for m in markers)
-    recall_w = tp / (tp + fn_weighted) if (tp + fn_weighted) > 0 else 0.0
-
-    # F-beta (β < 1 = precision-weighted; β = 0.5 means precision counts 4× recall)
-    if precision + recall_w > 0:
-        f_beta = (1 + beta**2) * precision * recall_w / (beta**2 * precision + recall_w)
-    else:
-        f_beta = 0.0
-
-    # Standard F1 for reporting
-    f1 = 2 * precision * recall_raw / (precision + recall_raw) if (precision + recall_raw) > 0 else 0.0
+    recall    = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+    f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0
 
     return {
-        "tp": tp, "fp": fp, "fn": fn_raw,
-        "fn_weighted": round(fn_weighted, 2),
+        "tp": tp, "fp": fp, "fn": fn,
+        "total_errors": total_errors,   # PRIMARY sort key (ascending — fewer = better)
         "precision": round(precision * 100, 1),
-        "recall": round(recall_raw * 100, 1),
-        "f1": round(f1 * 100, 2),
-        "f_beta": round(f_beta * 100, 2),   # optimisation target (higher = better)
-        "n_bounds": len(model_bounds),
+        "recall":    round(recall    * 100, 1),
+        "f1":        round(f1        * 100, 2),
+        "n_bounds":  len(model_bounds),
         "n_markers": len(markers),
     }
 
@@ -185,13 +168,13 @@ def score_params(params, markers, keyframes, tolerance_ms=100, beta=0.5):
 # ═══════════════════════════════════════════════════════════════════════════════
 
 FULL_GRID = {
-    "break_angle":      [10, 15, 20, 25, 30, 35, 40, 45, 55],
-    "min_break_mass":   [0.3, 0.45, 0.6, 0.75, 0.9, 1.1, 1.3, 1.5],
-    "merge_angle":      [10, 15, 20, 25, 30],
-    "debounce_ms":      [50, 100, 150, 200, 300],
-    "jaccard_threshold":[0.25, 0.375, 0.5, 0.625, 0.75],
-    "break_method":     ["hybrid_v2", "hybrid_v2_split", "hybrid", "hybrid_split"],
-    "angle_map":        ["dissonance"],   # only dissonance for now
+    "break_angle":    [15, 25, 35, 45, 55, 65],
+    "min_break_mass": [0.25, 0.5, 0.75, 1.0, 1.25],
+    "merge_angle":    [5, 10, 15, 20, 25, 30],
+    "debounce_ms":    [10, 25, 50, 75, 100, 150],
+    "jaccard_threshold": [0.125, 0.25, 0.375, 0.5, 0.625, 0.75],
+    "break_method":   ["hybrid", "hybrid_split"],
+    "angle_map":      ["dissonance"],
 }
 
 QUICK_GRID = {
@@ -217,10 +200,9 @@ def build_trials(grid):
 
 def main():
     parser = argparse.ArgumentParser(description="Harmonic Regime Parameter Optimizer")
-    parser.add_argument("--beta",          type=float, default=0.25, help="F-beta weight (0.25 = very precision-heavy; precision weighs 16x recall)")
     parser.add_argument("--tolerance",     type=int,   default=100,  help="Matching window in ms (default 100)")
     parser.add_argument("--top_n",         type=int,   default=5,    help="Number of top configs to export")
-    parser.add_argument("--min_precision", type=float, default=71.0, help="Hard floor: exclude configs with precision below this %% (default: 71.0, your current best)")
+    parser.add_argument("--min_precision", type=float, default=0.0,  help="Optional hard floor on precision %% (0 = disabled)")
     parser.add_argument("--quick",         action="store_true",      help="Use quick (smaller) grid for fast testing")
     args = parser.parse_args()
 
@@ -233,8 +215,10 @@ def main():
     print(f"  Midi:       {MIDI_PATH.name}")
     print(f"  Markers:    {MARKERS_PATH.name}")
     print(f"  Tolerance:  {args.tolerance} ms")
-    print(f"  Beta:       {args.beta}  (precision weighs {round((1/args.beta)**2)}x more than recall)")
-    print(f"  Min P floor:{args.min_precision}%  (configs below this are excluded before ranking)")
+    print(f"  Objective:  minimize (FP + FN)  — fewest total errors wins")
+    print(f"  Tiebreaker: fewest FP  (prefer FN over FP when total errors equal)")
+    if args.min_precision > 0:
+        print(f"  Min P floor:{args.min_precision}%")
     print(f"  Grid size:  {total:,} trials  ({'quick' if args.quick else 'full'})")
     print(f"{'='*70}\n")
 
@@ -258,43 +242,44 @@ def main():
 
     for i, params in enumerate(trials):
         s = score_params(params, markers, keyframes,
-                         tolerance_ms=args.tolerance, beta=args.beta)
+                         tolerance_ms=args.tolerance)
         results.append({**params, **s})
 
         if (i + 1) % report_every == 0 or (i + 1) == total:
             elapsed = time.time() - t0
             rate = (i + 1) / elapsed
             eta = (total - i - 1) / rate
-            best_so_far = max(results, key=lambda r: r["f_beta"])
+            best_so_far = min(results, key=lambda r: (r["total_errors"], r["fp"]))
             print(f"  [{i+1:>6}/{total}]  "
                   f"elapsed={elapsed:.0f}s  eta={eta:.0f}s  "
-                  f"best f_beta={best_so_far['f_beta']:.1f}%  "
-                  f"(P={best_so_far['precision']:.1f}% R={best_so_far['recall']:.1f}% "
-                  f"F1={best_so_far['f1']:.1f}%  FP={best_so_far['fp']})")
+                  f"best errors={best_so_far['total_errors']} (FP={best_so_far['fp']} FN={best_so_far['fn']})  "
+                  f"P={best_so_far['precision']:.1f}% R={best_so_far['recall']:.1f}% F1={best_so_far['f1']:.1f}%")
 
     total_time = time.time() - t0
     print(f"\n  Done! {total} trials in {total_time:.1f}s ({total/total_time:.0f} trials/sec)\n")
 
-    # ─── Filter by precision floor, then sort ────────────────────────────────
-    passed = [r for r in results if r["precision"] >= args.min_precision]
-    filtered_out = len(results) - len(passed)
-    print(f"  Precision floor {args.min_precision}%: {filtered_out:,} configs excluded, {len(passed):,} remain.")
+    # ─── Optional precision floor ─────────────────────────────────────────────
+    if args.min_precision > 0:
+        passed = [r for r in results if r["precision"] >= args.min_precision]
+        print(f"  Precision floor {args.min_precision}%: {len(results)-len(passed):,} excluded, {len(passed):,} remain.")
+    else:
+        passed = results
+
     if not passed:
-        print(f"  ⚠️  No configs met the precision floor. Lower --min_precision or run the full grid.")
-        print(f"     Best precision found: {max(results, key=lambda r: r['precision'])['precision']}%")
+        print(f"  ⚠️  No configs passed the precision floor. Lower --min_precision.")
         return
 
-    # Primary sort: F-beta (precision-weighted). Secondary: precision descending.
-    passed.sort(key=lambda r: (r["f_beta"], r["precision"]), reverse=True)
+    # Primary:   fewest total errors (FP + FN)
+    # Tiebreaker: fewest FP (prefer FN over FP when tied)
+    passed.sort(key=lambda r: (r["total_errors"], r["fp"]))
     top = passed[:args.top_n]
 
     print(f"\n{'─'*70}")
-    print(f"  TOP {args.top_n} CONFIGS  (F-beta={args.beta}, min_precision≥{args.min_precision}%, Tier1 FN × 2)")
+    print(f"  TOP {args.top_n} CONFIGS  (minimize FP+FN, tiebreak: fewer FP)")
     print(f"{'─'*70}")
     for rank, r in enumerate(top, 1):
-        print(f"\n  #{rank}  F-beta={r['f_beta']:.2f}%  F1={r['f1']:.2f}%  "
-              f"P={r['precision']:.1f}%  R={r['recall']:.1f}%")
-        print(f"       TP={r['tp']}  FP={r['fp']}  FN={r['fn']}  total_bounds={r['n_bounds']}")
+        print(f"\n  #{rank}  errors={r['total_errors']} (FP={r['fp']} + FN={r['fn']})  "
+              f"TP={r['tp']}  F1={r['f1']:.1f}%  P={r['precision']:.1f}%  R={r['recall']:.1f}%")
         print(f"       break_method={r['break_method']}  angle_map={r['angle_map']}")
         print(f"       break_angle={r['break_angle']}°  merge_angle={r['merge_angle']}°")
         print(f"       min_break_mass={r['min_break_mass']}  debounce_ms={r['debounce_ms']}ms")
@@ -304,11 +289,11 @@ def main():
 
     # ─── Save CSV ─────────────────────────────────────────────────────────────
     csv_path = REPO_ROOT / "optimize_results.csv"
-    fieldnames = list(results[0].keys())
+    fieldnames = list(passed[0].keys())
     with open(csv_path, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fieldnames)
         w.writeheader()
-        w.writerows(results)
+        w.writerows(passed)
     print(f"  Full results saved → {csv_path.name}")
 
     # ─── Export top-N as visualizer-ready JSON files ──────────────────────────
@@ -322,7 +307,7 @@ def main():
               f"({r['break_method']} J={r['jaccard_threshold']} "
               f"BA={r['break_angle']} MBM={r['min_break_mass']} "
               f"D={r['debounce_ms']}ms)  "
-              f"F-beta={r['f_beta']:.2f}%")
+              f"errors={r['total_errors']} FP={r['fp']} FN={r['fn']}")
         export_analysis(
             midi_path=str(MIDI_PATH),
             output_json=str(out_path),
@@ -339,7 +324,7 @@ def main():
             jdata = json.load(jf)
         jdata["optimizer_meta"] = {
             "rank": rank,
-            "f_beta": r["f_beta"],
+            "total_errors": r["total_errors"],
             "f1": r["f1"],
             "precision": r["precision"],
             "recall": r["recall"],
