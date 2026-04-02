@@ -84,18 +84,61 @@ def compute_rolling_color(onset_ms, all_particles, regime_start_ms, interval_ang
     return calculate_weighted_chord_color(active_notes, interval_angles)
 
 
+def build_tempo_map(score):
+    """
+    Build a list of (start_tick, start_ms, ms_per_tick) segments from the score's tempo map.
+    Returns a sorted list of segments covering the full score.
+    """
+    tpq = score.ticks_per_quarter
+    segments = []
+    tempos = sorted(score.tempos, key=lambda t: t.time)
+
+    # Default 120 BPM (500000 mspq) if no tempo events
+    if not tempos:
+        tempos = [type('T', (), {'time': 0, 'mspq': 500000})()]
+
+    cur_tick = 0
+    cur_ms = 0.0
+    for i, tempo in enumerate(tempos):
+        if tempo.time > cur_tick:
+            # segment from cur_tick to tempo.time using previous ms_per_tick
+            # (handled by previous iteration already)
+            pass
+        ms_per_tick = tempo.mspq / 1000.0 / tpq
+        segments.append((tempo.time, cur_ms + (tempo.time - cur_tick) * (segments[-1][2] if segments else ms_per_tick), ms_per_tick))
+        cur_tick = tempo.time
+        cur_ms = segments[-1][1]
+
+    return segments
+
+
+def ticks_to_ms(tick, segments):
+    """Convert a tick value to milliseconds using the precomputed tempo segments."""
+    # Binary search for the right segment
+    lo, hi = 0, len(segments) - 1
+    while lo < hi:
+        mid = (lo + hi + 1) // 2
+        if segments[mid][0] <= tick:
+            lo = mid
+        else:
+            hi = mid - 1
+    start_tick, start_ms, ms_per_tick = segments[lo]
+    return start_ms + (tick - start_tick) * ms_per_tick
+
+
 def midi_to_particles(midi_path):
     score = Score(midi_path)
-    tpq = score.ticks_per_quarter
-    tick_to_ms = 500.0 / tpq
+    segments = build_tempo_map(score)
     particles = []
     for track in score.tracks:
         for note in track.notes:
+            onset_ms = ticks_to_ms(note.start, segments)
+            dur_ms = ticks_to_ms(note.start + note.duration, segments) - onset_ms
             particles.append(Particle(
                 pitch=note.pitch,
                 velocity=note.velocity,
-                onset_ms=int(note.start * tick_to_ms),
-                duration_ms=int(note.duration * tick_to_ms)
+                onset_ms=int(onset_ms),
+                duration_ms=int(dur_ms)
             ))
     particles.sort(key=lambda p: p.onset)
     return particles
@@ -103,16 +146,15 @@ def midi_to_particles(midi_path):
 
 def extract_keyframes(midi_path, group_window_ms=50):
     score = Score(midi_path)
-    tpq = score.ticks_per_quarter
-    tick_to_ms = 500.0 / tpq
+    segments = build_tempo_map(score)
     raw_notes = []
     for track in score.tracks:
         for note in track.notes:
-            time_ms = int(note.start * tick_to_ms)
+            onset_ms = int(ticks_to_ms(note.start, segments))
+            dur_ms = int(ticks_to_ms(note.start + note.duration, segments) - ticks_to_ms(note.start, segments))
             interval = PC_TO_INTERVAL[note.pitch % 12]
             octave = note.pitch // 12
-            duration_ms = int(note.duration * tick_to_ms)
-            raw_notes.append((time_ms, interval, octave, note.velocity, duration_ms))
+            raw_notes.append((onset_ms, interval, octave, note.velocity, dur_ms))
     raw_notes.sort(key=lambda x: x[0])
 
     keyframes = []
