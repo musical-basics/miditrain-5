@@ -204,6 +204,7 @@ def main():
     parser.add_argument("--tolerance",     type=int,   default=100,  help="Matching window in ms (default 100)")
     parser.add_argument("--top_n",         type=int,   default=5,    help="Number of top configs to export")
     parser.add_argument("--min_precision", type=float, default=0.0,  help="Optional hard floor on precision %% (0 = disabled)")
+    parser.add_argument("--min_recall",    type=float, default=50.0, help="Hard floor on recall %% — prevents degenerate low-detection configs (default: 50.0)")
     parser.add_argument("--quick",         action="store_true",      help="Use quick (smaller) grid for fast testing")
     args = parser.parse_args()
 
@@ -226,6 +227,8 @@ def main():
     print(f"  Tiebreaker: fewest FP  (prefer FN over FP when total errors equal)")
     if args.min_precision > 0:
         print(f"  Min P floor:{args.min_precision}%")
+    if args.min_recall > 0:
+        print(f"  Min R floor:{args.min_recall}%  (prevents degenerate low-detection configs)")
     print(f"  Grid size:  {total:,} trials  ({'quick' if args.quick else 'full'})")
     print(f"{'='*70}\n")
 
@@ -265,12 +268,15 @@ def main():
     total_time = time.time() - t0
     print(f"\n  Done! {total} trials in {total_time:.1f}s ({total/total_time:.0f} trials/sec)\n")
 
-    # ─── Optional precision floor ─────────────────────────────────────────────
+    # ─── Filter by floors, then sort ─────────────────────────────────────────
+    passed = results
     if args.min_precision > 0:
-        passed = [r for r in results if r["precision"] >= args.min_precision]
+        passed = [r for r in passed if r["precision"] >= args.min_precision]
         print(f"  Precision floor {args.min_precision}%: {len(results)-len(passed):,} excluded, {len(passed):,} remain.")
-    else:
-        passed = results
+    if args.min_recall > 0:
+        n_before = len(passed)
+        passed = [r for r in passed if r["recall"] >= args.min_recall]
+        print(f"  Recall floor {args.min_recall}%: {n_before-len(passed):,} excluded, {len(passed):,} remain.")
 
     if not passed:
         print(f"  ⚠️  No configs passed the precision floor. Lower --min_precision.")
